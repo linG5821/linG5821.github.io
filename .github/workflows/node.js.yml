@@ -23,9 +23,9 @@ jobs:
       run: |
         yarn
         yarn run docs:build
-    - name: Build and Deploy
+    - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.1.0
       with:
-        branch: main
+        branch: gh-pages
         folder: docs/.vuepress/dist
         token: ${{ secrets.ACCESS_TOKEN }}
