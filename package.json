@@ -1,0 +1,15 @@
+{
+  "name": "my-code-life",
+  "version": "1.0.0",
+  "description": "my code life",
+  "main": "index.js",
+  "author": "linG",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.8.2"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
