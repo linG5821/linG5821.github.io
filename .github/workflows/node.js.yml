@@ -28,4 +28,4 @@ jobs:
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: main
-        FOLDER: .vuepress/dist
+        FOLDER: docs/.vuepress/dist
