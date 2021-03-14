@@ -15,17 +15,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '14.x'
-    - name: Install And Build
-      run: |
-        yarn
-        yarn run docs:build
+    # - name: Use Node.js
+    #   uses: actions/setup-node@v1
+    #   with:
+    #     node-version: '14.x'
+    # - name: Install And Build
+    #   run: |
+    #     yarn
+    #     yarn run docs:build
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@master
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: main
+        BRANCH: gh-pages
         FOLDER: docs/.vuepress/dist
+        BUILD_SCRIPT: yarn install && yarn run docs:build
