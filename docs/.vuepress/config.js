@@ -48,7 +48,12 @@ module.exports = {
       {
         title: 'Java',
         path: '/java/',
-        sidebarDepth: 1
+        sidebarDepth: 1,
+        children: [
+          { title: 'Java虚拟机', path: '/java/jvm/' },
+          { title: 'Java响应式编程', path: '/java/reactive/' },
+          { title: 'Maven', path: '/java/maven/' },
+        ]
       },
       {
         title: 'Go',
