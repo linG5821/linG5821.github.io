@@ -1,7 +1,15 @@
-### Windows
 
-#### 使用过程中遇到的问题及解决方案
+## 使用过程中遇到的问题总结及解决方案
 1. Hyper-V 将动态端口中的几段范围的端口保留给自己使用,导致产生各种端口被占用的问题
+```shell
+# 查看当前动态端口的范围
+netsh int ipv4 show dynamicport tcp
+# 查看tcp ipv4端口排除范围（被系统或者我们自己保留的端口）
+netsh int ipv4 show excludedport tcp
+# 管理员身份打开 powershell，然后设置 tcp ipv4 的动态端口范围为 49152 开始的 16384 个端口，也就是 49152~65535 (这个是windows默认的)
+netsh int ipv4 set dynamicport tcp start=49152 num=16384
+```
+
 2. Git配置代理
   * http/https代理
   ```
