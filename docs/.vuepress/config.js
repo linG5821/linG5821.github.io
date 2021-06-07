@@ -26,6 +26,40 @@ module.exports = {
         path: '/network/',
         sidebarDepth: 1
       },
+      {
+        title: '数据库',
+        path: '/database/',
+        sidebarDepth: 1,
+        children: [
+          { title: 'MySQL', path: '/database/mysql/' },
+          { title: 'MongoDB', path: '/database/mongodb/' },
+        ]
+      },
+      {
+        title: '中间件',
+        path: '/middleware/',
+        sidebarDepth: 1
+      },
+      {
+        title: '容器技术',
+        path: '/container/',
+        sidebarDepth: 1
+      },
+      {
+        title: 'Java',
+        path: '/java/',
+        sidebarDepth: 1
+      },
+      {
+        title: 'Go',
+        path: '/go/',
+        sidebarDepth: 1
+      },
+      {
+        title: 'PHP',
+        path: '/php/',
+        sidebarDepth: 1
+      },
     ]
   }
 }
