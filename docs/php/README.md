@@ -1,5 +1,5 @@
 ## 环境搭建
-* Homestead
+### Homestead 搭建基本环境
   1. 拉取项目，添加env文件,并将项目放入虚拟机的映射文件中
   2. 修改项目权限，简单起见chmod 777
   3. 配置Homestead.yml文件的项目访问域名映射
@@ -14,7 +14,7 @@
            to: /home/vagrant/code/linde_web/public
            php: "7.1"
      ```
-* Docker
+### Docker 搭建基本环境
   1. Docker安装
     * 官网地址： https://www.docker.com/  
     * 下载地址： https://www.docker.com/get-started
@@ -115,3 +115,40 @@
     https://laravelacademy.org/post/7691.html  
     https://laravelacademy.org/post/6569.html  
     https://learnku.com/articles/14767/self-built-laravel-docker-development-environment](https://note.youdao.com/)
+
+### AMQP 扩展安装
+  1. 安装 rabbitmq-c
+    ```
+        git clone https://github.com/alanxz/rabbitmq-c.git
+        cd rabbitmq-c/
+        mkdir build && cd build
+        # 这一步是在rabbitmq-c的根目录下创建一个build子目录
+        cmake -DCMAKE_INSTALL_PREFIX=/usr/local/rabbitmq-c ..
+        # 这一步是让cmake根据../CMakeList.txt，即rabbitmq-c的根目录下的CMakeList.txt创建Makefile文件，Makefile文件会被创建到build目录中
+        cmake --build .  --target install
+        # 这一步是真正的build rabbitmq-c库的，注意，不要漏掉点 '.'此时，rabbitmq-c已安装完毕,我们查询一下安装目录/usr/local/rabbitmq-c
+        whereis rabbitmq-c
+    ```
+  2. 安装 amqp PHP 扩展
+    ```
+        wget https://pecl.php.net/get/amqp-1.9.3.tgz
+        tar -xvf amqp-1.9.3.tgz
+        cd amqp-1.9.3
+        phpize
+        ./configure --with-php-config=/usr/local/php/bin/php-config
+        --with-amqp --with-librabbitmq-dir=/usr/local/rabbitmq-c
+        ./configure --with-php-config=/usr/bin/php-config --with-amqp --with-librabbitmq-dir=/usr/local/rabbitmq-c
+        make && make install
+        # 此时，扩展生成完毕啦，大功告成。
+    ```
+  3. 安装 amqp
+    ```
+    pecl install amqp
+    ```
+  4. 配置amqp扩展
+    ```
+        查找php.ini位置
+        find / -name 'php.ini'
+        vi /usr/local/php/etc/php.ini
+        添加 extension=amqp.so
+    ```
