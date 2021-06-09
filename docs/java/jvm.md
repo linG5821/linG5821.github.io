@@ -1,5 +1,24 @@
-## JVM性能调优
+## JVM性能调优 TODO
+```
+# java8 以前 应当设置 -XX:PermSize -XX:MaxPermSize
+# java8 以后 应当设置 -XX:MaxMetaspaceSize -XX:MetaspaceSize
 
+# 1. Java堆大小设置，Xms和Xmx设置为老年代存活对象的3-4倍，即FullGC之后的老年代内存占用的3-4倍
+# 2. 永久代(元空间) PermSize和MaxPermSize / MetaspaceSize和MaxMetaspaceSize 设置为老年代存活对象的1.2-1.5倍。
+# 3. 年轻代Xmn的设置为老年代存活对象的1-1.5倍。
+# 4. 老年代的内存大小设置为老年代存活对象的2-3倍。
+
+# 假如 jstat -gc 1234
+
+OU 为 905371.7 900M
+
+jvm配置为
+-XX:MetaspaceSize=1536M -XX:MaxMetaspaceSize=1536M
+-Xms4096m -Xmx4096m
+
+-XX:MetaspaceSize=180M -XX:MaxMetaspaceSize=180M -Xms512m -Xmx512m
+
+```
 ## 自行编译JDK
 1. 编译参数设置
 ```ini

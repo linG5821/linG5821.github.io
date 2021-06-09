@@ -58,6 +58,7 @@ module.exports = {
           { title: 'Java虚拟机', path: '/java/jvm.md' },
           { title: 'Java响应式编程', path: '/java/reactive.md' },
           { title: 'Maven', path: '/java/maven.md' },
+          { title: 'SpringCloud', path: '/java/spring-cloud.md' },
         ]
       },
       {
