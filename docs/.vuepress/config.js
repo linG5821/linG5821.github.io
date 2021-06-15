@@ -51,6 +51,14 @@ module.exports = {
         ]
       },
       {
+        title: '常用工具',
+        path: '/tool/',
+        sidebarDepth: 1,
+        children: [
+          { title: 'Git', path: '/tool/git.md' }
+        ]
+      },
+      {
         title: 'Java',
         path: '/java/',
         sidebarDepth: 1,

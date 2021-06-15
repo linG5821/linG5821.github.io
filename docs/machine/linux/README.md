@@ -125,3 +125,87 @@
    ```shell
    du -h -BM {file_path} | sort -nr |head -n3
    ```
+
+## 定制化
+### 更换镜像源
+* Ubuntu镜像源更换
+  ```shell
+  # 1.首先将原配置文件备份
+  sudo cp /etc/apt/sources.list /etc/apt/sources.list.20181013
+  # 2.然后 VIM 打开，替换
+  :%s/security.ubuntu/mirrors.aliyun/g
+  :%s/archive.ubuntu/mirrors.aliyun/g
+  # 3.更新
+  sudo apt update
+  ```
+
+## 常用软件安装与配置
+
+* Centos 安装 Supervisor
+  1. pip方式安装
+      ```shell
+      yum install python-setuptools
+      easy_install pip
+      pip install supervisor
+      ```
+  2. 源代码安装
+      ```shell
+      get https://files.pythonhosted.org/packages/de/87/ee1ad8fa533a4b5f2c7623f4a2b585d3c1947af7bed8e65bc7772274320e/supervisor-4.1.0.tar.gz
+      tar -zxvf supervisor-4.1.0.tar.gz
+      cd supervisor-4.1.0
+      sudo python setup.py install
+      ## 如果报meld3版本的问题
+      wget http://www.plope.com/software/meld3/meld3-0.6.5.tar.gz
+      tar -xf meld3-0.6.5.tar.gz && cd meld3-0.6.5
+      python setup.py install
+      ```
+  3. 生成配置
+      ```shell
+      echo_supervisord_conf > /usr/local/etc/supervisord.conf
+      # 为了不将所有新增配置信息全写在一个配置文件里，这里新建一个文件夹，每个程序设置一个配置文件，相互隔离
+      mkdir /usr/local/etc/supervisor.d/
+      # 修改配置 加入以下配置
+      vim /usr/local/etc/supervisord.conf
+      [include]
+      files = /usr/local/etc/supervisor.d/*.ini
+      # 在supervisord.conf中设置通过web可以查看管理的进程，加入以下代码（默认即有，取消注释即可）    
+      [inet_http_server] 
+      port=9001
+      username=user      
+      password=123
+      ```
+  4. 配置Service
+      ```shell
+      vim /usr/lib/systemd/system/supervisord.service
+
+      ## 内容
+      [Unit]
+      Description=Process Monitoring and Control Daemon
+      After=rc-local.service nss-user-lookup.target
+
+      [Service]
+      ## 添加EnvironmentFile 或者 Environment 可以在service模式下使用环境变量 但是Service启动方式无法读取配置在系统环境变量中的值 是因为通过命令行启动方式和通过systemd的方式有差别导致的
+      Type=forking
+      ExecStart=/usr/bin/supervisord -c /usr/local/etc/supervisord.conf
+
+      [Install]
+      WantedBy=multi-user.target
+
+
+      #设置开机启动
+      systemctl enable supervisord.service
+      ```
+* Centos7 安装服务器版 Chrome
+  ```shell
+  sudo rpm -ivh google-chrome-stable_current_x86_64.rpm
+  yum install pax*
+  yum install redhat-lsb*
+  yum -y install libXss*
+  yum install libappindicator*
+  yum install liberation-fonts
+  ```
+
+## 其他问题
+* VIRT占用内存过大
+  
+  大致的原因是从glibc2.11版本开始，linux为了解决多线程下内存分配竞争而引起的性能问题，增强了动态内存分配行为，使用了一种叫做arena的memory pool,在64位系统下面缺省配置是一个arena大小为64M，一个进程可以最多有cpu cores * 8个arena。假设机器是8核的，那么最多可以有8 * 8 = 64个arena，也就是会使用64 * 64 = 4096M内存。然而我们可以通过设置系统环境变量来改变arena的数量：export MALLOC_ARENA_MAX=8（一般建议配置程序cpu核数）配置环境变量使其生效，再重启该jvm进程，VIRT比之前少了快2个G
