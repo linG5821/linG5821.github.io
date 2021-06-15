@@ -178,13 +178,13 @@
       ```shell
       vim /usr/lib/systemd/system/supervisord.service
 
-      ## 内容
+      # 内容
       [Unit]
       Description=Process Monitoring and Control Daemon
       After=rc-local.service nss-user-lookup.target
 
       [Service]
-      ## 添加EnvironmentFile 或者 Environment 可以在service模式下使用环境变量 但是Service启动方式无法读取配置在系统环境变量中的值 是因为通过命令行启动方式和通过systemd的方式有差别导致的
+      # 添加EnvironmentFile 或者 Environment 可以在service模式下使用环境变量 但是Service启动方式无法读取配置在系统环境变量中的值 是因为通过命令行启动方式和通过systemd的方式有差别导致的
       Type=forking
       ExecStart=/usr/bin/supervisord -c /usr/local/etc/supervisord.conf
 
