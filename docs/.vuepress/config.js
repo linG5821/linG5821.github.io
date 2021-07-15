@@ -31,8 +31,8 @@ module.exports = {
         path: '/database/',
         sidebarDepth: 1,
         children: [
-          { title: 'MySQL', path: '/database/mysql.md' },
-          { title: 'MongoDB', path: '/database/mongodb.md' },
+          { title: 'MySQL', path: '/database/mysql' },
+          { title: 'MongoDB', path: '/database/mongodb' },
         ]
       },
       {
@@ -45,9 +45,9 @@ module.exports = {
         path: '/container/',
         sidebarDepth: 1,
         children: [
-          { title: 'Docker', path: '/container/docker.md' },
-          { title: 'Docker-Compose', path: '/container/docker-compose.md' },
-          { title: 'Kubernetes', path: '/container/kubernetes.md' },
+          { title: 'Docker', path: '/container/docker' },
+          { title: 'Docker-Compose', path: '/container/docker-compose' },
+          { title: 'Kubernetes', path: '/container/kubernetes' },
         ]
       },
       {
@@ -55,7 +55,7 @@ module.exports = {
         path: '/tool/',
         sidebarDepth: 1,
         children: [
-          { title: 'Git', path: '/tool/git.md' }
+          { title: 'Git', path: '/tool/git' }
         ]
       },
       {
@@ -63,10 +63,11 @@ module.exports = {
         path: '/java/',
         sidebarDepth: 1,
         children: [
-          { title: 'Java虚拟机', path: '/java/jvm.md' },
-          { title: 'Java响应式编程', path: '/java/reactive.md' },
-          { title: 'Maven', path: '/java/maven.md' },
-          { title: 'SpringCloud', path: '/java/spring-cloud.md' },
+          { title: 'JavaSE', path: '/java/javase' },
+          { title: 'Java虚拟机', path: '/java/jvm' },
+          { title: 'Java响应式编程', path: '/java/reactive' },
+          { title: 'Maven', path: '/java/maven' },
+          { title: 'SpringCloud', path: '/java/spring-cloud' },
         ]
       },
       {
