@@ -1,4 +1,7 @@
 
+## Powershell
+1. 执行多个命令使用 `;` 分割  linux 中使用 &&
+2. 设置环境变量使用 $env:KEY="VALUE" 而 CMD 使用 set KEY=VALUE 
 ## 问题总结及解决方案
 1. Hyper-V 将动态端口中的几段范围的端口保留给自己使用,导致产生各种端口被占用的问题
 ```shell
