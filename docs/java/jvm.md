@@ -1,3 +1,29 @@
+## 堆内存划分
+
+![jvm堆划分](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/20190107162107114.png)
+
+由上得知 堆内存={ 新生代, 老年代, 永久代}; 新生代={ Eden 区, Survior 1区, Survior 2区 }
+
+> 永久代在JDK1.8中被整个移除, 取而代之的是元空间, 永久代使用的是JVM的堆内存, 而元空间使用的是物联内存, 直接受到本机的物理内存限制
+
+```mermaid
+graph LR
+
+R[堆内存常见分配策略]-->B[对象优先在eden区分配]
+R(堆内存常见分配策略)-->C(大对象直接进入老年代)
+R(堆内存常见分配策略)-->D(长期活动的对象将进入老年代)
+```
+
+
+
+## 垃圾收集器
+
+![](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/c625baa0-dde6-449e-93df-c3a67f2f430f.jpg)
+
+以上为HotSpot七种垃圾收集器, 相连的代表可以配合使用, 除了 CMS 和 G1 之外，其它垃圾收集器都是以串行的方式执行
+
+
+
 ## JVM性能调优 TODO
 ```
 # java8 以前 应当设置 -XX:PermSize -XX:MaxPermSize
@@ -78,7 +104,7 @@ ASSEMBLY_EXCEPTION  HelloWorld.java  Makefile  README-builds.html  build   confi
 HelloWorld.class    LICENSE          README    THIRD_PARTY_README  common  corba      hotspot        jaxws  langtools  nashorn
 ling@aidong:~/jdk$ java HelloWorld
 HelloWorld openjdk
-```  
+```
 3. 运行虚拟机
 ```shell
 # 添加环境变量
@@ -100,12 +126,12 @@ LD_LIBRARY_PATH=.:${JAVA_HOME}/jre/lib/amd64/native_threads:${JAVA_HOME}/jre/lib
     HotspotWrapper.gmk:44: recipe for target '/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp' failed
     /home/ling/jdk//make/Main.gmk:108: recipe for target 'hotspot-only' failed
     make: *** [hotspot-only] Error 2
-
+   
     # 解决方案:vim make/linux/Makefile
     :/SUPPORTED_OS_VERSION 搜索改关键字
     - SUPPORTED_OS_VERSION = 2.4% 2.5% 2.6% 3%
     + SUPPORTED_OS_VERSION = 2.4% 2.5% 2.6% 4%
-
+   
     # 解决方案:vim xxx/hotspot/make/linux/Makefile 67行
    ```
 
@@ -158,7 +184,7 @@ LD_LIBRARY_PATH=.:${JAVA_HOME}/jre/lib/amd64/native_threads:${JAVA_HOME}/jre/lib
     -W FILE, --what-if=FILE, --new-file=FILE, --assume-new=FILE
                                 Consider FILE to be infinitely new.
     --warn-undefined-variables  Warn when an undefined variable is referenced.
-
+   
     This program built for x86_64-pc-linux-gnu
     Report bugs to <bug-make@gnu.org>
     make[5]: *** [ad_stuff] Error 2
@@ -173,7 +199,7 @@ LD_LIBRARY_PATH=.:${JAVA_HOME}/jre/lib/amd64/native_threads:${JAVA_HOME}/jre/lib
     make[1]: *** [/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp] Error 2
     /home/ling/jdk//make/Main.gmk:108: recipe for target 'hotspot-only' failed
     make: *** [hotspot-only] Error 2
-
+   
     # 解决方案一: 降级make4.0以下(未测试)
     
     # 解决方案二:
@@ -316,7 +342,7 @@ LD_LIBRARY_PATH=.:${JAVA_HOME}/jre/lib/amd64/native_threads:${JAVA_HOME}/jre/lib
     make[1]: Leaving directory '/home/ling/jdk/hotspot/make'
     Makefile:167: recipe for target 'product' failed
     make: *** [product] Error 2
-
+   
     # 解决方式一:
     apt-get install gcc-multilib 这样构建的是32位版本
     # 解决方式二:
