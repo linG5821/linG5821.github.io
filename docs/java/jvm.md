@@ -35,18 +35,20 @@ R(堆内存常见分配策略)-->F(空间分配担保)
 | **Parallel Old**      | 并行             | 老年代        | 标记-整理          | 吞吐量优先   | 在后台运算而不需要太多交互的任务        |
 | **CMS**               | 并发             | 老年代        | 标记-清除          | 响应速度优先 | 集中在互联网站或B/S系统服务端的Java应用 |
 | **G1**                | 并发             | 新生代+老年代 | 标记-整理+复制算法 | 响应速度优先 | 面向服务端应用,将来替换CMS              |
+| **ZGC**               | 全并发(几乎)     | 新生代+老年代 | 标记-复制          | 响应速度优先 | 面向服务端应用,下一代垃圾回收器         |
 
 * 参数总结
 
-| 参数                                          | MinorGC                        | FullGC                                                      | 描述                                                         |
-| --------------------------------------------- | ------------------------------ | :---------------------------------------------------------- | ------------------------------------------------------------ |
-| -XX:+UseSerialGC                              | Serial收集器串行回收           | Serial Old收集器串行回收                                    | 该选项可以手动指定Serial收集器+Serial Old收集器组合执行内存回收 |
-| -XX:+UseParNewGC                              | ParNew收集器并行回收           | Serial Old收集器串行回收                                    | 该选项可以手动指定ParNew收集器+Serilal Old组合执行内存回收   |
-| -XX:+UseParallelGC                            | Parallel收集器并行回收         | Serial Old收集器串行回收                                    | 该选项可以手动指定Parallel收集器+Serial Old收集器组合执行内存回收 |
-| -XX:+UseParallelOldGC                         | Parallel收集器并行回收         | Parallel Old收集器并行回收                                  | 该选项可以手动指定Parallel收集器+Parallel Old收集器组合执行内存回收 |
-| -XX:+UseConcMarkSweepGC                       | ParNew收集器并行回收           | 缺省使用CMS收集器并发回收，备用采用Serial Old收集器串行回收 | 该选项可以手动指定ParNew收集器+CMS收集器+Serial Old收集器组合执行内存回收。优先使用ParNew收集器+CMS收集器的组合，当出现ConcurrentMode Fail或者Promotion Failed时，则采用ParNew收集器+Serial Old收集器的组合 |
-| -XX:+UseConcMarkSweepGC<br />-XX:-UseParNewGC | Serial收集器串行回收           | 缺省使用CMS收集器并发回收，备用采用Serial Old收集器串行回收 | 该选项可以手动指定ParNew收集器+CMS收集器+Serial Old收集器组合执行内存回收。优先使用ParNew收集器+CMS收集器的组合，当出现ConcurrentMode Fail或者Promotion Failed时，则采用ParNew收集器+Serial Old收集器的组合 |
-| -XX:+UseG1GC                                  | G1收集器并发、并行执行内存回收 | G1收集器并发、并行执行内存回收                              | 暂无                                                         |
+| 参数                                          | MinorGC                         | FullGC                                                      | 描述                                                         |
+| --------------------------------------------- | ------------------------------- | :---------------------------------------------------------- | ------------------------------------------------------------ |
+| -XX:+UseSerialGC                              | Serial收集器串行回收            | Serial Old收集器串行回收                                    | 该选项可以手动指定Serial收集器+Serial Old收集器组合执行内存回收 |
+| -XX:+UseParNewGC                              | ParNew收集器并行回收            | Serial Old收集器串行回收                                    | 该选项可以手动指定ParNew收集器+Serilal Old组合执行内存回收   |
+| -XX:+UseParallelGC                            | Parallel收集器并行回收          | Serial Old收集器串行回收                                    | 该选项可以手动指定Parallel收集器+Serial Old收集器组合执行内存回收 |
+| -XX:+UseParallelOldGC                         | Parallel收集器并行回收          | Parallel Old收集器并行回收                                  | 该选项可以手动指定Parallel收集器+Parallel Old收集器组合执行内存回收 |
+| -XX:+UseConcMarkSweepGC                       | ParNew收集器并行回收            | 缺省使用CMS收集器并发回收，备用采用Serial Old收集器串行回收 | 该选项可以手动指定ParNew收集器+CMS收集器+Serial Old收集器组合执行内存回收。优先使用ParNew收集器+CMS收集器的组合，当出现ConcurrentMode Fail或者Promotion Failed时，则采用ParNew收集器+Serial Old收集器的组合 |
+| -XX:+UseConcMarkSweepGC<br />-XX:-UseParNewGC | Serial收集器串行回收            | 缺省使用CMS收集器并发回收，备用采用Serial Old收集器串行回收 | 该选项可以手动指定ParNew收集器+CMS收集器+Serial Old收集器组合执行内存回收。优先使用ParNew收集器+CMS收集器的组合，当出现ConcurrentMode Fail或者Promotion Failed时，则采用ParNew收集器+Serial Old收集器的组合 |
+| -XX:+UseG1GC                                  | G1收集器并发、并行执行内存回收  | G1收集器并发、并行执行内存回收                              | 暂无                                                         |
+| -XX:+UnlockExperimentalVMOptions -XX:+UseZG   | ZGC收集器几乎全并发执行内存回收 | ZGC收集器几乎全并发执行内存回收                             | 暂无                                                         |
 
 
 
