@@ -5,7 +5,7 @@
 
 ## Win下GPG的使用
 
-1. 安装Gpg4win, 下载地址: https://gpg4win.org/download.html
+1. 安装Gpg4win, 下载地址: [https://gpg4win.org/download.html](https://gpg4win.org/download.html)
 
 2. 修改Git配置使用安装的gpg
 
@@ -66,6 +66,32 @@
    # 输出秘钥到文件
    gpg --armor --output public-key.txt --export 3AA5C34371567BD2
    
+   
+   # 生成吊销证书(推荐生成, gpg默认会生成, 位置: C:\Users\xxx\AppData\Roaming\gnupg\openpgp-revocs.d\keyid.rev)
+   # 如果要使用需要去除 "-----BEGIN PGP PUBLIC KEY BLOCK-----" 前的 ":"
+   gpg --gen-revoke 3AA5C34371567BD2
+   # 生成吊销证书的交互, 最后复制吊销内容到文件
+   Create a revocation certificate for this key? (y/N) y
+   Please select the reason for the revocation:
+     0 = No reason specified
+     1 = Key has been compromised
+     2 = Key is superseded
+     3 = Key is no longer used
+     Q = Cancel
+   (Probably you want to select 1 here)
+   Your decision? 0
+   Enter an optional description; end it with an empty line:
+   > To prevent leakage
+   Reason for revocation: No reason specified
+   To prevent leakage
+   Is this okay? (y/N)y
+   
+   # 导出
+   # 导出公钥 ASCII 形式
+   gpg --armor --output keyid.gpg.pub --export keyid
+   
+   # 导出私钥 ASCII 形式
+   gpg --armor --output keyid.gpg --export-secret-keys keyid
    ```
 
 4. GPG秘钥的使用
@@ -88,7 +114,22 @@
      
      ```
 
-   * 配置到Maven 
+   * 用于maven发布到中央仓库
+
+     1. 发布公钥到公钥服务器
+
+        ```shell
+        # 目前支持如下如下服务器
+        # keyserver.ubuntu.com
+        # keys.openpgp.org
+        # pgp.mit.edu
+        gpg --keyserver keyserver.ubuntu.com --send-keys 3AA5C34371567BD2
+        # 验证
+        gpg --keyserver keyserver.ubuntu.com --recv-keys 3AA5C34371567BD2
+        
+        ```
+
+        
 
 ## 问题总结及解决方案
 1. Hyper-V 将动态端口中的几段范围的端口保留给自己使用,导致产生各种端口被占用的问题
