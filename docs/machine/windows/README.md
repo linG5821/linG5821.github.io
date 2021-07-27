@@ -123,9 +123,9 @@
         # keyserver.ubuntu.com
         # keys.openpgp.org
         # pgp.mit.edu
-        gpg --keyserver keyserver.ubuntu.com --send-keys 3AA5C34371567BD2
+        gpg --keyserver hkp://keyserver.ubuntu.com:80 --send-keys 3AA5C34371567BD2
         # 验证
-        gpg --keyserver keyserver.ubuntu.com --recv-keys 3AA5C34371567BD2
+        gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3AA5C34371567BD2
         
         ```
 
