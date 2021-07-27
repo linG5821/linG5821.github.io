@@ -2,6 +2,94 @@
 ## Powershell
 1. 执行多个命令使用 `;` 分割  linux 中使用 &&
 2. 设置环境变量使用 $env:KEY="VALUE" 而 CMD 使用 set KEY=VALUE 
+
+## Win下GPG的使用
+
+1. 安装Gpg4win, 下载地址: https://gpg4win.org/download.html
+
+2. 修改Git配置使用安装的gpg
+
+   ```shell
+   git config --global gpg.program "yourpath\GnuPG\bin\gpg.exe"
+   # 显示配置
+   git config --global gpg.program
+   ```
+
+   
+
+3. 创建与设置秘钥
+
+   ```shell
+   gpg --full-generate-key
+   
+   # 选择加密方式 选择默认的1即可，表示加密和签名均使用 RSA 算法
+   Please select what kind of key you want:
+      (1) RSA and RSA (default)
+      (2) DSA and Elgamal
+      (3) DSA (sign only)
+      (4) RSA (sign only)
+     (14) Existing key from card
+   Your selection? 1
+   # 最长为4096位，设置为4096位即可
+   RSA keys may be between 1024 and 4096 bits long.
+   What keysize do you want? (3072) 4096
+   
+   # 设置密钥有效期 选择0为永久有效
+   Please specify how long the key should be valid.
+            0 = key does not expire
+         <n>  = key expires in n days
+         <n>w = key expires in n weeks
+         <n>m = key expires in n months
+         <n>y = key expires in n years
+   Key is valid for? (0)
+   
+   # 完成上述设置后，会要求确认 确认即可
+   Is this correct? (y/N)y
+   
+   # 设置用户ID 邮箱  备注等信息  还需要输入密码
+   GnuPG needs to construct a user ID to identify your key.
+   Real name:
+   Email address: 
+   
+   # 显示秘钥列表 此例子中GPG 密钥 ID 是 3AA5C34371567BD2
+   gpg --list-secret-keys --keyid-format=long
+   or
+   gpg -K
+   /Users/hubot/.gnupg/secring.gpg
+   ------------------------------------
+   sec   4096R/3AA5C34371567BD2 2016-03-10 [expires: 2017-03-10]
+   uid                          Hubot 
+   ssb   4096R/42B317FD4BA89E7A 2016-03-10
+   
+   # 输出 秘钥内容  
+   gpg --armor --export 3AA5C34371567BD2
+   # 输出秘钥到文件
+   gpg --armor --output public-key.txt --export 3AA5C34371567BD2
+   
+   ```
+
+4. GPG秘钥的使用
+
+   * 配置到github
+
+     1. 复制公钥内容到 github 添加 GPG Key
+
+     2. 设置 git 配置
+
+     ```shell
+     git config --global user.signingkey 3AA5C34371567BD2
+     # 确认配置
+     git config  -l
+     # 配置全局提交使用该秘钥
+     git config --global commit.gpgsign true
+     
+     # 单次提交中签名
+     git commit -S -m "..."
+     
+     ```
+
+   * 配置到Maven 
+
 ## 问题总结及解决方案
 1. Hyper-V 将动态端口中的几段范围的端口保留给自己使用,导致产生各种端口被占用的问题
 ```shell
@@ -84,4 +172,3 @@ netsh int ipv4 set dynamicport tcp start=49152 num=16384
    if __name__ == '__main__':
         print(get_host_ip())
    ```
-  
