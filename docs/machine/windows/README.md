@@ -134,7 +134,8 @@
           <id>gpg.passphrase</id>
           <passphrase>${your passphrase}</passphrase>
         </server>
-        ```  
+        ```
+      3. 配合github action 进行自动化发布 参考[https://github.com/linG5821/mtime.git](https://github.com/linG5821/mtime.git)
 
         
 
