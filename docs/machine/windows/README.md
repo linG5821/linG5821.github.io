@@ -128,6 +128,13 @@
         gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3AA5C34371567BD2
         
         ```
+     2. 本地发布 如果秘钥存在密码 需要正在settings文件中添加如下内容 可以通过 maven-gpg-plugin 插件的配置修改对应的id 等
+        ```xml
+        <server>
+          <id>gpg.passphrase</id>
+          <passphrase>${your passphrase}</passphrase>
+        </server>
+        ```  
 
         
 
