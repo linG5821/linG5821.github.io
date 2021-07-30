@@ -125,6 +125,10 @@
    ```shell
    du -h -BM {file_path} | sort -nr |head -n3
    ```
+9. 查看系统oom日志
+  ```shell
+  journalctl -k | grep -i -e memory -e oom
+  ```
 
 ## 定制化
 ### 更换镜像源
