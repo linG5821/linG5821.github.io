@@ -52,3 +52,12 @@
 3. Tomcat9
 4. IDEA
 5. jd-jui
+
+## php
+1. PhpStorm
+2. laradock
+## 前端
+1. nodejs
+2. yarn
+## python
+1. python3
