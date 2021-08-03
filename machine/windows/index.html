@@ -8,7 +8,7 @@
     <link rel="icon" href="/favicon.png">
     <meta name="description" content="Yolo Cloud 记录了我技术成长中学到的各种知识,遇到的各种问题">
     
-    <link rel="preload" href="/assets/css/0.styles.6d53293b.css" as="style"><link rel="preload" href="/assets/js/app.b574dd8d.js" as="script"><link rel="preload" href="/assets/js/2.ce09b40e.js" as="script"><link rel="preload" href="/assets/js/25.0e30f674.js" as="script"><link rel="prefetch" href="/assets/js/10.322616ef.js"><link rel="prefetch" href="/assets/js/11.8fe37f5a.js"><link rel="prefetch" href="/assets/js/12.8a679189.js"><link rel="prefetch" href="/assets/js/13.e3111860.js"><link rel="prefetch" href="/assets/js/14.3c3b7636.js"><link rel="prefetch" href="/assets/js/15.9e74f085.js"><link rel="prefetch" href="/assets/js/16.d14b04bd.js"><link rel="prefetch" href="/assets/js/17.fb3f2232.js"><link rel="prefetch" href="/assets/js/18.d94c045b.js"><link rel="prefetch" href="/assets/js/19.f3587070.js"><link rel="prefetch" href="/assets/js/20.123ae238.js"><link rel="prefetch" href="/assets/js/21.6245cf1d.js"><link rel="prefetch" href="/assets/js/22.cedb4f2c.js"><link rel="prefetch" href="/assets/js/23.32b2b648.js"><link rel="prefetch" href="/assets/js/24.dc456904.js"><link rel="prefetch" href="/assets/js/26.30cc50f1.js"><link rel="prefetch" href="/assets/js/27.46bc2ecb.js"><link rel="prefetch" href="/assets/js/28.df13e12c.js"><link rel="prefetch" href="/assets/js/29.d2fac31b.js"><link rel="prefetch" href="/assets/js/3.aad9c35a.js"><link rel="prefetch" href="/assets/js/30.ca8ac08c.js"><link rel="prefetch" href="/assets/js/31.e3f8061b.js"><link rel="prefetch" href="/assets/js/32.91822b6c.js"><link rel="prefetch" href="/assets/js/4.4395d94b.js"><link rel="prefetch" href="/assets/js/5.9ccde1ec.js"><link rel="prefetch" href="/assets/js/6.4a46acd7.js"><link rel="prefetch" href="/assets/js/7.ccb94cef.js"><link rel="prefetch" href="/assets/js/8.e8ed828f.js"><link rel="prefetch" href="/assets/js/9.f072003b.js">
+    <link rel="preload" href="/assets/css/0.styles.6d53293b.css" as="style"><link rel="preload" href="/assets/js/app.29d5ed19.js" as="script"><link rel="preload" href="/assets/js/2.ce09b40e.js" as="script"><link rel="preload" href="/assets/js/25.f0bdb355.js" as="script"><link rel="prefetch" href="/assets/js/10.322616ef.js"><link rel="prefetch" href="/assets/js/11.8fe37f5a.js"><link rel="prefetch" href="/assets/js/12.8a679189.js"><link rel="prefetch" href="/assets/js/13.e3111860.js"><link rel="prefetch" href="/assets/js/14.3c3b7636.js"><link rel="prefetch" href="/assets/js/15.9e74f085.js"><link rel="prefetch" href="/assets/js/16.d14b04bd.js"><link rel="prefetch" href="/assets/js/17.fb3f2232.js"><link rel="prefetch" href="/assets/js/18.d94c045b.js"><link rel="prefetch" href="/assets/js/19.f3587070.js"><link rel="prefetch" href="/assets/js/20.123ae238.js"><link rel="prefetch" href="/assets/js/21.6245cf1d.js"><link rel="prefetch" href="/assets/js/22.cedb4f2c.js"><link rel="prefetch" href="/assets/js/23.32b2b648.js"><link rel="prefetch" href="/assets/js/24.dc456904.js"><link rel="prefetch" href="/assets/js/26.30cc50f1.js"><link rel="prefetch" href="/assets/js/27.46bc2ecb.js"><link rel="prefetch" href="/assets/js/28.df13e12c.js"><link rel="prefetch" href="/assets/js/29.d2fac31b.js"><link rel="prefetch" href="/assets/js/3.aad9c35a.js"><link rel="prefetch" href="/assets/js/30.ca8ac08c.js"><link rel="prefetch" href="/assets/js/31.e3f8061b.js"><link rel="prefetch" href="/assets/js/32.91822b6c.js"><link rel="prefetch" href="/assets/js/4.4395d94b.js"><link rel="prefetch" href="/assets/js/5.9ccde1ec.js"><link rel="prefetch" href="/assets/js/6.4a46acd7.js"><link rel="prefetch" href="/assets/js/7.ccb94cef.js"><link rel="prefetch" href="/assets/js/8.e8ed828f.js"><link rel="prefetch" href="/assets/js/9.f072003b.js">
     <link rel="stylesheet" href="/assets/css/0.styles.6d53293b.css">
   </head>
   <body>
@@ -153,6 +153,61 @@ Socket5 代理
       Hostname %h
       IdentityFile ~\.ssh\id_rsa
       ProxyCommand nc -v -x &lt;windows ip&gt;:10808 %h %p
+</code></pre></div><ul><li>代理设置脚本</li></ul> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token shebang important">#!/bin/sh</span>
+<span class="token assign-left variable">hostip</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> /etc/resolv.conf <span class="token operator">|</span> <span class="token function">grep</span> nameserver <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{ print $2 }'</span><span class="token variable">)</span></span>
+<span class="token assign-left variable">wslip</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">hostname</span> -I <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $1}'</span><span class="token variable">)</span></span>
+<span class="token assign-left variable">http_port</span><span class="token operator">=</span><span class="token number">10809</span>
+<span class="token assign-left variable">socket_port</span><span class="token operator">=</span><span class="token number">10808</span>
+
+
+<span class="token assign-left variable">PROXY_HTTP</span><span class="token operator">=</span><span class="token string">&quot;http://<span class="token variable">${hostip}</span>:<span class="token variable">${http_port}</span>&quot;</span>
+<span class="token assign-left variable">PROXY_SOCKET</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${hostip}</span>:<span class="token variable">${socket_port}</span>&quot;</span>
+
+<span class="token function-name function">set_proxy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token comment">#export http_proxy=&quot;${PROXY_HTTP}&quot;</span>
+    <span class="token comment">#export HTTP_PROXY=&quot;${PROXY_HTTP}&quot;</span>
+    <span class="token comment">#export https_proxy=&quot;${PROXY_HTTP}&quot;</span>
+    <span class="token comment">#export HTTPS_PROXY=&quot;${PROXY_HTTP}&quot;</span>
+    <span class="token comment">#export SOCKET_PROXY=&quot;${PROXY_SOCKET}&quot;</span>
+
+    <span class="token function">git</span> config --global http.proxy <span class="token string">&quot;socks5://<span class="token variable">${PROXY_SOCKET}</span>&quot;</span>
+    <span class="token function">git</span> config --global https.proxy <span class="token string">&quot;socks5://<span class="token variable">${PROXY_SOCKET}</span>&quot;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">unset_proxy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin class-name">unset</span> http_proxy
+    <span class="token builtin class-name">unset</span> HTTP_PROXY
+    <span class="token builtin class-name">unset</span> https_proxy
+    <span class="token builtin class-name">unset</span> HTTPS_PROXY
+    <span class="token builtin class-name">unset</span> SOCKET_PROXY
+    
+    <span class="token function">git</span> config --global --unset http.proxy
+    <span class="token function">git</span> config --global --unset https.proxy
+<span class="token punctuation">}</span>
+
+<span class="token function-name function">test_setting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;Host ip:&quot;</span> <span class="token variable">${hostip}</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;WSL ip:&quot;</span> <span class="token variable">${wslip}</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;Current proxy: http: &quot;</span> <span class="token variable">$PROXY_HTTP</span> <span class="token string">&quot;socket: &quot;</span> <span class="token variable">$PROXY_SOCKET</span> 
+<span class="token punctuation">}</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token operator">=</span> <span class="token string">&quot;set&quot;</span> <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+    set_proxy
+
+<span class="token keyword">elif</span> <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token operator">=</span> <span class="token string">&quot;unset&quot;</span> <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+    unset_proxy
+
+<span class="token keyword">elif</span> <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token operator">=</span> <span class="token string">&quot;test&quot;</span> <span class="token punctuation">]</span>
+<span class="token keyword">then</span>
+    test_setting
+<span class="token keyword">else</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;Unsupported arguments.&quot;</span>
+<span class="token keyword">fi</span>
+
+</code></pre></div><p>在 <code>~/.bashrc</code> 中添加</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">alias</span> <span class="token assign-left variable">proxy</span><span class="token operator">=</span><span class="token string">&quot;source /path/to/proxy.sh&quot;</span>
+<span class="token builtin class-name">.</span> /path/to/proxy.sh <span class="token builtin class-name">set</span>
 </code></pre></div><ol start="3"><li>截取主机某个网卡的IP</li></ol> <div class="language- extra-class"><pre class="language-text"><code># 可以将 select-string 后的关键字改成具体的网卡名称关键字
 (ipconfig|select-string &quot;无线&quot; -context 1,4 | findStr &quot;IPv4&quot;).Split(&quot;:&quot;)[-1]
 </code></pre></div><ol start="4"><li>python脚本获取主机IP</li></ol> <ul><li>方式一：（ 此方式可能获取到虚拟IP ）<div class="language- extra-class"><pre class="language-text"><code>import socket
@@ -182,6 +237,6 @@ if __name__ == '__main__':
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.b574dd8d.js" defer></script><script src="/assets/js/2.ce09b40e.js" defer></script><script src="/assets/js/25.0e30f674.js" defer></script>
+    <script src="/assets/js/app.29d5ed19.js" defer></script><script src="/assets/js/2.ce09b40e.js" defer></script><script src="/assets/js/25.f0bdb355.js" defer></script>
   </body>
 </html>
