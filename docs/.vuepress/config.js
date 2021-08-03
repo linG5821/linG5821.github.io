@@ -19,6 +19,7 @@ module.exports = {
           { title: 'Windows', path: '/machine/windows/' },
           { title: 'Mac', path: '/machine/mac/' },
           { title: 'Linux', path: '/machine/linux/' },
+          { title: 'Windows配置清单', path: 'machine/windows/envlist'}
         ]
       },
       {
