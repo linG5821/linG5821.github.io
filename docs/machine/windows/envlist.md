@@ -38,8 +38,8 @@
 
    * 命令配置
    ```shell
-   ln -s /usr/local/bin/docker-login /mnt/d/Dev/docker-login/docker-login.sh
-   ln -s /usr/local/bin/laradock /data/laradock/laradock.sh
+   sudo ln -s /mnt/d/Dev/docker-login/docker-login.sh /usr/local/bin/docker-login
+   sudo ln -s /data/laradock/laradock.sh /usr/local/bin/laradock
    ``` 
 4. XShell7/XFtp7
 5. Navicat
