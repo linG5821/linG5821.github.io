@@ -73,7 +73,6 @@
      * MapStruct support
      * Maven Helper
      * MybatisX
-     * Protobuf support
      * RoboPOJOGenerator
      * Translation
    * vm options
@@ -81,8 +80,6 @@
    # custom IntelliJ IDEA VM options
    -Xms4g
    -Xmx4g
-   -XX:MetaspaceSize=512m
-   -XX:MaxMetaspaceSize=768m
    -XX:ReservedCodeCacheSize=512m
    -XX:+AlwaysPreTouch
    -XX:+UseG1GC
