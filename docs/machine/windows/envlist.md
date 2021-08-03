@@ -33,6 +33,8 @@
 1. Docker
 2. 开启Win Telnet客户端,开启linux 子系统
 3. WSL
+   无妨访问外网参考
+   [https://github.com/microsoft/WSL/issues/5336#issuecomment-653881695](https://github.com/microsoft/WSL/issues/5336#issuecomment-653881695)
 4. XShell7/XFtp7
 5. Navicat
 6. Postman

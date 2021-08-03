@@ -180,6 +180,7 @@ netsh int ipv4 set dynamicport tcp start=49152 num=16384
    # 件并同步到wsl中即可，但是如果切换网络，切换wifi之后需要重新配置，参考过一些文章
    # 可以通过/etc/resolv.conf获取winip，实际测试并未成功，因为我的/etc/resolv.conf
    # 之前因为wsl2无法访问互联网，所以修改过其中的DNS值，并取消了自动生成的机制
+   # 20210804 新增 如果不自定义/etc/resolv.conf 可以通过 `cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }'` 获取宿主机IP
     Host github.com *.github.com
         User git
         Port 22
