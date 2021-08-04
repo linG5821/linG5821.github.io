@@ -206,18 +206,20 @@ netsh int ipv4 set dynamicport tcp start=49152 num=16384
       #export https_proxy="${PROXY_HTTP}"
       #export HTTPS_PROXY="${PROXY_HTTP}"
       #export SOCKET_PROXY="${PROXY_SOCKET}"
+      export PROXY_HOST_IP="${hostip}"
 
       git config --global http.proxy "socks5://${PROXY_SOCKET}"
       git config --global https.proxy "socks5://${PROXY_SOCKET}"
   }
 
   unset_proxy(){
-      unset http_proxy
-      unset HTTP_PROXY
-      unset https_proxy
-      unset HTTPS_PROXY
-      unset SOCKET_PROXY
-      
+      #unset http_proxy
+      #unset HTTP_PROXY
+      #unset https_proxy
+      #unset HTTPS_PROXY
+      #unset SOCKET_PROXY
+      unset PROXY_HOST_IP
+
       git config --global --unset http.proxy
       git config --global --unset https.proxy
   }
@@ -225,7 +227,7 @@ netsh int ipv4 set dynamicport tcp start=49152 num=16384
   test_setting(){
       echo "Host ip:" ${hostip}
       echo "WSL ip:" ${wslip}
-      echo "Current proxy: http: " $PROXY_HTTP "socket: " $PROXY_SOCKET 
+      echo "Current proxy: http: " $PROXY_HTTP "socket: " $PROXY_SOCKET
   }
 
   if [ "$1" = "set" ]
