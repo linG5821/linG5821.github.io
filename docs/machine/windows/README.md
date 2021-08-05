@@ -163,31 +163,31 @@ netsh int ipv4 set dynamicport tcp start=49152 num=16384
     git config --global https.proxy "socks5://127.0.0.1:10808"
   ```
   * ssh代理
-  ```
-  # windows
-  # 编辑文件地址 ~/.ssh/config
+    + windows
+    ```
+    # 编辑文件地址 ~/.ssh/config
     Host github.com *.github.com
         User git
         Port 22
         Hostname %h
         IdentityFile ~\.ssh\id_rsa
         ProxyCommand connect -S 127.0.0.1:10808 %h %p
+    ```
+    + WSL2
+
+    ~~wsl2 中有一个问题，这里 wsl2 实际上是蹭用主机的代理，wsl2 相比 wsl1 在网络上发生了变化，导致访问windows需要知道具体的IP，所以这里的 winip 应该更换为对应的主机 (windows) 的IP地址，我更多情况下会将其设置为域名，然后只在 windows 上更改 hosts 文件并同步到wsl中即可，但是如果切换网络，切换 wifi 之后需要重新配置，参考过一些文章可以通过 `/etc/resolv.conf` 获取 winip ，实际测试并未成功，因为我的 `/etc/resolv.conf` 之前因为 wsl2 无法访问互联网，所以修改过其中的 DNS 值，并取消了自动生成的机制~~<br/>
     
-   # wsl
-   # 编辑文件地址 ~/.ssh/config
-   # wsl2 中有一个问题，这里wsl实际上是蹭用主机的代理，wsl2相比wsl1在网络上发生了变
-   # 化，导致访问windows需要知道具体的IP，所以这里的<windows ip>应该更换为对应的主机#（windows）的IP地址，我更多情况下会将其设置为域名，然后只在windows上更改hosts文
-   # 件并同步到wsl中即可，但是如果切换网络，切换wifi之后需要重新配置，参考过一些文章
-   # 可以通过/etc/resolv.conf获取winip，实际测试并未成功，因为我的/etc/resolv.conf
-   # 之前因为wsl2无法访问互联网，所以修改过其中的DNS值，并取消了自动生成的机制
-   # 20210804 新增 如果不自定义/etc/resolv.conf 可以通过 `cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }'` 获取宿主机IP
+    如果不自定义 `/etc/resolv.conf` 可以通过 `cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }'` 获取宿主机IP, wsl2 默认配置在/etc/resolv.conf文件中的是一个代理,所以如果 wsl2 镜像源无法使用或者无法访问外网, 我们只需要去更改主机的DNS, 而不必去修改 /etc/resolv.conf 文件
+    ```
+    # 编辑文件地址 ~/.ssh/config
     Host github.com *.github.com
         User git
         Port 22
         Hostname %h
         IdentityFile ~\.ssh\id_rsa
-        ProxyCommand nc -v -x <windows ip>:10808 %h %p
-  ```
+        ProxyCommand nc -v -x winip:10808 %h %p
+    ```
+    
   * 代理设置脚本
   ```shell
   #!/bin/sh
