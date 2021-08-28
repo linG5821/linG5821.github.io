@@ -92,6 +92,12 @@
    
    # 导出私钥 ASCII 形式
    gpg --armor --output keyid.gpg --export-secret-keys keyid
+
+   # 列出所有秘钥
+   gpg --list-keys
+
+   # 导入吊销证书(导入后悔直接吊销对应的秘钥), 如果公钥已经发布还需要重新发布一下才能吊销已经上传的秘钥
+   gpg --import /path/xxxx.rev
    ```
 
 4. GPG秘钥的使用
