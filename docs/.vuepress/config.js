@@ -19,7 +19,7 @@ module.exports = {
           { title: 'Windows', path: '/machine/windows/' },
           { title: 'Mac', path: '/machine/mac/' },
           { title: 'Linux', path: '/machine/linux/' },
-          { title: 'Windows配置清单', path: 'machine/windows/envlist'}
+          { title: 'Windows配置清单', path: 'machine/windows/envlist' }
         ]
       },
       {
@@ -68,6 +68,7 @@ module.exports = {
           { title: 'Java虚拟机', path: '/java/jvm' },
           { title: 'Java响应式编程', path: '/java/reactive' },
           { title: 'Maven', path: '/java/maven' },
+          { title: 'SpringBoot', path: '/java/spring-boot' },
           { title: 'SpringCloud', path: '/java/spring-cloud' },
         ]
       },
