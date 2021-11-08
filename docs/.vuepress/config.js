@@ -47,7 +47,6 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           { title: 'Docker', path: '/container/docker' },
-          { title: 'Docker-Compose', path: '/container/docker-compose' },
           { title: 'Kubernetes', path: '/container/kubernetes' },
         ]
       },
