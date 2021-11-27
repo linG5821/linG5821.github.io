@@ -8,7 +8,7 @@
     <link rel="icon" href="/favicon.png">
     <meta name="description" content="Yolo Cloud 记录了我技术成长中学到的各种知识,遇到的各种问题">
     
-    <link rel="preload" href="/assets/css/0.styles.6d53293b.css" as="style"><link rel="preload" href="/assets/js/app.cdb3452f.js" as="script"><link rel="preload" href="/assets/js/2.327c126c.js" as="script"><link rel="preload" href="/assets/js/25.808aba0e.js" as="script"><link rel="prefetch" href="/assets/js/10.534e7c2d.js"><link rel="prefetch" href="/assets/js/11.f8d4680f.js"><link rel="prefetch" href="/assets/js/12.85326668.js"><link rel="prefetch" href="/assets/js/13.89818ad8.js"><link rel="prefetch" href="/assets/js/14.c921f443.js"><link rel="prefetch" href="/assets/js/15.fbab0fa3.js"><link rel="prefetch" href="/assets/js/16.d26eab34.js"><link rel="prefetch" href="/assets/js/17.2e48a24c.js"><link rel="prefetch" href="/assets/js/18.c2b7d339.js"><link rel="prefetch" href="/assets/js/19.89b6c1d6.js"><link rel="prefetch" href="/assets/js/20.ccb1064f.js"><link rel="prefetch" href="/assets/js/21.77807da8.js"><link rel="prefetch" href="/assets/js/22.9b7b6b20.js"><link rel="prefetch" href="/assets/js/23.f80dead5.js"><link rel="prefetch" href="/assets/js/24.e62c4012.js"><link rel="prefetch" href="/assets/js/26.004488ee.js"><link rel="prefetch" href="/assets/js/27.1c05fc74.js"><link rel="prefetch" href="/assets/js/28.0e443c8b.js"><link rel="prefetch" href="/assets/js/29.c652bb5b.js"><link rel="prefetch" href="/assets/js/3.0e8e5d8e.js"><link rel="prefetch" href="/assets/js/30.be2d7bd9.js"><link rel="prefetch" href="/assets/js/31.5b206cf6.js"><link rel="prefetch" href="/assets/js/32.b3485698.js"><link rel="prefetch" href="/assets/js/4.e1de88a0.js"><link rel="prefetch" href="/assets/js/5.a276cb2d.js"><link rel="prefetch" href="/assets/js/6.257018f9.js"><link rel="prefetch" href="/assets/js/7.7f356e19.js"><link rel="prefetch" href="/assets/js/8.13b559b5.js"><link rel="prefetch" href="/assets/js/9.d8c46f7e.js">
+    <link rel="preload" href="/assets/css/0.styles.6d53293b.css" as="style"><link rel="preload" href="/assets/js/app.1ee8ddcc.js" as="script"><link rel="preload" href="/assets/js/2.e4aa58e5.js" as="script"><link rel="preload" href="/assets/js/25.0d875900.js" as="script"><link rel="prefetch" href="/assets/js/10.534e7c2d.js"><link rel="prefetch" href="/assets/js/11.f8d4680f.js"><link rel="prefetch" href="/assets/js/12.85326668.js"><link rel="prefetch" href="/assets/js/13.89818ad8.js"><link rel="prefetch" href="/assets/js/14.c921f443.js"><link rel="prefetch" href="/assets/js/15.fbab0fa3.js"><link rel="prefetch" href="/assets/js/16.d26eab34.js"><link rel="prefetch" href="/assets/js/17.2e48a24c.js"><link rel="prefetch" href="/assets/js/18.c2b7d339.js"><link rel="prefetch" href="/assets/js/19.89b6c1d6.js"><link rel="prefetch" href="/assets/js/20.ccb1064f.js"><link rel="prefetch" href="/assets/js/21.77807da8.js"><link rel="prefetch" href="/assets/js/22.9b7b6b20.js"><link rel="prefetch" href="/assets/js/23.f80dead5.js"><link rel="prefetch" href="/assets/js/24.e62c4012.js"><link rel="prefetch" href="/assets/js/26.004488ee.js"><link rel="prefetch" href="/assets/js/27.1c05fc74.js"><link rel="prefetch" href="/assets/js/28.0e443c8b.js"><link rel="prefetch" href="/assets/js/29.c652bb5b.js"><link rel="prefetch" href="/assets/js/3.0e8e5d8e.js"><link rel="prefetch" href="/assets/js/30.be2d7bd9.js"><link rel="prefetch" href="/assets/js/31.5b206cf6.js"><link rel="prefetch" href="/assets/js/32.645304c6.js"><link rel="prefetch" href="/assets/js/4.e1de88a0.js"><link rel="prefetch" href="/assets/js/5.a276cb2d.js"><link rel="prefetch" href="/assets/js/6.257018f9.js"><link rel="prefetch" href="/assets/js/7.7f356e19.js"><link rel="prefetch" href="/assets/js/8.13b559b5.js"><link rel="prefetch" href="/assets/js/9.d8c46f7e.js">
     <link rel="stylesheet" href="/assets/css/0.styles.6d53293b.css">
   </head>
   <body>
@@ -150,7 +150,7 @@ Host github.com *.github.com
     Hostname %h
     IdentityFile ~\.ssh\id_rsa
     ProxyCommand nc -v -x winip:10808 %h %p
-</code></pre></div></li> <li><p>代理设置脚本</p></li></ul> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token shebang important">#!/bin/sh</span>
+</code></pre></div></li> <li><p>代理设置脚本</p></li></ul> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token shebang important">#!/bin/bash</span>
 <span class="token assign-left variable">hostip</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> /etc/resolv.conf <span class="token operator">|</span> <span class="token function">grep</span> nameserver <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{ print $2 }'</span><span class="token variable">)</span></span>
 <span class="token assign-left variable">wslip</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">hostname</span> -I <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $1}'</span><span class="token variable">)</span></span>
 <span class="token assign-left variable">http_port</span><span class="token operator">=</span><span class="token number">10809</span>
@@ -170,6 +170,8 @@ Host github.com *.github.com
 
     <span class="token function">git</span> config --global http.proxy <span class="token string">&quot;socks5://<span class="token variable">${PROXY_SOCKET}</span>&quot;</span>
     <span class="token function">git</span> config --global https.proxy <span class="token string">&quot;socks5://<span class="token variable">${PROXY_SOCKET}</span>&quot;</span>
+
+    <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">${PROXY_HOST_IP}</span> winip&quot;</span> <span class="token operator">&gt;&gt;</span> /etc/hosts
 <span class="token punctuation">}</span>
 
 <span class="token function-name function">unset_proxy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -182,6 +184,8 @@ Host github.com *.github.com
 
     <span class="token function">git</span> config --global --unset http.proxy
     <span class="token function">git</span> config --global --unset https.proxy
+
+    <span class="token function">sed</span> -i <span class="token string">'/winip/d'</span> /etc/hosts
 <span class="token punctuation">}</span>
 
 <span class="token function-name function">test_setting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -236,6 +240,6 @@ if __name__ == '__main__':
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.cdb3452f.js" defer></script><script src="/assets/js/2.327c126c.js" defer></script><script src="/assets/js/25.808aba0e.js" defer></script>
+    <script src="/assets/js/app.1ee8ddcc.js" defer></script><script src="/assets/js/2.e4aa58e5.js" defer></script><script src="/assets/js/25.0d875900.js" defer></script>
   </body>
 </html>
