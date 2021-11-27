@@ -196,7 +196,7 @@ netsh int ipv4 set dynamicport tcp start=49152 num=16384
     
   * 代理设置脚本
   ```shell
-  #!/bin/sh
+  #!/bin/bash
   hostip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
   wslip=$(hostname -I | awk '{print $1}')
   http_port=10809
@@ -216,6 +216,8 @@ netsh int ipv4 set dynamicport tcp start=49152 num=16384
 
       git config --global http.proxy "socks5://${PROXY_SOCKET}"
       git config --global https.proxy "socks5://${PROXY_SOCKET}"
+
+      echo "${PROXY_HOST_IP} winip" >> /etc/hosts
   }
 
   unset_proxy(){
@@ -228,6 +230,8 @@ netsh int ipv4 set dynamicport tcp start=49152 num=16384
 
       git config --global --unset http.proxy
       git config --global --unset https.proxy
+
+      sed -i '/winip/d' /etc/hosts
   }
 
   test_setting(){
