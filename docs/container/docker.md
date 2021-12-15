@@ -1,4 +1,4 @@
-## 安装
+## Docker安装
 1. 添加Docker 安装包的仓库
    ```shell
    sudo yum install -y yum-utils
@@ -17,7 +17,7 @@
    yum install docker-ce-19.03.2-3.el7
    ```
 
-## 配置
+## Docker配置
 1. 修改Docker配置无需重启Docker守护进程即生效
    ```shell
    # 修改 /etc/docker/daemon.json 后 执行
@@ -80,6 +80,33 @@
    # 移除 role 为删除的键
    docker node update --label-rm role {node}
    ```
+
+## Docker Compose安装
+1. 下载docker-compose 文件
+   ```shell
+   # 最新版本请参考 https://docs.docker.com/compose/install/
+   sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+   ```
+2. 修改二进制执行权限
+   ```shell
+   sudo chmod +x /usr/local/bin/docker-compose
+   ```
+3. 测试安装
+   ```
+   # 查看是否显示版本信息
+   docker-compose --version
+   ```
+## Docker Stack 使用
+
+1. 部署命令 `docker stack deploy -c xxxx.yml {stack_name} --with-registry-auth` 当拉取镜像需要权限时需要添加 `--with-registry-auth`
+2. 部署模式 deploy.mode
+   * 部署模式分为 `global` 和  `replicated`(默认)
+   * `global` 会根据部署策略在每一个节点上都部署一个服务, 没有预先指定数量, 那么每次新增节点服务也会被分配到新的节点
+   * `replicated` 可以指定相同服务的数量, 并根据策略分发在符合条件的机器上
+3. 端口发布模式 ports.mode
+   * 端口发布模式分为 `host` 和  `ingress`(默认)
+   * `host` 会把每一个部署了服务的节点的端口都映射出来, 所以当端口发布模式为 `host` 时 指定 `replicas` 大于 swarm集群节点数量时只能启动 集群节点数量的服务节点, 因为一个集群节点只能映射一个端口
+   * `ingress` 会把swarm 集群内所有节点的端口都映射, 即使这个机器上没有部署该服务
 ## 常见问题
 1. Docker服务安装后无法启动 Error starting daemon: Error initializing network controller: error obtaining controller instance: failed to create NAT chain: Iptables not found
    ```shell
