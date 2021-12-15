@@ -26,3 +26,8 @@
     fi
    done
    ```
+3. git clone 代码自动转换为CRLF 
+   ```shell
+   # 全局关闭Git自动转换功能
+   git config --global core.autocrlf false
+   ```
