@@ -73,6 +73,200 @@ jvm配置为
 -XX:MetaspaceSize=180M -XX:MaxMetaspaceSize=180M -Xms512m -Xmx512m
 
 ```
+
+## Jvm命令行工具
+1. jstat 命令用法
+
+命令格式:
+
+```
+jstat [option] VMID [interval] [count]
+```
+
+常用参数：
+
+* option - 选项参数，用于指定用户需要查询的虚拟机信息
+    - -class - 监视类装载、卸载数量、总空间以及类装载所耗费的时间
+    - -compiler：显示 JIT 编译的相关信息；
+    - -gc：监视 Java 堆状况，包括 Eden 区、两个 survivor 区、老年代、永久代等区的容量、已用空间、GC 时间合计等信息。
+    - -gccapacity：显示各个代的容量以及使用情况；
+    - -gcmetacapacity：显示 Metaspace 的大小；
+    - -gcnew：显示新生代信息；
+    - -gcnewcapacity：显示新生代大小和使用情况；
+    - -gcold：显示老年代和永久代的信息；
+    - -gcoldcapacity：显示老年代的大小；
+    - -gcutil：显示垃圾回收统计信息；
+    - -gccause：显示垃圾回收的相关信息（通 -gcutil），同时显示最后一次或当前正在发生的垃圾回收的诱因；
+    - -printcompilation：输出 JIT 编译的方法信息。
+* VMID - 如果是本地虚拟机进程，则 VMID 与 LVMID 是一致的；如果是远程虚拟机进程，那 VMID 的格式应当是：[protocol:][//]lvmid[@hostname[:port]/servername]
+* interval - 查询间隔
+* count - 查询次数
+
+统计指标含义:
+
+* 类加载统计 `jstat -class {vmid}`
+
+    - Loaded: 加载class的数量
+    - Bytes：所占用空间大小
+    - Unloaded：未加载数量
+    - Bytes: 未加载占用空间
+    - Time：时间
+
+* 编译统计 `jstat -compiler {vmid}`
+
+    - Compiled：编译数量。
+    - Failed：失败数量
+    - Invalid：不可用数量
+    - Time：时间
+    - FailedType：失败类型
+    - FailedMethod：失败的方法
+
+* 垃圾回收统计 `jstat -gc {vmid}`
+
+    - S0C：第一个幸存区的大小
+    - S1C：第二个幸存区的大小
+    - S0U：第一个幸存区的使用大小
+    - S1U：第二个幸存区的使用大小
+    - EC：伊甸园区的大小
+    - EU：伊甸园区的使用大小
+    - OC：老年代大小
+    - OU：老年代使用大小
+    - MC：方法区大小
+    - MU：方法区使用大小
+    - CCSC: 压缩类空间大小
+    - CCSU: 压缩类空间使用大小
+    - YGC：年轻代垃圾回收次数
+    - YGCT：年轻代垃圾回收消耗时间
+    - FGC：老年代垃圾回收次数
+    - FGCT：老年代垃圾回收消耗时间
+    - GCT：垃圾回收消耗总时间
+
+* 堆内存统计 `jstat -gccapacity {vmid}`
+
+    - NGCMN：新生代最小容量
+    - NGCMX：新生代最大容量
+    - NGC：当前新生代容量
+    - S0C：第一个幸存区大小
+    - S1C：第二个幸存区的大小
+    - EC：伊甸园区的大小
+    - OGCMN：老年代最小容量
+    - OGCMX：老年代最大容量
+    - OGC：当前老年代大小
+    - OC:当前老年代大小
+    - MCMN:最小元数据容量
+    - MCMX：最大元数据容量
+    - MC：当前元数据空间大小
+    - CCSMN：最小压缩类空间大小
+    - CCSMX：最大压缩类空间大小
+    - CCSC：当前压缩类空间大小
+    - YGC：年轻代gc次数
+    - FGC：老年代GC次数
+
+* 新生代垃圾回收统计 `jstat -gcnew {vmid}`
+
+    - S0C：第一个幸存区大小
+    - S1C：第二个幸存区的大小
+    - S0U：第一个幸存区的使用大小
+    - S1U：第二个幸存区的使用大小
+    - TT: 对象在新生代存活的次数
+    - MTT: 对象在新生代存活的最大次数
+    - DSS: 期望的幸存区大小
+    - EC：伊甸园区的大小
+    - EU：伊甸园区的使用大小
+    - YGC：年轻代垃圾回收次数
+    - YGCT：年轻代垃圾回收消耗时间
+
+* 新生代内存统计 `jstat -gcnewcapacity {vmid}`
+
+    - NGCMN：新生代最小容量
+    - NGCMX：新生代最大容量
+    - NGC：当前新生代容量
+    - S0CMX：最大幸存1区大小
+    - S0C：当前幸存1区大小
+    - S1CMX：最大幸存2区大小
+    - S1C：当前幸存2区大小
+    - ECMX：最大伊甸园区大小
+    - EC：当前伊甸园区大小
+    - YGC：年轻代垃圾回收次数
+    - FGC：老年代回收次数
+
+* 老年代垃圾回收统计 `jstat -gcold {vmid}`
+
+    - MC：方法区大小
+    - MU：方法区使用大小
+    - CCSC:压缩类空间大小
+    - CCSU:压缩类空间使用大小
+    - OC：老年代大小
+    - OU：老年代使用大小
+    - YGC：年轻代垃圾回收次数
+    - FGC：老年代垃圾回收次数
+    - FGCT：老年代垃圾回收消耗时间
+    - GCT：垃圾回收消耗总时间
+
+* 老年代内存统计 `jstat -gcoldcapacity {vmid}`
+
+    - OGCMN：老年代最小容量
+    - OGCMX：老年代最大容量
+    - OGC：当前老年代大小
+    - OC：老年代大小
+    - YGC：年轻代垃圾回收次数
+    - FGC：老年代垃圾回收次数
+    - FGCT：老年代垃圾回收消耗时间
+    - GCT：垃圾回收消耗总时间
+
+* 元数据空间统计 `jstat -gcmetacapacity {vmid}`
+
+    - MCMN: 最小元数据容量
+    - MCMX：最大元数据容量
+    - MC：当前元数据空间大小
+    - CCSMN：最小压缩类空间大小
+    - CCSMX：最大压缩类空间大小
+    - CCSC：当前压缩类空间大小
+    - YGC：年轻代垃圾回收次数
+    - FGC：老年代垃圾回收次数
+    - FGCT：老年代垃圾回收消耗时间
+    - GCT：垃圾回收消耗总时间
+* 垃圾回收总览 `jstat -gcutil {vmid}`
+
+    - S0：幸存1区当前使用比例
+    - S1：幸存2区当前使用比例
+    - E：伊甸园区使用比例
+    - O：老年代使用比例
+    - M：元数据区使用比例
+    - CCS：压缩使用比例
+    - YGC：年轻代垃圾回收次数
+    - FGC：老年代垃圾回收次数
+    - FGCT：老年代垃圾回收消耗时间
+    - GCT：垃圾回收消耗总时间
+
+2. jmap 命令用法
+
+命令格式: 
+
+```
+jmap [option] pid
+```
+
+option 选项参数：
+
+* -dump - 生成堆转储快照。-dump:live 只保存堆中的存活对象。
+* -finalizerinfo - 显示在 F-Queue 队列等待执行 finalizer 方法的对象
+* -heap - 显示 Java 堆详细信息。
+* -histo - 显示堆中对象的统计信息，包括类、实例数量、合计容量。-histo:live 只统计堆中的存活对象。
+* -permstat - to print permanent generation statistics
+* -F - 当-dump 没有响应时，强制生成 dump 快照
+
+使用示例
+* 生成 heapdump 快照
+```
+jmap -dump:live,format=b,file=dump.hprof 28920
+```
+* 查看实例最多的类
+```
+jmap -histo {vmid} | head -n {num}
+```
+
+
 ## 自行编译JDK
 1. 编译参数设置
 ```ini
