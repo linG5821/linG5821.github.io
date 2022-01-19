@@ -243,7 +243,7 @@ jstat [option] VMID [interval] [count]
 
 命令格式: 
 
-```
+```shell
 jmap [option] pid
 ```
 
@@ -255,6 +255,8 @@ option 选项参数：
 * -histo - 显示堆中对象的统计信息，包括类、实例数量、合计容量。-histo:live 只统计堆中的存活对象。
 * -permstat - to print permanent generation statistics
 * -F - 当-dump 没有响应时，强制生成 dump 快照
+
+
 
 使用示例:
 
