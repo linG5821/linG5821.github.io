@@ -267,8 +267,6 @@ jmap -dump:live,format=b,file=dump.hprof {vmid}
 ```shell
 jmap -histo {vmid} | head -n {num}
 ```
-
-
 ## 自行编译JDK
 1. 编译参数设置
 ```ini
