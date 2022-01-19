@@ -258,10 +258,13 @@ option 选项参数：
 
 使用示例
 * 生成 heapdump 快照
+
 ```
 jmap -dump:live,format=b,file=dump.hprof 28920
 ```
+
 * 查看实例最多的类
+
 ```
 jmap -histo {vmid} | head -n {num}
 ```
