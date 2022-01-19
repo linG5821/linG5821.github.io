@@ -256,16 +256,15 @@ option 选项参数：
 * -permstat - to print permanent generation statistics
 * -F - 当-dump 没有响应时，强制生成 dump 快照
 
-使用示例
-* 生成 heapdump 快照
+使用示例:
 
-```
-jmap -dump:live,format=b,file=dump.hprof 28920
+* 生成 heapdump 快照
+```shell
+jmap -dump:live,format=b,file=dump.hprof {vmid}
 ```
 
 * 查看实例最多的类
-
-```
+```shell
 jmap -histo {vmid} | head -n {num}
 ```
 
