@@ -17,9 +17,9 @@
       ```
 ### Docker 搭建基本环境
   1. Docker安装
-    * 官网地址： https://www.docker.com/  
-    * 下载地址： https://www.docker.com/get-started
-    * **安装步骤不在赘述。**
+      * 官网地址： https://www.docker.com/  
+      * 下载地址： https://www.docker.com/get-started
+      > **安装步骤不在赘述。**
 
   2. 获取开发环境PHP docker镜像
 

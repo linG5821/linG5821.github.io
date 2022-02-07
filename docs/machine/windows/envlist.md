@@ -37,10 +37,11 @@
    [https://github.com/microsoft/WSL/issues/5336#issuecomment-653881695](https://github.com/microsoft/WSL/issues/5336#issuecomment-653881695)
 
    * 命令配置
-   ```shell
-   sudo ln -s /mnt/d/Dev/docker-login/docker-login.sh /usr/local/bin/docker-login
-   sudo ln -s /data/laradock/laradock.sh /usr/local/bin/laradock
-   ``` 
+   
+      ```shell
+      sudo ln -s /mnt/d/Dev/docker-login/docker-login.sh /usr/local/bin/docker-login
+      sudo ln -s /data/laradock/laradock.sh /usr/local/bin/laradock
+      ``` 
 4. XShell7/XFtp7
 5. Navicat
 6. Postman
