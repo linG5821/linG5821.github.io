@@ -8,7 +8,7 @@
     <link rel="icon" href="/favicon.png">
     <meta name="description" content="Yolo Cloud 记录了我技术成长中学到的各种知识,遇到的各种问题">
     
-    <link rel="preload" href="/assets/css/0.styles.6d53293b.css" as="style"><link rel="preload" href="/assets/js/app.71ad94b7.js" as="script"><link rel="preload" href="/assets/js/2.316f9b33.js" as="script"><link rel="preload" href="/assets/js/17.96365d77.js" as="script"><link rel="prefetch" href="/assets/js/10.b3a57eb7.js"><link rel="prefetch" href="/assets/js/11.a190c20a.js"><link rel="prefetch" href="/assets/js/12.bb4fce5d.js"><link rel="prefetch" href="/assets/js/13.ebca0094.js"><link rel="prefetch" href="/assets/js/14.de9c03e3.js"><link rel="prefetch" href="/assets/js/15.18a38e21.js"><link rel="prefetch" href="/assets/js/16.f5243a93.js"><link rel="prefetch" href="/assets/js/18.ec5ed2ce.js"><link rel="prefetch" href="/assets/js/19.ec8d3af2.js"><link rel="prefetch" href="/assets/js/20.c7cba7f3.js"><link rel="prefetch" href="/assets/js/21.81c7c441.js"><link rel="prefetch" href="/assets/js/22.626cb769.js"><link rel="prefetch" href="/assets/js/23.297093a9.js"><link rel="prefetch" href="/assets/js/24.97963d80.js"><link rel="prefetch" href="/assets/js/25.91967ae2.js"><link rel="prefetch" href="/assets/js/26.91c2c5e2.js"><link rel="prefetch" href="/assets/js/27.e61b8115.js"><link rel="prefetch" href="/assets/js/28.eed7e0c0.js"><link rel="prefetch" href="/assets/js/29.cbc2a8c8.js"><link rel="prefetch" href="/assets/js/3.a2df2c28.js"><link rel="prefetch" href="/assets/js/30.80476f75.js"><link rel="prefetch" href="/assets/js/31.805e917f.js"><link rel="prefetch" href="/assets/js/32.f4802bb4.js"><link rel="prefetch" href="/assets/js/4.38914c72.js"><link rel="prefetch" href="/assets/js/5.a0d52067.js"><link rel="prefetch" href="/assets/js/6.32c3a776.js"><link rel="prefetch" href="/assets/js/7.a07feba5.js"><link rel="prefetch" href="/assets/js/8.3d85024a.js"><link rel="prefetch" href="/assets/js/9.06828696.js">
+    <link rel="preload" href="/assets/css/0.styles.6d53293b.css" as="style"><link rel="preload" href="/assets/js/app.ddc1a8d7.js" as="script"><link rel="preload" href="/assets/js/2.316f9b33.js" as="script"><link rel="preload" href="/assets/js/17.c62f4da6.js" as="script"><link rel="prefetch" href="/assets/js/10.f1b3638d.js"><link rel="prefetch" href="/assets/js/11.817b4d1c.js"><link rel="prefetch" href="/assets/js/12.30d67eb2.js"><link rel="prefetch" href="/assets/js/13.002aedd1.js"><link rel="prefetch" href="/assets/js/14.5821f0b7.js"><link rel="prefetch" href="/assets/js/15.abd9d1f9.js"><link rel="prefetch" href="/assets/js/16.90a8c312.js"><link rel="prefetch" href="/assets/js/18.37c75063.js"><link rel="prefetch" href="/assets/js/19.7308880c.js"><link rel="prefetch" href="/assets/js/20.65b52384.js"><link rel="prefetch" href="/assets/js/21.58653ef2.js"><link rel="prefetch" href="/assets/js/22.626cb769.js"><link rel="prefetch" href="/assets/js/23.0f1c6192.js"><link rel="prefetch" href="/assets/js/24.97963d80.js"><link rel="prefetch" href="/assets/js/25.4691c3d0.js"><link rel="prefetch" href="/assets/js/26.3791cf82.js"><link rel="prefetch" href="/assets/js/27.e61b8115.js"><link rel="prefetch" href="/assets/js/28.7f8320d2.js"><link rel="prefetch" href="/assets/js/29.508129d4.js"><link rel="prefetch" href="/assets/js/3.a2df2c28.js"><link rel="prefetch" href="/assets/js/30.80476f75.js"><link rel="prefetch" href="/assets/js/31.f360f522.js"><link rel="prefetch" href="/assets/js/32.f4802bb4.js"><link rel="prefetch" href="/assets/js/4.38914c72.js"><link rel="prefetch" href="/assets/js/5.a0d52067.js"><link rel="prefetch" href="/assets/js/6.32c3a776.js"><link rel="prefetch" href="/assets/js/7.a07feba5.js"><link rel="prefetch" href="/assets/js/8.3d85024a.js"><link rel="prefetch" href="/assets/js/9.ea1bddfc.js">
     <link rel="stylesheet" href="/assets/css/0.styles.6d53293b.css">
   </head>
   <body>
@@ -41,11 +41,9 @@ jvm配置为
 </code></pre></div><h2 id="jvm命令行工具"><a href="#jvm命令行工具" class="header-anchor">#</a> Jvm命令行工具</h2> <ol><li>jstat 命令用法</li></ol> <p>命令格式:</p> <div class="language- extra-class"><pre class="language-text"><code>jstat [option] VMID [interval] [count]
 </code></pre></div><p>常用参数：</p> <ul><li>option - 选项参数，用于指定用户需要查询的虚拟机信息
 <ul><li>-class - 监视类装载、卸载数量、总空间以及类装载所耗费的时间</li> <li>-compiler：显示 JIT 编译的相关信息；</li> <li>-gc：监视 Java 堆状况，包括 Eden 区、两个 survivor 区、老年代、永久代等区的容量、已用空间、GC 时间合计等信息。</li> <li>-gccapacity：显示各个代的容量以及使用情况；</li> <li>-gcmetacapacity：显示 Metaspace 的大小；</li> <li>-gcnew：显示新生代信息；</li> <li>-gcnewcapacity：显示新生代大小和使用情况；</li> <li>-gcold：显示老年代和永久代的信息；</li> <li>-gcoldcapacity：显示老年代的大小；</li> <li>-gcutil：显示垃圾回收统计信息；</li> <li>-gccause：显示垃圾回收的相关信息（通 -gcutil），同时显示最后一次或当前正在发生的垃圾回收的诱因；</li> <li>-printcompilation：输出 JIT 编译的方法信息。</li></ul></li> <li>VMID - 如果是本地虚拟机进程，则 VMID 与 LVMID 是一致的；如果是远程虚拟机进程，那 VMID 的格式应当是：[protocol:][//]lvmid[@hostname[:port]/servername]</li> <li>interval - 查询间隔</li> <li>count - 查询次数</li></ul> <p>统计指标含义:</p> <ul><li><p>类加载统计 <code>jstat -class {vmid}</code></p> <ul><li>Loaded: 加载class的数量</li> <li>Bytes：所占用空间大小</li> <li>Unloaded：未加载数量</li> <li>Bytes: 未加载占用空间</li> <li>Time：时间</li></ul></li> <li><p>编译统计 <code>jstat -compiler {vmid}</code></p> <ul><li>Compiled：编译数量。</li> <li>Failed：失败数量</li> <li>Invalid：不可用数量</li> <li>Time：时间</li> <li>FailedType：失败类型</li> <li>FailedMethod：失败的方法</li></ul></li> <li><p>垃圾回收统计 <code>jstat -gc {vmid}</code></p> <ul><li>S0C：第一个幸存区的大小</li> <li>S1C：第二个幸存区的大小</li> <li>S0U：第一个幸存区的使用大小</li> <li>S1U：第二个幸存区的使用大小</li> <li>EC：伊甸园区的大小</li> <li>EU：伊甸园区的使用大小</li> <li>OC：老年代大小</li> <li>OU：老年代使用大小</li> <li>MC：方法区大小</li> <li>MU：方法区使用大小</li> <li>CCSC: 压缩类空间大小</li> <li>CCSU: 压缩类空间使用大小</li> <li>YGC：年轻代垃圾回收次数</li> <li>YGCT：年轻代垃圾回收消耗时间</li> <li>FGC：老年代垃圾回收次数</li> <li>FGCT：老年代垃圾回收消耗时间</li> <li>GCT：垃圾回收消耗总时间</li></ul></li> <li><p>堆内存统计 <code>jstat -gccapacity {vmid}</code></p> <ul><li>NGCMN：新生代最小容量</li> <li>NGCMX：新生代最大容量</li> <li>NGC：当前新生代容量</li> <li>S0C：第一个幸存区大小</li> <li>S1C：第二个幸存区的大小</li> <li>EC：伊甸园区的大小</li> <li>OGCMN：老年代最小容量</li> <li>OGCMX：老年代最大容量</li> <li>OGC：当前老年代大小</li> <li>OC:当前老年代大小</li> <li>MCMN:最小元数据容量</li> <li>MCMX：最大元数据容量</li> <li>MC：当前元数据空间大小</li> <li>CCSMN：最小压缩类空间大小</li> <li>CCSMX：最大压缩类空间大小</li> <li>CCSC：当前压缩类空间大小</li> <li>YGC：年轻代gc次数</li> <li>FGC：老年代GC次数</li></ul></li> <li><p>新生代垃圾回收统计 <code>jstat -gcnew {vmid}</code></p> <ul><li>S0C：第一个幸存区大小</li> <li>S1C：第二个幸存区的大小</li> <li>S0U：第一个幸存区的使用大小</li> <li>S1U：第二个幸存区的使用大小</li> <li>TT: 对象在新生代存活的次数</li> <li>MTT: 对象在新生代存活的最大次数</li> <li>DSS: 期望的幸存区大小</li> <li>EC：伊甸园区的大小</li> <li>EU：伊甸园区的使用大小</li> <li>YGC：年轻代垃圾回收次数</li> <li>YGCT：年轻代垃圾回收消耗时间</li></ul></li> <li><p>新生代内存统计 <code>jstat -gcnewcapacity {vmid}</code></p> <ul><li>NGCMN：新生代最小容量</li> <li>NGCMX：新生代最大容量</li> <li>NGC：当前新生代容量</li> <li>S0CMX：最大幸存1区大小</li> <li>S0C：当前幸存1区大小</li> <li>S1CMX：最大幸存2区大小</li> <li>S1C：当前幸存2区大小</li> <li>ECMX：最大伊甸园区大小</li> <li>EC：当前伊甸园区大小</li> <li>YGC：年轻代垃圾回收次数</li> <li>FGC：老年代回收次数</li></ul></li> <li><p>老年代垃圾回收统计 <code>jstat -gcold {vmid}</code></p> <ul><li>MC：方法区大小</li> <li>MU：方法区使用大小</li> <li>CCSC:压缩类空间大小</li> <li>CCSU:压缩类空间使用大小</li> <li>OC：老年代大小</li> <li>OU：老年代使用大小</li> <li>YGC：年轻代垃圾回收次数</li> <li>FGC：老年代垃圾回收次数</li> <li>FGCT：老年代垃圾回收消耗时间</li> <li>GCT：垃圾回收消耗总时间</li></ul></li> <li><p>老年代内存统计 <code>jstat -gcoldcapacity {vmid}</code></p> <ul><li>OGCMN：老年代最小容量</li> <li>OGCMX：老年代最大容量</li> <li>OGC：当前老年代大小</li> <li>OC：老年代大小</li> <li>YGC：年轻代垃圾回收次数</li> <li>FGC：老年代垃圾回收次数</li> <li>FGCT：老年代垃圾回收消耗时间</li> <li>GCT：垃圾回收消耗总时间</li></ul></li> <li><p>元数据空间统计 <code>jstat -gcmetacapacity {vmid}</code></p> <ul><li>MCMN: 最小元数据容量</li> <li>MCMX：最大元数据容量</li> <li>MC：当前元数据空间大小</li> <li>CCSMN：最小压缩类空间大小</li> <li>CCSMX：最大压缩类空间大小</li> <li>CCSC：当前压缩类空间大小</li> <li>YGC：年轻代垃圾回收次数</li> <li>FGC：老年代垃圾回收次数</li> <li>FGCT：老年代垃圾回收消耗时间</li> <li>GCT：垃圾回收消耗总时间</li></ul></li> <li><p>垃圾回收总览 <code>jstat -gcutil {vmid}</code></p> <ul><li>S0：幸存1区当前使用比例</li> <li>S1：幸存2区当前使用比例</li> <li>E：伊甸园区使用比例</li> <li>O：老年代使用比例</li> <li>M：元数据区使用比例</li> <li>CCS：压缩使用比例</li> <li>YGC：年轻代垃圾回收次数</li> <li>FGC：老年代垃圾回收次数</li> <li>FGCT：老年代垃圾回收消耗时间</li> <li>GCT：垃圾回收消耗总时间</li></ul></li></ul> <ol start="2"><li>jmap 命令用法</li></ol> <p>命令格式:</p> <div class="language-shell extra-class"><pre class="language-shell"><code>jmap <span class="token punctuation">[</span>option<span class="token punctuation">]</span> pid
-</code></pre></div><p>option 选项参数：</p> <ul><li>-dump - 生成堆转储快照。-dump:live 只保存堆中的存活对象。</li> <li>-finalizerinfo - 显示在 F-Queue 队列等待执行 finalizer 方法的对象</li> <li>-heap - 显示 Java 堆详细信息。</li> <li>-histo - 显示堆中对象的统计信息，包括类、实例数量、合计容量。-histo:live 只统计堆中的存活对象。</li> <li>-permstat - to print permanent generation statistics</li> <li>-F - 当-dump 没有响应时，强制生成 dump 快照</li></ul> <p>使用示例:</p> <ul><li><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div>生成 heapdump 快照</li> <div class="language-shell extra-class"><pre class="language-shell"><code>jmap -dump:live,format<span class="token operator">=</span>b,file<span class="token operator">=</span>dump.hprof <span class="token punctuation">{</span>vmid<span class="token punctuation">}</span>
-</code></pre></div></ul> <div class="language-shell extra-class"><pre class="language-shell"><code>jmap -dump:live,format<span class="token operator">=</span>b,file<span class="token operator">=</span>dump.hprof <span class="token punctuation">{</span>vmid<span class="token punctuation">}</span>
-</code></pre></div><ul><li><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div>查看实例最多的类</li> <div class="language-shell extra-class"><pre class="language-shell"><code>jmap -histo <span class="token punctuation">{</span>vmid<span class="token punctuation">}</span> <span class="token operator">|</span> <span class="token function">head</span> -n <span class="token punctuation">{</span>num<span class="token punctuation">}</span>
-</code></pre></div></ul> <div class="language-shell extra-class"><pre class="language-shell"><code>jmap -histo <span class="token punctuation">{</span>vmid<span class="token punctuation">}</span> <span class="token operator">|</span> <span class="token function">head</span> -n <span class="token punctuation">{</span>num<span class="token punctuation">}</span>
-</code></pre></div><h2 id="自行编译jdk"><a href="#自行编译jdk" class="header-anchor">#</a> 自行编译JDK</h2> <ol><li><div class="language-ini extra-class"><pre class="language-ini"><code></code></pre></div><div class="language-ini extra-class"><pre class="language-ini"><code></code></pre></div>编译参数设置</li> <div class="language-ini extra-class"><pre class="language-ini"><code><span class="token key attr-name">export LANG</span><span class="token punctuation">=</span><span class="token value attr-value">C</span>
+</code></pre></div><p>option 选项参数：</p> <ul><li>-dump - 生成堆转储快照。-dump:live 只保存堆中的存活对象。</li> <li>-finalizerinfo - 显示在 F-Queue 队列等待执行 finalizer 方法的对象</li> <li>-heap - 显示 Java 堆详细信息。</li> <li>-histo - 显示堆中对象的统计信息，包括类、实例数量、合计容量。-histo:live 只统计堆中的存活对象。</li> <li>-permstat - to print permanent generation statistics</li> <li>-F - 当-dump 没有响应时，强制生成 dump 快照</li></ul> <p>使用示例:</p> <ul><li><p>生成 heapdump 快照</p> <div class="language-shell extra-class"><pre class="language-shell"><code>jmap -dump:live,format<span class="token operator">=</span>b,file<span class="token operator">=</span>dump.hprof <span class="token punctuation">{</span>vmid<span class="token punctuation">}</span>
+</code></pre></div></li> <li><p>查看实例最多的类</p> <div class="language-shell extra-class"><pre class="language-shell"><code>jmap -histo <span class="token punctuation">{</span>vmid<span class="token punctuation">}</span> <span class="token operator">|</span> <span class="token function">head</span> -n <span class="token punctuation">{</span>num<span class="token punctuation">}</span>
+</code></pre></div></li></ul> <h2 id="自行编译jdk"><a href="#自行编译jdk" class="header-anchor">#</a> 自行编译JDK</h2> <ol><li><p>编译参数设置</p> <div class="language-ini extra-class"><pre class="language-ini"><code><span class="token key attr-name">export LANG</span><span class="token punctuation">=</span><span class="token value attr-value">C</span>
 <span class="token key attr-name">export ALT_BOOTDIR</span><span class="token punctuation">=</span><span class="token value attr-value">/usr/share/java</span>
 <span class="token key attr-name">export ALLOW_DOWNLOADS</span><span class="token punctuation">=</span><span class="token value attr-value">true</span>
 <span class="token key attr-name">export HOTSPOT_BUILD_JOBS</span><span class="token punctuation">=</span><span class="token value attr-value">8</span>
@@ -74,36 +72,7 @@ jvm配置为
 <span class="token key attr-name">export LP64</span><span class="token punctuation">=</span><span class="token value attr-value">1</span>
 
 ./configure --enable-debug 创建编译配置 不指定参数构建为release版本
-</code></pre></div></ol> <div class="language-ini extra-class"><pre class="language-ini"><code><span class="token key attr-name">export LANG</span><span class="token punctuation">=</span><span class="token value attr-value">C</span>
-<span class="token key attr-name">export ALT_BOOTDIR</span><span class="token punctuation">=</span><span class="token value attr-value">/usr/share/java</span>
-<span class="token key attr-name">export ALLOW_DOWNLOADS</span><span class="token punctuation">=</span><span class="token value attr-value">true</span>
-<span class="token key attr-name">export HOTSPOT_BUILD_JOBS</span><span class="token punctuation">=</span><span class="token value attr-value">8</span>
-<span class="token key attr-name">export ALT_PARALLEL_COMPILE_JOBS</span><span class="token punctuation">=</span><span class="token value attr-value">8</span>
-<span class="token key attr-name">export SKIP_COMPARE_IMAGES</span><span class="token punctuation">=</span><span class="token value attr-value">true</span>
-<span class="token comment"># 使用预编译头文件 编译加快</span>
-<span class="token key attr-name">export USE_PRECOMPILED_HEADER</span><span class="token punctuation">=</span><span class="token value attr-value">true</span>
-<span class="token comment"># 要编译的内容</span>
-<span class="token key attr-name">export BUILD_LANGTOOLS</span><span class="token punctuation">=</span><span class="token value attr-value">true</span>
-<span class="token comment">#export BUILD_JAXP=false</span>
-<span class="token comment">#export BUILD_JAXWS=false</span>
-<span class="token comment">#export BUILD_CORBA=false</span>
-<span class="token key attr-name">export BUILD_HOTSPOT</span><span class="token punctuation">=</span><span class="token value attr-value">true</span>
-<span class="token key attr-name">export BUILD_JDK</span><span class="token punctuation">=</span><span class="token value attr-value">true</span>
-<span class="token comment">#要编译的版本</span>
-<span class="token comment">#export SKIP_DEBUG_BUILD=false</span>
-<span class="token comment">#export SKIP_FASTDEBUG_BUILD=true</span>
-<span class="token comment">#export DEBUG_NAME=debug</span>
-<span class="token comment">#设置为false可以避开javaws和浏览器Java插件的build</span>
-<span class="token key attr-name">export BUILD_DEPLOY</span><span class="token punctuation">=</span><span class="token value attr-value">false</span>
-<span class="token comment">#设置为false不会build出安装包 安装包中有一些奇怪的依赖</span>
-<span class="token key attr-name">export BUILD_INSTALL</span><span class="token punctuation">=</span><span class="token value attr-value">false</span>
-<span class="token key attr-name">export ALT_OUTPUTDIR</span><span class="token punctuation">=</span><span class="token value attr-value">/home/ling/jdk/build</span>
-<span class="token key attr-name">export DEBUG_BINARIES</span><span class="token punctuation">=</span><span class="token value attr-value">true</span>
-<span class="token comment">#设置HotSpot编译为64位版本</span>
-<span class="token key attr-name">export LP64</span><span class="token punctuation">=</span><span class="token value attr-value">1</span>
-
-./configure --enable-debug 创建编译配置 不指定参数构建为release版本
-</code></pre></div><ol start="2"><li><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div>编译成功的提示</li> <div class="language-shell extra-class"><pre class="language-shell"><code>----- Build <span class="token builtin class-name">times</span> -------
+</code></pre></div></li> <li><p>编译成功的提示</p> <div class="language-shell extra-class"><pre class="language-shell"><code>----- Build <span class="token builtin class-name">times</span> -------
 Start <span class="token number">2020</span>-03-14 03:31:24
 End   <span class="token number">2020</span>-03-14 03:44:35
 00:00:48 corba
@@ -127,393 +96,188 @@ ASSEMBLY_EXCEPTION  HelloWorld.java  Makefile  README-builds.html  build   confi
 HelloWorld.class    LICENSE          README    THIRD_PARTY_README  common  corba      hotspot        jaxws  langtools  nashorn
 ling@aidong:~/jdk$ java HelloWorld
 HelloWorld openjdk
-</code></pre></div></ol> <div class="language-shell extra-class"><pre class="language-shell"><code>----- Build <span class="token builtin class-name">times</span> -------
-Start <span class="token number">2020</span>-03-14 03:31:24
-End   <span class="token number">2020</span>-03-14 03:44:35
-00:00:48 corba
-00:05:41 hotspot
-00:00:43 jaxp
-00:01:11 jaxws
-00:04:46 jdk
-00:00:01 langtools
-00:13:11 TOTAL
--------------------------
-Finished building OpenJDK <span class="token keyword">for</span> target <span class="token string">'default'</span>
-
-WARNING: You have the following ALT_ variables set:
-<span class="token assign-left variable">ALT_PARALLEL_COMPILE_JOBS</span><span class="token operator">=</span><span class="token number">8</span> <span class="token assign-left variable">ALT_BOOTDIR</span><span class="token operator">=</span>/usr/share/java <span class="token assign-left variable">ALT_OUTPUTDIR</span><span class="token operator">=</span>/home/ling/jdk/build
-ALT_ variables are deprecated and will be ignored. Please clean your environment.
-
-
-ling@aidong:~/jdk$ /home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/jdk/bin/javac ./HelloWorld.java
-ling@aidong:~/jdk$ <span class="token function">ls</span>
-ASSEMBLY_EXCEPTION  HelloWorld.java  Makefile  README-builds.html  build   configure  get_source.sh  jaxp   jdk        <span class="token function">make</span>     <span class="token builtin class-name">test</span>
-HelloWorld.class    LICENSE          README    THIRD_PARTY_README  common  corba      hotspot        jaxws  langtools  nashorn
-ling@aidong:~/jdk$ java HelloWorld
-HelloWorld openjdk
-</code></pre></div><ol start="3"><li><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div>运行虚拟机</li> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 添加环境变量</span>
+</code></pre></div></li> <li><p>运行虚拟机</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 添加环境变量</span>
 <span class="token assign-left variable">LD_LIBRARY_PATH</span><span class="token operator">=</span>.:<span class="token variable">${JAVA_HOME}</span>/jre/lib/amd64/native_threads:<span class="token variable">${JAVA_HOME}</span>/jre/lib/amd64
-</code></pre></div></ol> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 添加环境变量</span>
-<span class="token assign-left variable">LD_LIBRARY_PATH</span><span class="token operator">=</span>.:<span class="token variable">${JAVA_HOME}</span>/jre/lib/amd64/native_threads:<span class="token variable">${JAVA_HOME}</span>/jre/lib/amd64
-</code></pre></div><ol start="4"><li><p>编译错误汇总</p> <ul><li><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div>ubuntu内核版本过高</li> <div class="language-shell extra-class"><pre class="language-shell"><code> *** This OS is not supported: Linux aidong <span class="token number">4.4</span>.0-18362-Microsoft <span class="token comment">#476-Microsoft Fri Nov 01 16:53:00 PST 2019 x86_64 x86_64 x86_64 GNU/Linux</span>
- /home/ling/jdk/hotspot/make/linux/Makefile:234: recipe <span class="token keyword">for</span> target <span class="token string">'check_os_version'</span> failed
- make<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>check_os_version<span class="token punctuation">]</span> Error <span class="token number">1</span>
- make<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>linux_amd64_compiler2/debug<span class="token punctuation">]</span> Error <span class="token number">2</span>
- /home/ling/jdk/hotspot/make/linux/Makefile:255: recipe <span class="token keyword">for</span> target <span class="token string">'linux_amd64_compiler2/debug'</span> failed
- Makefile:216: recipe <span class="token keyword">for</span> target <span class="token string">'generic_build2'</span> failed
- make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>generic_build2<span class="token punctuation">]</span> Error <span class="token number">2</span>
- Makefile:167: recipe <span class="token keyword">for</span> target <span class="token string">'fastdebug'</span> failed
- make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>fastdebug<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp<span class="token punctuation">]</span> Error <span class="token number">2</span>
- HotspotWrapper.gmk:44: recipe <span class="token keyword">for</span> target <span class="token string">'/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp'</span> failed
- /home/ling/jdk//make/Main.gmk:108: recipe <span class="token keyword">for</span> target <span class="token string">'hotspot-only'</span> failed
- make: *** <span class="token punctuation">[</span>hotspot-only<span class="token punctuation">]</span> Error <span class="token number">2</span>
+</code></pre></div></li> <li><p>编译错误汇总</p> <ul><li><p>ubuntu内核版本过高</p> <div class="language-shell extra-class"><pre class="language-shell"><code>  *** This OS is not supported: Linux aidong <span class="token number">4.4</span>.0-18362-Microsoft <span class="token comment">#476-Microsoft Fri Nov 01 16:53:00 PST 2019 x86_64 x86_64 x86_64 GNU/Linux</span>
+  /home/ling/jdk/hotspot/make/linux/Makefile:234: recipe <span class="token keyword">for</span> target <span class="token string">'check_os_version'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>check_os_version<span class="token punctuation">]</span> Error <span class="token number">1</span>
+  make<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>linux_amd64_compiler2/debug<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  /home/ling/jdk/hotspot/make/linux/Makefile:255: recipe <span class="token keyword">for</span> target <span class="token string">'linux_amd64_compiler2/debug'</span> failed
+  Makefile:216: recipe <span class="token keyword">for</span> target <span class="token string">'generic_build2'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>generic_build2<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  Makefile:167: recipe <span class="token keyword">for</span> target <span class="token string">'fastdebug'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>fastdebug<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  HotspotWrapper.gmk:44: recipe <span class="token keyword">for</span> target <span class="token string">'/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp'</span> failed
+  /home/ling/jdk//make/Main.gmk:108: recipe <span class="token keyword">for</span> target <span class="token string">'hotspot-only'</span> failed
+  make: *** <span class="token punctuation">[</span>hotspot-only<span class="token punctuation">]</span> Error <span class="token number">2</span>
 
- <span class="token comment"># 解决方案:vim make/linux/Makefile</span>
- :/SUPPORTED_OS_VERSION 搜索改关键字
- - SUPPORTED_OS_VERSION <span class="token operator">=</span> <span class="token number">2.4</span>% <span class="token number">2.5</span>% <span class="token number">2.6</span>% <span class="token number">3</span>%
- + SUPPORTED_OS_VERSION <span class="token operator">=</span> <span class="token number">2.4</span>% <span class="token number">2.5</span>% <span class="token number">2.6</span>% <span class="token number">4</span>%
+  <span class="token comment"># 解决方案:vim make/linux/Makefile</span>
+  :/SUPPORTED_OS_VERSION 搜索改关键字
+  - SUPPORTED_OS_VERSION <span class="token operator">=</span> <span class="token number">2.4</span>% <span class="token number">2.5</span>% <span class="token number">2.6</span>% <span class="token number">3</span>%
+  + SUPPORTED_OS_VERSION <span class="token operator">=</span> <span class="token number">2.4</span>% <span class="token number">2.5</span>% <span class="token number">2.6</span>% <span class="token number">4</span>%
 
- <span class="token comment"># 解决方案:vim xxx/hotspot/make/linux/Makefile 67行</span>
-</code></pre></div></ul> <div class="language-shell extra-class"><pre class="language-shell"><code> *** This OS is not supported: Linux aidong <span class="token number">4.4</span>.0-18362-Microsoft <span class="token comment">#476-Microsoft Fri Nov 01 16:53:00 PST 2019 x86_64 x86_64 x86_64 GNU/Linux</span>
- /home/ling/jdk/hotspot/make/linux/Makefile:234: recipe <span class="token keyword">for</span> target <span class="token string">'check_os_version'</span> failed
- make<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>check_os_version<span class="token punctuation">]</span> Error <span class="token number">1</span>
- make<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>linux_amd64_compiler2/debug<span class="token punctuation">]</span> Error <span class="token number">2</span>
- /home/ling/jdk/hotspot/make/linux/Makefile:255: recipe <span class="token keyword">for</span> target <span class="token string">'linux_amd64_compiler2/debug'</span> failed
- Makefile:216: recipe <span class="token keyword">for</span> target <span class="token string">'generic_build2'</span> failed
- make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>generic_build2<span class="token punctuation">]</span> Error <span class="token number">2</span>
- Makefile:167: recipe <span class="token keyword">for</span> target <span class="token string">'fastdebug'</span> failed
- make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>fastdebug<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp<span class="token punctuation">]</span> Error <span class="token number">2</span>
- HotspotWrapper.gmk:44: recipe <span class="token keyword">for</span> target <span class="token string">'/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp'</span> failed
- /home/ling/jdk//make/Main.gmk:108: recipe <span class="token keyword">for</span> target <span class="token string">'hotspot-only'</span> failed
- make: *** <span class="token punctuation">[</span>hotspot-only<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  <span class="token comment"># 解决方案:vim xxx/hotspot/make/linux/Makefile 67行</span>
+</code></pre></div></li> <li><p>make版本的问题，4.0以后make-I和-j选项混乱</p> <div class="language-shell extra-class"><pre class="language-shell"><code>  /usr/bin/make: invalid option -- <span class="token string">'/'</span>
+  /usr/bin/make: invalid option -- <span class="token string">'a'</span>
+  /usr/bin/make: invalid option -- <span class="token string">'/'</span>
+  /usr/bin/make: invalid option -- <span class="token string">'c'</span>
+  Usage: <span class="token function">make</span> <span class="token punctuation">[</span>options<span class="token punctuation">]</span> <span class="token punctuation">[</span>target<span class="token punctuation">]</span> <span class="token punctuation">..</span>.
+  Options:
+  -b, -m                      Ignored <span class="token keyword">for</span> compatibility.
+  -B, --always-make           Unconditionally <span class="token function">make</span> all targets.
+  -C DIRECTORY, --directory<span class="token operator">=</span>DIRECTORY
+                              Change to DIRECTORY before doing anything.
+  -d                          Print lots of debugging information.
+  --debug<span class="token punctuation">[</span><span class="token operator">=</span>FLAGS<span class="token punctuation">]</span>             Print various types of debugging information.
+  -e, --environment-overrides
+                              Environment variables override makefiles.
+  --eval<span class="token operator">=</span>STRING               Evaluate STRING as a makefile statement.
+  -f FILE, --file<span class="token operator">=</span>FILE, --makefile<span class="token operator">=</span>FILE
+                              Read FILE as a makefile.
+  -h, --help                  Print this message and exit.
+  -i, --ignore-errors         Ignore errors from recipes.
+  -I DIRECTORY, --include-dir<span class="token operator">=</span>DIRECTORY
+                              Search DIRECTORY <span class="token keyword">for</span> included makefiles.
+  -j <span class="token punctuation">[</span>N<span class="token punctuation">]</span>, --jobs<span class="token punctuation">[</span><span class="token operator">=</span>N<span class="token punctuation">]</span>          Allow N <span class="token function">jobs</span> at once<span class="token punctuation">;</span> infinite <span class="token function">jobs</span> with no arg.
+  -k, --keep-going            Keep going when some targets can<span class="token string">'t be made.
+  -l [N], --load-average[=N], --max-load[=N]
+                              Don'</span>t start multiple <span class="token function">jobs</span> unless load is below N.
+  -L, --check-symlink-times   Use the latest mtime between symlinks and target.
+  -n, --just-print, --dry-run, --recon
+                              Don<span class="token string">'t actually run any recipe; just print them.
+  -o FILE, --old-file=FILE, --assume-old=FILE
+                              Consider FILE to be very old and don'</span>t remake it.
+  -O<span class="token punctuation">[</span>TYPE<span class="token punctuation">]</span>, --output-sync<span class="token punctuation">[</span><span class="token operator">=</span>TYPE<span class="token punctuation">]</span>
+                              Synchronize output of parallel <span class="token function">jobs</span> by TYPE.
+  -p, --print-data-base       Print <span class="token function">make</span><span class="token string">'s internal database.
+  -q, --question              Run no recipe; exit status says if up to date.
+  -r, --no-builtin-rules      Disable the built-in implicit rules.
+  -R, --no-builtin-variables  Disable the built-in variable settings.
+  -s, --silent, --quiet       Don'</span>t <span class="token builtin class-name">echo</span> recipes.
+  -S, --no-keep-going, --stop
+                              Turns off -k.
+  -t, --touch                 Touch targets instead of remaking them.
+  --trace                     Print tracing information.
+  -v, --version               Print the version number of <span class="token function">make</span> and exit.
+  -w, --print-directory       Print the current directory.
+  --no-print-directory        Turn off -w, even <span class="token keyword">if</span> it was turned on implicitly.
+  -W FILE, --what-if<span class="token operator">=</span>FILE, --new-file<span class="token operator">=</span>FILE, --assume-new<span class="token operator">=</span>FILE
+                              Consider FILE to be infinitely new.
+  --warn-undefined-variables  Warn when an undefined variable is referenced.
 
- <span class="token comment"># 解决方案:vim make/linux/Makefile</span>
- :/SUPPORTED_OS_VERSION 搜索改关键字
- - SUPPORTED_OS_VERSION <span class="token operator">=</span> <span class="token number">2.4</span>% <span class="token number">2.5</span>% <span class="token number">2.6</span>% <span class="token number">3</span>%
- + SUPPORTED_OS_VERSION <span class="token operator">=</span> <span class="token number">2.4</span>% <span class="token number">2.5</span>% <span class="token number">2.6</span>% <span class="token number">4</span>%
+  This program built <span class="token keyword">for</span> x86_64-pc-linux-gnu
+  Report bugs to <span class="token operator">&lt;</span>bug-make@gnu.org<span class="token operator">&gt;</span>
+  make<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>ad_stuff<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  /home/ling/jdk/hotspot/make/linux/makefiles/top.make:91: recipe <span class="token keyword">for</span> target <span class="token string">'ad_stuff'</span> failed
+  /home/ling/jdk/hotspot/make/linux/Makefile:289: recipe <span class="token keyword">for</span> target <span class="token string">'fastdebug'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>fastdebug<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  Makefile:216: recipe <span class="token keyword">for</span> target <span class="token string">'generic_build2'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>generic_build2<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>fastdebug<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  Makefile:167: recipe <span class="token keyword">for</span> target <span class="token string">'fastdebug'</span> failed
+  HotspotWrapper.gmk:44: recipe <span class="token keyword">for</span> target <span class="token string">'/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  /home/ling/jdk//make/Main.gmk:108: recipe <span class="token keyword">for</span> target <span class="token string">'hotspot-only'</span> failed
+  make: *** <span class="token punctuation">[</span>hotspot-only<span class="token punctuation">]</span> Error <span class="token number">2</span>
 
- <span class="token comment"># 解决方案:vim xxx/hotspot/make/linux/Makefile 67行</span>
-</code></pre></div><ul><li><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div>make版本的问题，4.0以后make-I和-j选项混乱</li> <div class="language-shell extra-class"><pre class="language-shell"><code> /usr/bin/make: invalid option -- <span class="token string">'/'</span>
- /usr/bin/make: invalid option -- <span class="token string">'a'</span>
- /usr/bin/make: invalid option -- <span class="token string">'/'</span>
- /usr/bin/make: invalid option -- <span class="token string">'c'</span>
- Usage: <span class="token function">make</span> <span class="token punctuation">[</span>options<span class="token punctuation">]</span> <span class="token punctuation">[</span>target<span class="token punctuation">]</span> <span class="token punctuation">..</span>.
- Options:
- -b, -m                      Ignored <span class="token keyword">for</span> compatibility.
- -B, --always-make           Unconditionally <span class="token function">make</span> all targets.
- -C DIRECTORY, --directory<span class="token operator">=</span>DIRECTORY
-                             Change to DIRECTORY before doing anything.
- -d                          Print lots of debugging information.
- --debug<span class="token punctuation">[</span><span class="token operator">=</span>FLAGS<span class="token punctuation">]</span>             Print various types of debugging information.
- -e, --environment-overrides
-                             Environment variables override makefiles.
- --eval<span class="token operator">=</span>STRING               Evaluate STRING as a makefile statement.
- -f FILE, --file<span class="token operator">=</span>FILE, --makefile<span class="token operator">=</span>FILE
-                             Read FILE as a makefile.
- -h, --help                  Print this message and exit.
- -i, --ignore-errors         Ignore errors from recipes.
- -I DIRECTORY, --include-dir<span class="token operator">=</span>DIRECTORY
-                             Search DIRECTORY <span class="token keyword">for</span> included makefiles.
- -j <span class="token punctuation">[</span>N<span class="token punctuation">]</span>, --jobs<span class="token punctuation">[</span><span class="token operator">=</span>N<span class="token punctuation">]</span>          Allow N <span class="token function">jobs</span> at once<span class="token punctuation">;</span> infinite <span class="token function">jobs</span> with no arg.
- -k, --keep-going            Keep going when some targets can<span class="token string">'t be made.
- -l [N], --load-average[=N], --max-load[=N]
-                             Don'</span>t start multiple <span class="token function">jobs</span> unless load is below N.
- -L, --check-symlink-times   Use the latest mtime between symlinks and target.
- -n, --just-print, --dry-run, --recon
-                             Don<span class="token string">'t actually run any recipe; just print them.
- -o FILE, --old-file=FILE, --assume-old=FILE
-                             Consider FILE to be very old and don'</span>t remake it.
- -O<span class="token punctuation">[</span>TYPE<span class="token punctuation">]</span>, --output-sync<span class="token punctuation">[</span><span class="token operator">=</span>TYPE<span class="token punctuation">]</span>
-                             Synchronize output of parallel <span class="token function">jobs</span> by TYPE.
- -p, --print-data-base       Print <span class="token function">make</span><span class="token string">'s internal database.
- -q, --question              Run no recipe; exit status says if up to date.
- -r, --no-builtin-rules      Disable the built-in implicit rules.
- -R, --no-builtin-variables  Disable the built-in variable settings.
- -s, --silent, --quiet       Don'</span>t <span class="token builtin class-name">echo</span> recipes.
- -S, --no-keep-going, --stop
-                             Turns off -k.
- -t, --touch                 Touch targets instead of remaking them.
- --trace                     Print tracing information.
- -v, --version               Print the version number of <span class="token function">make</span> and exit.
- -w, --print-directory       Print the current directory.
- --no-print-directory        Turn off -w, even <span class="token keyword">if</span> it was turned on implicitly.
- -W FILE, --what-if<span class="token operator">=</span>FILE, --new-file<span class="token operator">=</span>FILE, --assume-new<span class="token operator">=</span>FILE
-                             Consider FILE to be infinitely new.
- --warn-undefined-variables  Warn when an undefined variable is referenced.
-
- This program built <span class="token keyword">for</span> x86_64-pc-linux-gnu
- Report bugs to <span class="token operator">&lt;</span>bug-make@gnu.org<span class="token operator">&gt;</span>
- make<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>ad_stuff<span class="token punctuation">]</span> Error <span class="token number">2</span>
- /home/ling/jdk/hotspot/make/linux/makefiles/top.make:91: recipe <span class="token keyword">for</span> target <span class="token string">'ad_stuff'</span> failed
- /home/ling/jdk/hotspot/make/linux/Makefile:289: recipe <span class="token keyword">for</span> target <span class="token string">'fastdebug'</span> failed
- make<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>fastdebug<span class="token punctuation">]</span> Error <span class="token number">2</span>
- Makefile:216: recipe <span class="token keyword">for</span> target <span class="token string">'generic_build2'</span> failed
- make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>generic_build2<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>fastdebug<span class="token punctuation">]</span> Error <span class="token number">2</span>
- Makefile:167: recipe <span class="token keyword">for</span> target <span class="token string">'fastdebug'</span> failed
- HotspotWrapper.gmk:44: recipe <span class="token keyword">for</span> target <span class="token string">'/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp'</span> failed
- make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp<span class="token punctuation">]</span> Error <span class="token number">2</span>
- /home/ling/jdk//make/Main.gmk:108: recipe <span class="token keyword">for</span> target <span class="token string">'hotspot-only'</span> failed
- make: *** <span class="token punctuation">[</span>hotspot-only<span class="token punctuation">]</span> Error <span class="token number">2</span>
-
- <span class="token comment"># 解决方案一: 降级make4.0以下(未测试)</span>
- 
- <span class="token comment"># 解决方案二:</span>
- <span class="token function">vim</span> xxx/hotspot/make/linux/makefiles/adjust-mflags.sh
- - s/ -<span class="token punctuation">\</span><span class="token punctuation">(</span><span class="token punctuation">[</span>^     <span class="token punctuation">]</span><span class="token punctuation">[</span>^     <span class="token punctuation">]</span>*<span class="token punctuation">\</span><span class="token punctuation">)</span>j/ -<span class="token punctuation">\</span><span class="token number">1</span> -j/
- + s/ -<span class="token punctuation">\</span><span class="token punctuation">(</span><span class="token punctuation">[</span>^     I<span class="token punctuation">]</span><span class="token punctuation">[</span>^     <span class="token punctuation">]</span>*<span class="token punctuation">\</span><span class="token punctuation">)</span>j/ -<span class="token punctuation">\</span><span class="token number">1</span> -j/
-</code></pre></div></ul> <div class="language-shell extra-class"><pre class="language-shell"><code> /usr/bin/make: invalid option -- <span class="token string">'/'</span>
- /usr/bin/make: invalid option -- <span class="token string">'a'</span>
- /usr/bin/make: invalid option -- <span class="token string">'/'</span>
- /usr/bin/make: invalid option -- <span class="token string">'c'</span>
- Usage: <span class="token function">make</span> <span class="token punctuation">[</span>options<span class="token punctuation">]</span> <span class="token punctuation">[</span>target<span class="token punctuation">]</span> <span class="token punctuation">..</span>.
- Options:
- -b, -m                      Ignored <span class="token keyword">for</span> compatibility.
- -B, --always-make           Unconditionally <span class="token function">make</span> all targets.
- -C DIRECTORY, --directory<span class="token operator">=</span>DIRECTORY
-                             Change to DIRECTORY before doing anything.
- -d                          Print lots of debugging information.
- --debug<span class="token punctuation">[</span><span class="token operator">=</span>FLAGS<span class="token punctuation">]</span>             Print various types of debugging information.
- -e, --environment-overrides
-                             Environment variables override makefiles.
- --eval<span class="token operator">=</span>STRING               Evaluate STRING as a makefile statement.
- -f FILE, --file<span class="token operator">=</span>FILE, --makefile<span class="token operator">=</span>FILE
-                             Read FILE as a makefile.
- -h, --help                  Print this message and exit.
- -i, --ignore-errors         Ignore errors from recipes.
- -I DIRECTORY, --include-dir<span class="token operator">=</span>DIRECTORY
-                             Search DIRECTORY <span class="token keyword">for</span> included makefiles.
- -j <span class="token punctuation">[</span>N<span class="token punctuation">]</span>, --jobs<span class="token punctuation">[</span><span class="token operator">=</span>N<span class="token punctuation">]</span>          Allow N <span class="token function">jobs</span> at once<span class="token punctuation">;</span> infinite <span class="token function">jobs</span> with no arg.
- -k, --keep-going            Keep going when some targets can<span class="token string">'t be made.
- -l [N], --load-average[=N], --max-load[=N]
-                             Don'</span>t start multiple <span class="token function">jobs</span> unless load is below N.
- -L, --check-symlink-times   Use the latest mtime between symlinks and target.
- -n, --just-print, --dry-run, --recon
-                             Don<span class="token string">'t actually run any recipe; just print them.
- -o FILE, --old-file=FILE, --assume-old=FILE
-                             Consider FILE to be very old and don'</span>t remake it.
- -O<span class="token punctuation">[</span>TYPE<span class="token punctuation">]</span>, --output-sync<span class="token punctuation">[</span><span class="token operator">=</span>TYPE<span class="token punctuation">]</span>
-                             Synchronize output of parallel <span class="token function">jobs</span> by TYPE.
- -p, --print-data-base       Print <span class="token function">make</span><span class="token string">'s internal database.
- -q, --question              Run no recipe; exit status says if up to date.
- -r, --no-builtin-rules      Disable the built-in implicit rules.
- -R, --no-builtin-variables  Disable the built-in variable settings.
- -s, --silent, --quiet       Don'</span>t <span class="token builtin class-name">echo</span> recipes.
- -S, --no-keep-going, --stop
-                             Turns off -k.
- -t, --touch                 Touch targets instead of remaking them.
- --trace                     Print tracing information.
- -v, --version               Print the version number of <span class="token function">make</span> and exit.
- -w, --print-directory       Print the current directory.
- --no-print-directory        Turn off -w, even <span class="token keyword">if</span> it was turned on implicitly.
- -W FILE, --what-if<span class="token operator">=</span>FILE, --new-file<span class="token operator">=</span>FILE, --assume-new<span class="token operator">=</span>FILE
-                             Consider FILE to be infinitely new.
- --warn-undefined-variables  Warn when an undefined variable is referenced.
-
- This program built <span class="token keyword">for</span> x86_64-pc-linux-gnu
- Report bugs to <span class="token operator">&lt;</span>bug-make@gnu.org<span class="token operator">&gt;</span>
- make<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>ad_stuff<span class="token punctuation">]</span> Error <span class="token number">2</span>
- /home/ling/jdk/hotspot/make/linux/makefiles/top.make:91: recipe <span class="token keyword">for</span> target <span class="token string">'ad_stuff'</span> failed
- /home/ling/jdk/hotspot/make/linux/Makefile:289: recipe <span class="token keyword">for</span> target <span class="token string">'fastdebug'</span> failed
- make<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>fastdebug<span class="token punctuation">]</span> Error <span class="token number">2</span>
- Makefile:216: recipe <span class="token keyword">for</span> target <span class="token string">'generic_build2'</span> failed
- make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>generic_build2<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>fastdebug<span class="token punctuation">]</span> Error <span class="token number">2</span>
- Makefile:167: recipe <span class="token keyword">for</span> target <span class="token string">'fastdebug'</span> failed
- HotspotWrapper.gmk:44: recipe <span class="token keyword">for</span> target <span class="token string">'/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp'</span> failed
- make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp<span class="token punctuation">]</span> Error <span class="token number">2</span>
- /home/ling/jdk//make/Main.gmk:108: recipe <span class="token keyword">for</span> target <span class="token string">'hotspot-only'</span> failed
- make: *** <span class="token punctuation">[</span>hotspot-only<span class="token punctuation">]</span> Error <span class="token number">2</span>
-
- <span class="token comment"># 解决方案一: 降级make4.0以下(未测试)</span>
- 
- <span class="token comment"># 解决方案二:</span>
- <span class="token function">vim</span> xxx/hotspot/make/linux/makefiles/adjust-mflags.sh
- - s/ -<span class="token punctuation">\</span><span class="token punctuation">(</span><span class="token punctuation">[</span>^     <span class="token punctuation">]</span><span class="token punctuation">[</span>^     <span class="token punctuation">]</span>*<span class="token punctuation">\</span><span class="token punctuation">)</span>j/ -<span class="token punctuation">\</span><span class="token number">1</span> -j/
- + s/ -<span class="token punctuation">\</span><span class="token punctuation">(</span><span class="token punctuation">[</span>^     I<span class="token punctuation">]</span><span class="token punctuation">[</span>^     <span class="token punctuation">]</span>*<span class="token punctuation">\</span><span class="token punctuation">)</span>j/ -<span class="token punctuation">\</span><span class="token number">1</span> -j/
-</code></pre></div><ul><li><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div>gcc/g++ 版本过高</li> <div class="language-shell extra-class"><pre class="language-shell"><code> In <span class="token function">file</span> included from /home/ling/jdk/hotspot/src/share/vm/memory/sharedHeap.hpp:29:0,
-         from /home/ling/jdk/hotspot/src/share/vm/gc_implementation/parallelScavenge/psParallelCompact.hpp:34,
-         from /home/ling/jdk/hotspot/src/share/vm/gc_implementation/shared/markSweep.inline.hpp:33,
-         from /home/ling/jdk/hotspot/src/share/vm/oops/oop.inline.hpp:29,
-         from /home/ling/jdk/hotspot/src/share/vm/classfile/classFileParser.hpp:30,
-         from /home/ling/jdk/hotspot/src/share/vm/classfile/classLoader.hpp:28,
-         from /home/ling/jdk/hotspot/src/share/vm/classfile/systemDictionary.hpp:29,
-         from /home/ling/jdk/hotspot/src/share/vm/ci/ciEnv.hpp:30,
-         from /home/ling/jdk/hotspot/src/share/vm/ci/ciUtilities.hpp:28,
-         from /home/ling/jdk/hotspot/src/share/vm/ci/ciNullObject.hpp:30,
-         from /home/ling/jdk/hotspot/src/share/vm/ci/ciConstant.hpp:29,
-         from /home/ling/jdk/hotspot/src/share/vm/ci/ciArray.hpp:29,
-         from /home/ling/jdk/hotspot/src/share/vm/precompiled/precompiled.hpp:33:
- /home/ling/jdk/hotspot/src/share/vm/memory/generation.hpp:421:17: error: invalid suffix on literal<span class="token punctuation">;</span> C++11 requires a space between literal and string macro <span class="token punctuation">[</span>-Werror<span class="token operator">=</span>literal-suffix<span class="token punctuation">]</span>
-         warning<span class="token punctuation">(</span><span class="token string">&quot;time warp: &quot;</span>INT64_FORMAT<span class="token string">&quot; to &quot;</span>INT64_FORMAT, _time_of_last_gc, now<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment"># 解决方案一: 降级make4.0以下(未测试)</span>
+  
+  <span class="token comment"># 解决方案二:</span>
+  <span class="token function">vim</span> xxx/hotspot/make/linux/makefiles/adjust-mflags.sh
+  - s/ -<span class="token punctuation">\</span><span class="token punctuation">(</span><span class="token punctuation">[</span>^     <span class="token punctuation">]</span><span class="token punctuation">[</span>^     <span class="token punctuation">]</span>*<span class="token punctuation">\</span><span class="token punctuation">)</span>j/ -<span class="token punctuation">\</span><span class="token number">1</span> -j/
+  + s/ -<span class="token punctuation">\</span><span class="token punctuation">(</span><span class="token punctuation">[</span>^     I<span class="token punctuation">]</span><span class="token punctuation">[</span>^     <span class="token punctuation">]</span>*<span class="token punctuation">\</span><span class="token punctuation">)</span>j/ -<span class="token punctuation">\</span><span class="token number">1</span> -j/
+</code></pre></div></li> <li><p>gcc/g++ 版本过高</p> <div class="language-shell extra-class"><pre class="language-shell"><code>  In <span class="token function">file</span> included from /home/ling/jdk/hotspot/src/share/vm/memory/sharedHeap.hpp:29:0,
+          from /home/ling/jdk/hotspot/src/share/vm/gc_implementation/parallelScavenge/psParallelCompact.hpp:34,
+          from /home/ling/jdk/hotspot/src/share/vm/gc_implementation/shared/markSweep.inline.hpp:33,
+          from /home/ling/jdk/hotspot/src/share/vm/oops/oop.inline.hpp:29,
+          from /home/ling/jdk/hotspot/src/share/vm/classfile/classFileParser.hpp:30,
+          from /home/ling/jdk/hotspot/src/share/vm/classfile/classLoader.hpp:28,
+          from /home/ling/jdk/hotspot/src/share/vm/classfile/systemDictionary.hpp:29,
+          from /home/ling/jdk/hotspot/src/share/vm/ci/ciEnv.hpp:30,
+          from /home/ling/jdk/hotspot/src/share/vm/ci/ciUtilities.hpp:28,
+          from /home/ling/jdk/hotspot/src/share/vm/ci/ciNullObject.hpp:30,
+          from /home/ling/jdk/hotspot/src/share/vm/ci/ciConstant.hpp:29,
+          from /home/ling/jdk/hotspot/src/share/vm/ci/ciArray.hpp:29,
+          from /home/ling/jdk/hotspot/src/share/vm/precompiled/precompiled.hpp:33:
+  /home/ling/jdk/hotspot/src/share/vm/memory/generation.hpp:421:17: error: invalid suffix on literal<span class="token punctuation">;</span> C++11 requires a space between literal and string macro <span class="token punctuation">[</span>-Werror<span class="token operator">=</span>literal-suffix<span class="token punctuation">]</span>
+          warning<span class="token punctuation">(</span><span class="token string">&quot;time warp: &quot;</span>INT64_FORMAT<span class="token string">&quot; to &quot;</span>INT64_FORMAT, _time_of_last_gc, now<span class="token punctuation">)</span><span class="token punctuation">;</span>
               ^
- <span class="token comment"># 解决方案</span>
- <span class="token comment"># 这里出现问题的原因是ubuntu版本过高,18.04默认的gcc/g++版本为7.0</span>
- <span class="token comment"># 执行降级操作</span>
- <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> gcc-4.8
- <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> g++-4.8
- <span class="token function">sudo</span> update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 <span class="token number">100</span>
- <span class="token function">sudo</span> update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 <span class="token number">100</span>
- 降级操作后需要重新执行./configure --enable-debug 否则版本即使gcc/g++ --version变了还是会报错
- <span class="token function">make</span>  <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">|</span> <span class="token function">tee</span> <span class="token variable">$ALT_OUTPUTDIR</span>/build.log
-</code></pre></div></ul> <div class="language-shell extra-class"><pre class="language-shell"><code> In <span class="token function">file</span> included from /home/ling/jdk/hotspot/src/share/vm/memory/sharedHeap.hpp:29:0,
-         from /home/ling/jdk/hotspot/src/share/vm/gc_implementation/parallelScavenge/psParallelCompact.hpp:34,
-         from /home/ling/jdk/hotspot/src/share/vm/gc_implementation/shared/markSweep.inline.hpp:33,
-         from /home/ling/jdk/hotspot/src/share/vm/oops/oop.inline.hpp:29,
-         from /home/ling/jdk/hotspot/src/share/vm/classfile/classFileParser.hpp:30,
-         from /home/ling/jdk/hotspot/src/share/vm/classfile/classLoader.hpp:28,
-         from /home/ling/jdk/hotspot/src/share/vm/classfile/systemDictionary.hpp:29,
-         from /home/ling/jdk/hotspot/src/share/vm/ci/ciEnv.hpp:30,
-         from /home/ling/jdk/hotspot/src/share/vm/ci/ciUtilities.hpp:28,
-         from /home/ling/jdk/hotspot/src/share/vm/ci/ciNullObject.hpp:30,
-         from /home/ling/jdk/hotspot/src/share/vm/ci/ciConstant.hpp:29,
-         from /home/ling/jdk/hotspot/src/share/vm/ci/ciArray.hpp:29,
-         from /home/ling/jdk/hotspot/src/share/vm/precompiled/precompiled.hpp:33:
- /home/ling/jdk/hotspot/src/share/vm/memory/generation.hpp:421:17: error: invalid suffix on literal<span class="token punctuation">;</span> C++11 requires a space between literal and string macro <span class="token punctuation">[</span>-Werror<span class="token operator">=</span>literal-suffix<span class="token punctuation">]</span>
-         warning<span class="token punctuation">(</span><span class="token string">&quot;time warp: &quot;</span>INT64_FORMAT<span class="token string">&quot; to &quot;</span>INT64_FORMAT, _time_of_last_gc, now<span class="token punctuation">)</span><span class="token punctuation">;</span>
-              ^
- <span class="token comment"># 解决方案</span>
- <span class="token comment"># 这里出现问题的原因是ubuntu版本过高,18.04默认的gcc/g++版本为7.0</span>
- <span class="token comment"># 执行降级操作</span>
- <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> gcc-4.8
- <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> g++-4.8
- <span class="token function">sudo</span> update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 <span class="token number">100</span>
- <span class="token function">sudo</span> update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 <span class="token number">100</span>
- 降级操作后需要重新执行./configure --enable-debug 否则版本即使gcc/g++ --version变了还是会报错
- <span class="token function">make</span>  <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">|</span> <span class="token function">tee</span> <span class="token variable">$ALT_OUTPUTDIR</span>/build.log
-</code></pre></div><ul><li><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div>make错误</li> <div class="language-shell extra-class"><pre class="language-shell"><code> In <span class="token function">file</span> included from /home/ling/jdk/hotspot/src/share/vm/utilities/histogram.hpp:32:0,
-         from /home/ling/jdk/hotspot/src/share/vm/runtime/mutex.hpp:30,
-         from /home/ling/jdk/hotspot/src/share/vm/classfile/classLoaderData.hpp:32,
-         from /home/ling/jdk/hotspot/src/share/vm/oops/typeArrayKlass.hpp:28,
-         from /home/ling/jdk/hotspot/src/share/vm/oops/typeArrayOop.hpp:29,
-         from /home/ling/jdk/hotspot/src/share/vm/oops/constantPool.hpp:32,
-         from /home/ling/jdk/hotspot/src/share/vm/oops/method.hpp:33,
-         from /home/ling/jdk/hotspot/src/share/vm/runtime/frame.hpp:28,
-         from /home/ling/jdk/hotspot/src/share/vm/code/codeBlob.hpp:30,
-         from /home/ling/jdk/hotspot/src/share/vm/code/codeCache.hpp:28,
-         from /home/ling/jdk/hotspot/src/cpu/x86/vm/assembler_x86.inline.hpp:30,
-         from /home/ling/jdk/hotspot/src/share/vm/asm/assembler.inline.hpp:31,
-         from /home/ling/jdk/hotspot/src/share/vm/precompiled/precompiled.hpp:30:
- /home/ling/jdk/hotspot/src/os/linux/vm/os_linux.inline.hpp: In static member <span class="token keyword">function</span> <span class="token string">'static dirent* os::readdir(DIR*, dirent*)'</span><span class="token builtin class-name">:</span>
- /home/ling/jdk/hotspot/src/os/linux/vm/os_linux.inline.hpp:142:18: error: <span class="token string">'int readdir_r(DIR*, dirent*, dirent**)'</span> is deprecated <span class="token punctuation">(</span>declared at /usr/include/dirent.h:183<span class="token punctuation">)</span> <span class="token punctuation">[</span>-Werror<span class="token operator">=</span>deprecated-declarations<span class="token punctuation">]</span>
- <span class="token keyword">if</span><span class="token variable"><span class="token punctuation">((</span>status <span class="token operator">=</span> <span class="token operator">:</span><span class="token operator">:</span>readdir_r<span class="token punctuation">(</span>dirp<span class="token punctuation">,</span> dbuf<span class="token punctuation">,</span> <span class="token operator">&amp;</span>p<span class="token punctuation">))</span></span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                 ^
- /home/ling/jdk/hotspot/src/os/linux/vm/os_linux.inline.hpp:142:42: error: <span class="token string">'int readdir_r(DIR*, dirent*, dirent**)'</span> is deprecated <span class="token punctuation">(</span>declared at /usr/include/dirent.h:183<span class="token punctuation">)</span> <span class="token punctuation">[</span>-Werror<span class="token operator">=</span>deprecated-declarations<span class="token punctuation">]</span>
- <span class="token keyword">if</span><span class="token variable"><span class="token punctuation">((</span>status <span class="token operator">=</span> <span class="token operator">:</span><span class="token operator">:</span>readdir_r<span class="token punctuation">(</span>dirp<span class="token punctuation">,</span> dbuf<span class="token punctuation">,</span> <span class="token operator">&amp;</span>p<span class="token punctuation">))</span></span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                                         ^
- cc1plus: all warnings being treated as errors
- /home/ling/jdk/hotspot/make/linux/makefiles/vm.make:295: recipe <span class="token keyword">for</span> target <span class="token string">'precompiled.hpp.gch'</span> failed
- make<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>precompiled.hpp.gch<span class="token punctuation">]</span> Error <span class="token number">1</span>
- /home/ling/jdk/hotspot/make/linux/makefiles/top.make:119: recipe <span class="token keyword">for</span> target <span class="token string">'the_vm'</span> failed
- make<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>the_vm<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>fastdebug<span class="token punctuation">]</span> Error <span class="token number">2</span>
- /home/ling/jdk/hotspot/make/linux/Makefile:289: recipe <span class="token keyword">for</span> target <span class="token string">'fastdebug'</span> failed
- Makefile:216: recipe <span class="token keyword">for</span> target <span class="token string">'generic_build2'</span> failed
- make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>generic_build2<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>fastdebug<span class="token punctuation">]</span> Error <span class="token number">2</span>
- Makefile:167: recipe <span class="token keyword">for</span> target <span class="token string">'fastdebug'</span> failed
- HotspotWrapper.gmk:44: recipe <span class="token keyword">for</span> target <span class="token string">'/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp'</span> failed
- make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp<span class="token punctuation">]</span> Error <span class="token number">2</span>
- /home/ling/jdk//make/Main.gmk:108: recipe <span class="token keyword">for</span> target <span class="token string">'hotspot-only'</span> failed
- make: *** <span class="token punctuation">[</span>hotspot-only<span class="token punctuation">]</span> Error <span class="token number">2</span>
- 
- <span class="token comment"># 解决方案:</span>
- <span class="token function">vim</span> xxx/hotspot/make/linux/makefiles/gcc.make
- 注释 WARNINGS_ARE_ERRORS <span class="token operator">=</span> -Werror
- 或者 WARNINGS_ARE_ERRORS <span class="token operator">=</span> -Wno-all  
- 相关Warning都可以通过这个关闭
-</code></pre></div></ul> <div class="language-shell extra-class"><pre class="language-shell"><code> In <span class="token function">file</span> included from /home/ling/jdk/hotspot/src/share/vm/utilities/histogram.hpp:32:0,
-         from /home/ling/jdk/hotspot/src/share/vm/runtime/mutex.hpp:30,
-         from /home/ling/jdk/hotspot/src/share/vm/classfile/classLoaderData.hpp:32,
-         from /home/ling/jdk/hotspot/src/share/vm/oops/typeArrayKlass.hpp:28,
-         from /home/ling/jdk/hotspot/src/share/vm/oops/typeArrayOop.hpp:29,
-         from /home/ling/jdk/hotspot/src/share/vm/oops/constantPool.hpp:32,
-         from /home/ling/jdk/hotspot/src/share/vm/oops/method.hpp:33,
-         from /home/ling/jdk/hotspot/src/share/vm/runtime/frame.hpp:28,
-         from /home/ling/jdk/hotspot/src/share/vm/code/codeBlob.hpp:30,
-         from /home/ling/jdk/hotspot/src/share/vm/code/codeCache.hpp:28,
-         from /home/ling/jdk/hotspot/src/cpu/x86/vm/assembler_x86.inline.hpp:30,
-         from /home/ling/jdk/hotspot/src/share/vm/asm/assembler.inline.hpp:31,
-         from /home/ling/jdk/hotspot/src/share/vm/precompiled/precompiled.hpp:30:
- /home/ling/jdk/hotspot/src/os/linux/vm/os_linux.inline.hpp: In static member <span class="token keyword">function</span> <span class="token string">'static dirent* os::readdir(DIR*, dirent*)'</span><span class="token builtin class-name">:</span>
- /home/ling/jdk/hotspot/src/os/linux/vm/os_linux.inline.hpp:142:18: error: <span class="token string">'int readdir_r(DIR*, dirent*, dirent**)'</span> is deprecated <span class="token punctuation">(</span>declared at /usr/include/dirent.h:183<span class="token punctuation">)</span> <span class="token punctuation">[</span>-Werror<span class="token operator">=</span>deprecated-declarations<span class="token punctuation">]</span>
- <span class="token keyword">if</span><span class="token variable"><span class="token punctuation">((</span>status <span class="token operator">=</span> <span class="token operator">:</span><span class="token operator">:</span>readdir_r<span class="token punctuation">(</span>dirp<span class="token punctuation">,</span> dbuf<span class="token punctuation">,</span> <span class="token operator">&amp;</span>p<span class="token punctuation">))</span></span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                 ^
- /home/ling/jdk/hotspot/src/os/linux/vm/os_linux.inline.hpp:142:42: error: <span class="token string">'int readdir_r(DIR*, dirent*, dirent**)'</span> is deprecated <span class="token punctuation">(</span>declared at /usr/include/dirent.h:183<span class="token punctuation">)</span> <span class="token punctuation">[</span>-Werror<span class="token operator">=</span>deprecated-declarations<span class="token punctuation">]</span>
- <span class="token keyword">if</span><span class="token variable"><span class="token punctuation">((</span>status <span class="token operator">=</span> <span class="token operator">:</span><span class="token operator">:</span>readdir_r<span class="token punctuation">(</span>dirp<span class="token punctuation">,</span> dbuf<span class="token punctuation">,</span> <span class="token operator">&amp;</span>p<span class="token punctuation">))</span></span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                                         ^
- cc1plus: all warnings being treated as errors
- /home/ling/jdk/hotspot/make/linux/makefiles/vm.make:295: recipe <span class="token keyword">for</span> target <span class="token string">'precompiled.hpp.gch'</span> failed
- make<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>precompiled.hpp.gch<span class="token punctuation">]</span> Error <span class="token number">1</span>
- /home/ling/jdk/hotspot/make/linux/makefiles/top.make:119: recipe <span class="token keyword">for</span> target <span class="token string">'the_vm'</span> failed
- make<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>the_vm<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>fastdebug<span class="token punctuation">]</span> Error <span class="token number">2</span>
- /home/ling/jdk/hotspot/make/linux/Makefile:289: recipe <span class="token keyword">for</span> target <span class="token string">'fastdebug'</span> failed
- Makefile:216: recipe <span class="token keyword">for</span> target <span class="token string">'generic_build2'</span> failed
- make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>generic_build2<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>fastdebug<span class="token punctuation">]</span> Error <span class="token number">2</span>
- Makefile:167: recipe <span class="token keyword">for</span> target <span class="token string">'fastdebug'</span> failed
- HotspotWrapper.gmk:44: recipe <span class="token keyword">for</span> target <span class="token string">'/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp'</span> failed
- make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp<span class="token punctuation">]</span> Error <span class="token number">2</span>
- /home/ling/jdk//make/Main.gmk:108: recipe <span class="token keyword">for</span> target <span class="token string">'hotspot-only'</span> failed
- make: *** <span class="token punctuation">[</span>hotspot-only<span class="token punctuation">]</span> Error <span class="token number">2</span>
- 
- <span class="token comment"># 解决方案:</span>
- <span class="token function">vim</span> xxx/hotspot/make/linux/makefiles/gcc.make
- 注释 WARNINGS_ARE_ERRORS <span class="token operator">=</span> -Werror
- 或者 WARNINGS_ARE_ERRORS <span class="token operator">=</span> -Wno-all  
- 相关Warning都可以通过这个关闭
-</code></pre></div><ul><li><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div>单独编译JAVA虚拟机错误check_j2se_version版本不通过</li> <div class="language-shell extra-class"><pre class="language-shell"><code> /usr/share/java/bin/javap javax.xml.transform.TransformerFactory <span class="token operator">&gt;</span> /dev/null <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span><span class="token punctuation">;</span> <span class="token punctuation">\</span>
- <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> -ne <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span> <span class="token punctuation">\</span>
- /usr/share/java/bin/java -version<span class="token punctuation">;</span> <span class="token punctuation">\</span>
- <span class="token builtin class-name">echo</span> <span class="token string">&quot;*** An XSLT processor (J2SE 1.4.x or newer) is required&quot;</span> <span class="token punctuation">\</span>
- <span class="token string">&quot;to bootstrap this build&quot;</span> <span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span><span class="token file-descriptor important">&amp;2</span><span class="token punctuation">;</span> <span class="token punctuation">\</span>
- <span class="token builtin class-name">exit</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">\</span>
- <span class="token keyword">fi</span>
- /bin/sh: <span class="token number">3</span>: /usr/share/java/bin/java: not found
- *** An XSLT processor <span class="token punctuation">(</span>J2SE <span class="token number">1.4</span>.x or newer<span class="token punctuation">)</span> is required to bootstrap this build
- /home/ling/jdk/hotspot/make/linux/Makefile:241: recipe <span class="token keyword">for</span> target <span class="token string">'check_j2se_version'</span> failed
- make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>check_j2se_version<span class="token punctuation">]</span> Error <span class="token number">1</span>
- make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/build'</span>
- /home/ling/jdk/hotspot/make/linux/Makefile:255: recipe <span class="token keyword">for</span> target <span class="token string">'linux_i486_compiler2/debug'</span> failed
- make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>linux_i486_compiler2/debug<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/build'</span>
- Makefile:216: recipe <span class="token keyword">for</span> target <span class="token string">'generic_build2'</span> failed
- make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>generic_build2<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/hotspot/make'</span>
- Makefile:167: recipe <span class="token keyword">for</span> target <span class="token string">'product'</span> failed
- make: *** <span class="token punctuation">[</span>product<span class="token punctuation">]</span> Error <span class="token number">2</span>
- 
- <span class="token comment"># 解决方案:</span>
- ALT_BOOTDIR需要配置正确的jdk路径
- apt-get安装的java路径默认为 /usr/lib/jvm/java-8-openjdk-amd64/bin
-</code></pre></div></ul> <div class="language-shell extra-class"><pre class="language-shell"><code> /usr/share/java/bin/javap javax.xml.transform.TransformerFactory <span class="token operator">&gt;</span> /dev/null <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span><span class="token punctuation">;</span> <span class="token punctuation">\</span>
- <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> -ne <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span> <span class="token punctuation">\</span>
- /usr/share/java/bin/java -version<span class="token punctuation">;</span> <span class="token punctuation">\</span>
- <span class="token builtin class-name">echo</span> <span class="token string">&quot;*** An XSLT processor (J2SE 1.4.x or newer) is required&quot;</span> <span class="token punctuation">\</span>
- <span class="token string">&quot;to bootstrap this build&quot;</span> <span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span><span class="token file-descriptor important">&amp;2</span><span class="token punctuation">;</span> <span class="token punctuation">\</span>
- <span class="token builtin class-name">exit</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">\</span>
- <span class="token keyword">fi</span>
- /bin/sh: <span class="token number">3</span>: /usr/share/java/bin/java: not found
- *** An XSLT processor <span class="token punctuation">(</span>J2SE <span class="token number">1.4</span>.x or newer<span class="token punctuation">)</span> is required to bootstrap this build
- /home/ling/jdk/hotspot/make/linux/Makefile:241: recipe <span class="token keyword">for</span> target <span class="token string">'check_j2se_version'</span> failed
- make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>check_j2se_version<span class="token punctuation">]</span> Error <span class="token number">1</span>
- make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/build'</span>
- /home/ling/jdk/hotspot/make/linux/Makefile:255: recipe <span class="token keyword">for</span> target <span class="token string">'linux_i486_compiler2/debug'</span> failed
- make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>linux_i486_compiler2/debug<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/build'</span>
- Makefile:216: recipe <span class="token keyword">for</span> target <span class="token string">'generic_build2'</span> failed
- make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>generic_build2<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/hotspot/make'</span>
- Makefile:167: recipe <span class="token keyword">for</span> target <span class="token string">'product'</span> failed
- make: *** <span class="token punctuation">[</span>product<span class="token punctuation">]</span> Error <span class="token number">2</span>
- 
- <span class="token comment"># 解决方案:</span>
- ALT_BOOTDIR需要配置正确的jdk路径
- apt-get安装的java路径默认为 /usr/lib/jvm/java-8-openjdk-amd64/bin
-</code></pre></div><ul><li><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div><div class="language-shell extra-class"><pre class="language-shell"><code></code></pre></div>单独构建虚拟机报错:默认构建32版本的HotSpot 未安装32位lib是报错</li> <div class="language-shell extra-class"><pre class="language-shell"><code>In <span class="token function">file</span> included from /home/ling/jdk/hotspot/src/share/vm/prims/jni.h:39:0,
+  <span class="token comment"># 解决方案</span>
+  <span class="token comment"># 这里出现问题的原因是ubuntu版本过高,18.04默认的gcc/g++版本为7.0</span>
+  <span class="token comment"># 执行降级操作</span>
+  <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> gcc-4.8
+  <span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> g++-4.8
+  <span class="token function">sudo</span> update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 <span class="token number">100</span>
+  <span class="token function">sudo</span> update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 <span class="token number">100</span>
+  降级操作后需要重新执行./configure --enable-debug 否则版本即使gcc/g++ --version变了还是会报错
+  <span class="token function">make</span>  <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">|</span> <span class="token function">tee</span> <span class="token variable">$ALT_OUTPUTDIR</span>/build.log
+</code></pre></div></li> <li><p>make错误</p> <div class="language-shell extra-class"><pre class="language-shell"><code>  In <span class="token function">file</span> included from /home/ling/jdk/hotspot/src/share/vm/utilities/histogram.hpp:32:0,
+          from /home/ling/jdk/hotspot/src/share/vm/runtime/mutex.hpp:30,
+          from /home/ling/jdk/hotspot/src/share/vm/classfile/classLoaderData.hpp:32,
+          from /home/ling/jdk/hotspot/src/share/vm/oops/typeArrayKlass.hpp:28,
+          from /home/ling/jdk/hotspot/src/share/vm/oops/typeArrayOop.hpp:29,
+          from /home/ling/jdk/hotspot/src/share/vm/oops/constantPool.hpp:32,
+          from /home/ling/jdk/hotspot/src/share/vm/oops/method.hpp:33,
+          from /home/ling/jdk/hotspot/src/share/vm/runtime/frame.hpp:28,
+          from /home/ling/jdk/hotspot/src/share/vm/code/codeBlob.hpp:30,
+          from /home/ling/jdk/hotspot/src/share/vm/code/codeCache.hpp:28,
+          from /home/ling/jdk/hotspot/src/cpu/x86/vm/assembler_x86.inline.hpp:30,
+          from /home/ling/jdk/hotspot/src/share/vm/asm/assembler.inline.hpp:31,
+          from /home/ling/jdk/hotspot/src/share/vm/precompiled/precompiled.hpp:30:
+  /home/ling/jdk/hotspot/src/os/linux/vm/os_linux.inline.hpp: In static member <span class="token keyword">function</span> <span class="token string">'static dirent* os::readdir(DIR*, dirent*)'</span><span class="token builtin class-name">:</span>
+  /home/ling/jdk/hotspot/src/os/linux/vm/os_linux.inline.hpp:142:18: error: <span class="token string">'int readdir_r(DIR*, dirent*, dirent**)'</span> is deprecated <span class="token punctuation">(</span>declared at /usr/include/dirent.h:183<span class="token punctuation">)</span> <span class="token punctuation">[</span>-Werror<span class="token operator">=</span>deprecated-declarations<span class="token punctuation">]</span>
+  <span class="token keyword">if</span><span class="token variable"><span class="token punctuation">((</span>status <span class="token operator">=</span> <span class="token operator">:</span><span class="token operator">:</span>readdir_r<span class="token punctuation">(</span>dirp<span class="token punctuation">,</span> dbuf<span class="token punctuation">,</span> <span class="token operator">&amp;</span>p<span class="token punctuation">))</span></span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                  ^
+  /home/ling/jdk/hotspot/src/os/linux/vm/os_linux.inline.hpp:142:42: error: <span class="token string">'int readdir_r(DIR*, dirent*, dirent**)'</span> is deprecated <span class="token punctuation">(</span>declared at /usr/include/dirent.h:183<span class="token punctuation">)</span> <span class="token punctuation">[</span>-Werror<span class="token operator">=</span>deprecated-declarations<span class="token punctuation">]</span>
+  <span class="token keyword">if</span><span class="token variable"><span class="token punctuation">((</span>status <span class="token operator">=</span> <span class="token operator">:</span><span class="token operator">:</span>readdir_r<span class="token punctuation">(</span>dirp<span class="token punctuation">,</span> dbuf<span class="token punctuation">,</span> <span class="token operator">&amp;</span>p<span class="token punctuation">))</span></span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                                          ^
+  cc1plus: all warnings being treated as errors
+  /home/ling/jdk/hotspot/make/linux/makefiles/vm.make:295: recipe <span class="token keyword">for</span> target <span class="token string">'precompiled.hpp.gch'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>precompiled.hpp.gch<span class="token punctuation">]</span> Error <span class="token number">1</span>
+  /home/ling/jdk/hotspot/make/linux/makefiles/top.make:119: recipe <span class="token keyword">for</span> target <span class="token string">'the_vm'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>the_vm<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  make<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>fastdebug<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  /home/ling/jdk/hotspot/make/linux/Makefile:289: recipe <span class="token keyword">for</span> target <span class="token string">'fastdebug'</span> failed
+  Makefile:216: recipe <span class="token keyword">for</span> target <span class="token string">'generic_build2'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>generic_build2<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>fastdebug<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  Makefile:167: recipe <span class="token keyword">for</span> target <span class="token string">'fastdebug'</span> failed
+  HotspotWrapper.gmk:44: recipe <span class="token keyword">for</span> target <span class="token string">'/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>/home/ling/jdk/build/linux-x86_64-normal-server-fastdebug/hotspot/_hotspot.timestamp<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  /home/ling/jdk//make/Main.gmk:108: recipe <span class="token keyword">for</span> target <span class="token string">'hotspot-only'</span> failed
+  make: *** <span class="token punctuation">[</span>hotspot-only<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  
+  <span class="token comment"># 解决方案:</span>
+  <span class="token function">vim</span> xxx/hotspot/make/linux/makefiles/gcc.make
+  注释 WARNINGS_ARE_ERRORS <span class="token operator">=</span> -Werror
+  或者 WARNINGS_ARE_ERRORS <span class="token operator">=</span> -Wno-all  
+  相关Warning都可以通过这个关闭
+</code></pre></div></li> <li><p>单独编译JAVA虚拟机错误check_j2se_version版本不通过</p> <div class="language-shell extra-class"><pre class="language-shell"><code>  /usr/share/java/bin/javap javax.xml.transform.TransformerFactory <span class="token operator">&gt;</span> /dev/null <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span><span class="token punctuation">;</span> <span class="token punctuation">\</span>
+  <span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token variable">$?</span> -ne <span class="token number">0</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span> <span class="token punctuation">\</span>
+  /usr/share/java/bin/java -version<span class="token punctuation">;</span> <span class="token punctuation">\</span>
+  <span class="token builtin class-name">echo</span> <span class="token string">&quot;*** An XSLT processor (J2SE 1.4.x or newer) is required&quot;</span> <span class="token punctuation">\</span>
+  <span class="token string">&quot;to bootstrap this build&quot;</span> <span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span><span class="token file-descriptor important">&amp;2</span><span class="token punctuation">;</span> <span class="token punctuation">\</span>
+  <span class="token builtin class-name">exit</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">\</span>
+  <span class="token keyword">fi</span>
+  /bin/sh: <span class="token number">3</span>: /usr/share/java/bin/java: not found
+  *** An XSLT processor <span class="token punctuation">(</span>J2SE <span class="token number">1.4</span>.x or newer<span class="token punctuation">)</span> is required to bootstrap this build
+  /home/ling/jdk/hotspot/make/linux/Makefile:241: recipe <span class="token keyword">for</span> target <span class="token string">'check_j2se_version'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>check_j2se_version<span class="token punctuation">]</span> Error <span class="token number">1</span>
+  make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/build'</span>
+  /home/ling/jdk/hotspot/make/linux/Makefile:255: recipe <span class="token keyword">for</span> target <span class="token string">'linux_i486_compiler2/debug'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>linux_i486_compiler2/debug<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/build'</span>
+  Makefile:216: recipe <span class="token keyword">for</span> target <span class="token string">'generic_build2'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>generic_build2<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/hotspot/make'</span>
+  Makefile:167: recipe <span class="token keyword">for</span> target <span class="token string">'product'</span> failed
+  make: *** <span class="token punctuation">[</span>product<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  
+  <span class="token comment"># 解决方案:</span>
+  ALT_BOOTDIR需要配置正确的jdk路径
+  apt-get安装的java路径默认为 /usr/lib/jvm/java-8-openjdk-amd64/bin
+</code></pre></div></li> <li><p>单独构建虚拟机报错:默认构建32版本的HotSpot 未安装32位lib是报错</p> <div class="language-shell extra-class"><pre class="language-shell"><code>In <span class="token function">file</span> included from /home/ling/jdk/hotspot/src/share/vm/prims/jni.h:39:0,
               from /home/ling/jdk/hotspot/src/share/vm/prims/jvm.h:28,
               from /home/ling/jdk/hotspot/src/share/vm/utilities/debug.hpp:28,
               from /home/ling/jdk/hotspot/src/share/vm/runtime/globals.hpp:28,
@@ -527,67 +291,30 @@ HelloWorld openjdk
               from /home/ling/jdk/hotspot/src/share/vm/asm/codeBuffer.hpp:28,
               from /home/ling/jdk/hotspot/src/share/vm/asm/assembler.hpp:28,
               from /home/ling/jdk/hotspot/src/share/vm/precompiled/precompiled.hpp:29:
- /usr/include/stdio.h:27:36: fatal error: bits/libc-header-start.h: No such <span class="token function">file</span> or directory
- <span class="token comment">#include &lt;bits/libc-header-start.h&gt;</span>
-                                     ^
- compilation terminated.
- /home/ling/jdk/hotspot/make/linux/makefiles/vm.make:295: recipe <span class="token keyword">for</span> target <span class="token string">'precompiled.hpp.gch'</span> failed
- make<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>precompiled.hpp.gch<span class="token punctuation">]</span> Error <span class="token number">1</span>
- make<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/build/linux_i486_compiler2/product'</span>
- /home/ling/jdk/hotspot/make/linux/makefiles/top.make:119: recipe <span class="token keyword">for</span> target <span class="token string">'the_vm'</span> failed
- make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>the_vm<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/build/linux_i486_compiler2/product'</span>
- /home/ling/jdk/hotspot/make/linux/Makefile:289: recipe <span class="token keyword">for</span> target <span class="token string">'product'</span> failed
- make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>product<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/build'</span>
- Makefile:216: recipe <span class="token keyword">for</span> target <span class="token string">'generic_build2'</span> failed
- make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>generic_build2<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/hotspot/make'</span>
- Makefile:167: recipe <span class="token keyword">for</span> target <span class="token string">'product'</span> failed
- make: *** <span class="token punctuation">[</span>product<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  /usr/include/stdio.h:27:36: fatal error: bits/libc-header-start.h: No such <span class="token function">file</span> or directory
+  <span class="token comment">#include &lt;bits/libc-header-start.h&gt;</span>
+                                      ^
+  compilation terminated.
+  /home/ling/jdk/hotspot/make/linux/makefiles/vm.make:295: recipe <span class="token keyword">for</span> target <span class="token string">'precompiled.hpp.gch'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>precompiled.hpp.gch<span class="token punctuation">]</span> Error <span class="token number">1</span>
+  make<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/build/linux_i486_compiler2/product'</span>
+  /home/ling/jdk/hotspot/make/linux/makefiles/top.make:119: recipe <span class="token keyword">for</span> target <span class="token string">'the_vm'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>the_vm<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/build/linux_i486_compiler2/product'</span>
+  /home/ling/jdk/hotspot/make/linux/Makefile:289: recipe <span class="token keyword">for</span> target <span class="token string">'product'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>product<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/build'</span>
+  Makefile:216: recipe <span class="token keyword">for</span> target <span class="token string">'generic_build2'</span> failed
+  make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>generic_build2<span class="token punctuation">]</span> Error <span class="token number">2</span>
+  make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/hotspot/make'</span>
+  Makefile:167: recipe <span class="token keyword">for</span> target <span class="token string">'product'</span> failed
+  make: *** <span class="token punctuation">[</span>product<span class="token punctuation">]</span> Error <span class="token number">2</span>
 
- <span class="token comment"># 解决方式一:</span>
- <span class="token function">apt-get</span> <span class="token function">install</span> gcc-multilib 这样构建的是32位版本
- <span class="token comment"># 解决方式二:</span>
- <span class="token builtin class-name">export</span> <span class="token assign-left variable">LP64</span><span class="token operator">=</span><span class="token number">1</span>
-</code></pre></div></ul> <div class="language-shell extra-class"><pre class="language-shell"><code>In <span class="token function">file</span> included from /home/ling/jdk/hotspot/src/share/vm/prims/jni.h:39:0,
-              from /home/ling/jdk/hotspot/src/share/vm/prims/jvm.h:28,
-              from /home/ling/jdk/hotspot/src/share/vm/utilities/debug.hpp:28,
-              from /home/ling/jdk/hotspot/src/share/vm/runtime/globals.hpp:28,
-              from /home/ling/jdk/hotspot/src/share/vm/memory/allocation.hpp:28,
-              from /home/ling/jdk/hotspot/src/share/vm/memory/iterator.hpp:28,
-              from /home/ling/jdk/hotspot/src/share/vm/memory/genOopClosures.hpp:28,
-              from /home/ling/jdk/hotspot/src/share/vm/oops/klass.hpp:28,
-              from /home/ling/jdk/hotspot/src/share/vm/runtime/handles.hpp:28,
-              from /home/ling/jdk/hotspot/src/share/vm/memory/universe.hpp:28,
-              from /home/ling/jdk/hotspot/src/share/vm/code/oopRecorder.hpp:28,
-              from /home/ling/jdk/hotspot/src/share/vm/asm/codeBuffer.hpp:28,
-              from /home/ling/jdk/hotspot/src/share/vm/asm/assembler.hpp:28,
-              from /home/ling/jdk/hotspot/src/share/vm/precompiled/precompiled.hpp:29:
- /usr/include/stdio.h:27:36: fatal error: bits/libc-header-start.h: No such <span class="token function">file</span> or directory
- <span class="token comment">#include &lt;bits/libc-header-start.h&gt;</span>
-                                     ^
- compilation terminated.
- /home/ling/jdk/hotspot/make/linux/makefiles/vm.make:295: recipe <span class="token keyword">for</span> target <span class="token string">'precompiled.hpp.gch'</span> failed
- make<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>precompiled.hpp.gch<span class="token punctuation">]</span> Error <span class="token number">1</span>
- make<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/build/linux_i486_compiler2/product'</span>
- /home/ling/jdk/hotspot/make/linux/makefiles/top.make:119: recipe <span class="token keyword">for</span> target <span class="token string">'the_vm'</span> failed
- make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>the_vm<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/build/linux_i486_compiler2/product'</span>
- /home/ling/jdk/hotspot/make/linux/Makefile:289: recipe <span class="token keyword">for</span> target <span class="token string">'product'</span> failed
- make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>product<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/build'</span>
- Makefile:216: recipe <span class="token keyword">for</span> target <span class="token string">'generic_build2'</span> failed
- make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>generic_build2<span class="token punctuation">]</span> Error <span class="token number">2</span>
- make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: Leaving directory <span class="token string">'/home/ling/jdk/hotspot/make'</span>
- Makefile:167: recipe <span class="token keyword">for</span> target <span class="token string">'product'</span> failed
- make: *** <span class="token punctuation">[</span>product<span class="token punctuation">]</span> Error <span class="token number">2</span>
-
- <span class="token comment"># 解决方式一:</span>
- <span class="token function">apt-get</span> <span class="token function">install</span> gcc-multilib 这样构建的是32位版本
- <span class="token comment"># 解决方式二:</span>
- <span class="token builtin class-name">export</span> <span class="token assign-left variable">LP64</span><span class="token operator">=</span><span class="token number">1</span>
-</code></pre></div></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">2/7/2022, 6:54:14 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+  <span class="token comment"># 解决方式一:</span>
+  <span class="token function">apt-get</span> <span class="token function">install</span> gcc-multilib 这样构建的是32位版本
+  <span class="token comment"># 解决方式二:</span>
+  <span class="token builtin class-name">export</span> <span class="token assign-left variable">LP64</span><span class="token operator">=</span><span class="token number">1</span>
+</code></pre></div></li></ul></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">2/7/2022, 9:36:18 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/java/javase.html" class="prev">
         JavaSE
@@ -596,6 +323,6 @@ HelloWorld openjdk
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.71ad94b7.js" defer></script><script src="/assets/js/2.316f9b33.js" defer></script><script src="/assets/js/17.96365d77.js" defer></script>
+    <script src="/assets/js/app.ddc1a8d7.js" defer></script><script src="/assets/js/2.316f9b33.js" defer></script><script src="/assets/js/17.c62f4da6.js" defer></script>
   </body>
 </html>
