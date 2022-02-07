@@ -5,6 +5,7 @@ module.exports = {
     ['link', { rel: 'icon', href: '/favicon.png' }]
   ],
   themeConfig: {
+    lastUpdated: '最后更新时间',
     activeHeaderLinks: false,
     nav: [
       { text: '主页', link: '/' },
@@ -61,7 +62,7 @@ module.exports = {
       {
         title: 'Java',
         path: '/java/',
-        sidebarDepth: 1,
+        sidebarDepth: 2,
         children: [
           { title: 'JavaSE', path: '/java/javase' },
           { title: 'Java虚拟机', path: '/java/jvm' },
