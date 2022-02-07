@@ -24,5 +24,6 @@
 
 
 ## 疑难解答
-1. select * from tableA group by cid 语句返回的非 group 字段值到底是什么?
-   答: group by 时，那些不参与 grouping 的字段具体返回哪条数据在 MySQL5.7 (包括5.7) 之前的版本处于未定义规则状态，官方文档不承诺一定会返回哪条数据， group by 返回的是根据主键顺序，也是没有依据的。
+1. `select * from tableA group by cid` 语句返回的非 group 字段值到底是什么?
+
+  答: group by 时，那些不参与 grouping 的字段具体返回哪条数据在 MySQL5.7 (包括5.7) 之前的版本处于未定义规则状态，官方文档不承诺一定会返回哪条数据， group by 返回的是根据主键顺序，也是没有依据的。

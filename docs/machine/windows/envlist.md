@@ -68,41 +68,42 @@
 3. Tomcat9
 4. IDEA
    * 插件:
-     插件仓库: https://plugins.zhile.io
-     * .ignore
-     * Alibaba Cloud Toolkit
-     * Alibaba Java Coding Guidelines
-     * CamelCase
-     * GenerateAllSetter
-     * GsonFormatPlus
-     * IDE Eval Reset
-     * JRebel
-     * Key Promoter X
-     * MapStruct support
-     * Maven Helper
-     * MybatisX
-     * RoboPOJOGenerator
-     * Translation
-   * vm options
-   ```
-   # custom IntelliJ IDEA VM options
-   -Xms4g
-   -Xmx4g
-   -XX:ReservedCodeCacheSize=512m
-   -XX:+AlwaysPreTouch
-   -XX:+UseG1GC
-   -XX:+UseStringDeduplication
-   -ea
-   -Dsun.io.useCanonPrefixCache=false
-   -Djava.net.preferIPv4Stack=true
-   -Djdk.http.auth.tunneling.disabledSchemes=""
-   -XX:+HeapDumpOnOutOfMemoryError
-   -XX:-OmitStackTraceInFastThrow
-   -Djdk.attach.allowAttachSelf
-   -Dkotlinx.coroutines.debug=off
-   -Djdk.module.illegalAccess.silent=true
-   -Dfile.encoding=UTF-8
-   ```
+     - 插件仓库: https://plugins.zhile.io
+     - .ignore
+     - Alibaba Cloud Toolkit
+     - Alibaba Java Coding Guidelines
+     - CamelCase
+     - GenerateAllSetter
+     - GsonFormatPlus
+     - IDE Eval Reset
+     - JRebel
+     - Key Promoter X
+     - MapStruct support
+     - Maven Helper
+     - MybatisX
+     - RoboPOJOGenerator
+     - Translation
+   * jvm 参数:
+   
+      ```
+      # custom IntelliJ IDEA VM options
+      -Xms4g
+      -Xmx4g
+      -XX:ReservedCodeCacheSize=512m
+      -XX:+AlwaysPreTouch
+      -XX:+UseG1GC
+      -XX:+UseStringDeduplication
+      -ea
+      -Dsun.io.useCanonPrefixCache=false
+      -Djava.net.preferIPv4Stack=true
+      -Djdk.http.auth.tunneling.disabledSchemes=""
+      -XX:+HeapDumpOnOutOfMemoryError
+      -XX:-OmitStackTraceInFastThrow
+      -Djdk.attach.allowAttachSelf
+      -Dkotlinx.coroutines.debug=off
+      -Djdk.module.illegalAccess.silent=true
+      -Dfile.encoding=UTF-8
+      ```
 
 ## php
 1. PhpStorm

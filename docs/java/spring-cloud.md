@@ -2,6 +2,7 @@
 ### 注意事项
 1. Feign集成需要注册到注册中心（不使用注册中心需要制定具体的服务地址），且需要集成WEB模块
 2. Feign超时问题的解决(Read timed out executing...)
+
    ```yml
    # Feign接口调用分两层，Ribbon的调用和Hystrix调用，理论上设置Ribbon的时间即可，但是Ribbon的超时时间和Hystrix的超时时间需要结合起来，按照木桶原则最低的就是Feign的超时时间，建议最好配置超时时间一致
     #hystrix的超时时间
