@@ -70,6 +70,7 @@ module.exports = {
           { title: 'Maven', path: '/java/maven' },
           { title: 'SpringBoot', path: '/java/spring-boot' },
           { title: 'SpringCloud', path: '/java/spring-cloud' },
+          { title: 'Netty', path: '/java/netty' },
         ]
       },
       {
