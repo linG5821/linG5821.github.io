@@ -86,7 +86,106 @@ mysql知道你要做什么，还需要根据需求选择一个最优方案，决
 
 :::
 
+### 日志模块
+#### redo log (重做日志 InnoDB 特有)
+mysql redo log 是 WAL（Write-Ahead-Logging），先写日志（redolog也在磁盘上，但是是连续的，顺序IO）后再择机（空闲时）持久化随机IO写回到磁盘，说白了就是把随机 IO 优化成顺序 IO, 使用最低的成本完成记录。有了 redo log InnoDB 就可以保证数据库发生异常重启时，之前提交的记录都不会丢，这个能力称为 **crash-safe**。
+
+> 这里对比 Redis 是AOF，它是先做存储（Redis 是基于内存的，直接写入更快），再持久化到AOF日志中。
+
+InnoDB 的 redo log 是固定大小的，比如可以配置一个4个文件每个文件是1G，从头开始写，写到末尾就回到开头循环写。如下图所示：
+
+![](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo16a7950217b3f0f4ed02db5db59562a7.webp)
+
+write pos 是当前记录的位置，一边写一边后移，写到第 3 号文件末尾后就回到 0 号文件开头。checkpoint 是当前要擦除的位置，也是往后推移并且循环的，擦除记录前要把记录更新到数据文件。
+
+write pos 和 checkpoint 之间的空着的部分，可以用来记录新的操作。如果 write pos 追上 checkpoint，表示写满了，这时候不能再执行新的更新，得停下来先擦掉一些记录，把 checkpoint 推进一下。
+
+:::tip
+
+写满后“刷脏”，只是刷脏的一种方式，还有如下几种：
+
+1.后台线程定期会刷脏页
+
+2.清理LRU链表时会顺带刷脏页
+
+3.redoLog写满会强制刷
+
+4.数据库关闭时会将所有脏页刷回磁盘
+
+5.脏页数量过多（默认占缓冲池75%）时，会强制刷
+
+:::
+
+一些核心配置参数：
+
+* `innodb_log_file_size`
+
+  该参数用来调整 redo log file 的大小，也就是我们在 mysql data 目录下看到的 iblogfile 文件。
+
+  配置太小：会导致重做日志很容易写满，写满会切换日志文件，切换日志文件会导致强制刷大量“脏页”，影响服务器 TPS；
+
+  配置太大：会加长 mysql 意外宕机的恢复时间，因为 Mysql 启动时会用 redo log 重做上次数据库关闭未及时刷盘的的数据页，重做页面越多，启动时间越长。
+
+* `innodb_log_files_in_group` 控制文件数
+
+* `innodb_adaptive_flushing` （mysql 5.5 新增）
+
+  该参数影响每秒刷新脏页的操作，开启此配置后，刷新脏页会通过判断产生重做日志的速度来判断最合适的刷新脏页的数量。关闭会导致MySQL服务器的tps有明显的波动。每当重做日志写满了，MySQL就会停下手头的任务，先把脏页刷到磁盘里，才能继续干活
+
+* `innodb_adaptive_flushing_lwm`（mysql 5.5 新增）
+
+  该参数可以设置redo log flush低水位线，当需要flush的redo log超过这个低水位时，innodb会立即启用adaptive flushing。
+
+* `innodb_flush_log_at_trx_commit`
+
+  0：事务提交时不会将 log buffer 中日志写入到 os buffer (什么都不做)，而是每秒写入 `os buffer` 并调用 `fsync()` 写入到 磁盘中的 log file。也就是说设置为0时是(大约)每秒刷新写入到磁盘中的，当系统崩溃，会丢失1秒钟的数据，但性能最好。
+
+  1：事务每次提交都会将 log buffer 中的日志写入 os buffer 并调用 `fsync()` 刷到磁盘中的 log file。这种方式即使系统崩溃也不会丢失任何数据，但是因为每次提交都写入磁盘，IO的性能较差 但最安全。
+
+  2：每次提交都仅写入到os buffer，然后是每秒调用fsync()将 os buffer 中的日志写入到磁盘中的 log file。
+
+#### bin log (归档日志)
+
+binlog 是 server 层的日志，redo log 是 InnoDB 特有的日志，binlog有两种模式，statement 格式的话是记sql语句， row格式会记录行的内容，记两条，更新前和更新后都有。
+
+**为什么会有两种日志？**
+
+因为最开始 MySQL 里并没有 InnoDB 引擎。MySQL 自带的引擎是 MyISAM，但是 MyISAM 没有 crash-safe 的能力，binlog 日志只能用于归档。而 InnoDB 是另一个公司以插件形式引入 MySQL 的，既然只依靠 binlog 是没有 crash-safe 能力的，所以 InnoDB 使用另外一套日志系统——也就是 redo log 来实现 crash-safe 能力。
+
+**这两种日志有以下三点不同**：
+
+1. redo log 是 InnoDB 引擎特有的；binlog 是 MySQL 的 Server 层实现的，所有引擎都可以使用。
+2. redo log 是物理日志，记录的是“在某个数据页上做了什么修改”；binlog 是逻辑日志，记录的是这个语句的原始逻辑，比如“给 ID=2 这一行的 c 字段加 1 ”
+3. redo log 是循环写的，空间固定会用完；binlog 是可以追加写入的。“追加写”是指 binlog 文件写到一定大小后会切换到下一个，并不会覆盖以前的日志。
+
+**update 语句的执行流程**：
+
+1. 执行器先找引擎取 ID=2 这一行。ID 是主键，引擎直接用树搜索找到这一行。如果 ID=2 这一行所在的数据页本来就在内存中，就直接返回给执行器；否则，需要先从磁盘读入内存，然后再返回。
+2. 执行器拿到引擎给的行数据，把这个值加上 1，比如原来是 N，现在就是 N+1，得到新的一行数据，再调用引擎接口写入这行新数据。
+3. 引擎将这行新数据更新到内存中，同时将这个更新操作记录到 redo log 里面，此时 redo log 处于 prepare 状态。然后告知执行器执行完成了，随时可以提交事务。
+4. 执行器生成这个操作的 binlog，并把 binlog 写入磁盘。
+5. 执行器调用引擎的提交事务接口，引擎把刚刚写入的 redo log 改成提交（commit）状态，更新完成。
+
+update 语句的执行流程图，图中浅色框表示是在 InnoDB 内部执行的，深色框表示是在执行器中执行的：
+
+![](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo2e5bff4910ec189fe1ee6e2ecc7b4bbe.webp)
+
+
+
+**两阶段提交**：
+
+将 redo log 的写入拆成了两个步骤：prepare 和 commit，这就是"两阶段提交"。如果不使用“两阶段提交”，那么**数据库的状态就有可能和用它的日志恢复出来的库的状态不一致**，**两阶段提交就是让这两个状态保持逻辑上的一致**。**两阶段提交是跨系统维持数据逻辑一致性时常用的一个方案**。
+
+
+
+**建议设置**：
+
+redo log 用于保证 crash-safe 能力。innodb_flush_log_at_trx_commit 这个参数设置成 1 的时候，表示每次事务的 redo log 都直接持久化到磁盘。这个参数我建议你设置成 1，这样可以保证 MySQL 异常重启之后数据不丢失。
+
+sync_binlog 这个参数设置成 1 的时候，表示每次事务的 binlog 都持久化到磁盘。这个参数我也建议你设置成 1，这样可以保证 MySQL 异常重启之后 binlog 不丢失。
+
 ## 疑难解答
+
 1. `select * from tableA group by cid` 语句返回的非 group 字段值到底是什么?
 
   答: group by 时，那些不参与 grouping 的字段具体返回哪条数据在 MySQL5.7 (包括5.7) 之前的版本处于未定义规则状态，官方文档不承诺一定会返回哪条数据， group by 返回的是根据主键顺序，也是没有依据的。
