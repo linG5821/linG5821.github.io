@@ -90,4 +90,52 @@ Netty采用典型的三层网络架构进行设计和开发，逻辑架构如图
 * FixedLengthFrameDecoder 定长解码器 按固定字节数拆分ByteBuf
 * LengthFieldBasedFrameDecoder 长度字段解码器 通过消息中的长度来动态拆分分隔ByteBuf
 
+### TCP keepalive 核心参数
+```shell
+# TCP Keepalive 默认是关闭的，需要通过程序启用
+sudo sysctl -a | grep tcp_keepalive
+# 每次探测的间隔时长 75s
+net.ipv4.tcp_keepalive_intvl = 75
+# 探测连接的总次数 9次
+net.ipv4.tcp_keepalive_probes = 9
+# 连接保持的默认时长 7200s=2h
+net.ipv4.tcp_keepalive_time = 7200
+# 总耗时 2小时11分钟5秒
+```
+
+### 为什么仍然需要应用层的 keepalive
+* 协议分层，关注点不同。传输层关注是否“通”，应用层关注是否可用。
+* tcp 层的 keepalive 默认是关闭的，且经过路由等中转设备 keepalive 包可能被丢弃。
+* tcp 层的 keepalive 时间太长。虽然可以改，但属于系统参数，改动会影响所有应用。 
+
+### idle 监测是什么
+idle 监测负责连接诊断，诊断后做出不同的行为：
+* 发送keepalive：一般用来配合keepalive, 减少 keepalive 消息。
+  * keepalive v1：keepalive消息与服务器正常消息交换完全不关联，定时就发送。
+  * keepalive v2：有其他数据传输是，不发送keepalive，无数据传输超过一定时间，判断为idle，再发 keepalive。
+* 直接关闭连接：
+  * 快速释放损坏的，恶意的，很久不用的连接，让系统即可保持最好的状态。
+  * 简单粗暴，客户端可能需要重连。
+  :::tip
+  实际应用中一般会组合起来使用，按需 keepalive，保证不会空闲，如果空间，则关闭连接
+  :::
+
+### netty 中开启 keepalive 和 idle 监测
+* server端开启 TCP keepalive
+  
+  ```java
+  bootstrap.childOption(ChannelOption.SO_KEEPALIVE, true);
+  bootstrap..childOption(NioChannelOption.SO_KEEPALIVE, true);
+  ```
+  
+  > .option(ChannelOption.SO_KEEPALIVE, true) 存在 但是无效
+
+* 开启 idle 监测
+
+  ```java
+  ch.pipeline()..addLast("idleStateHandler", new IdleStateHandler(0, 20, 0, TimeUnit.SECONDS))
+  ```
+
+  
+
 ## 实践案例
