@@ -100,7 +100,7 @@ net.ipv4.tcp_keepalive_intvl = 75
 net.ipv4.tcp_keepalive_probes = 9
 # 连接保持的默认时长 7200s=2h
 net.ipv4.tcp_keepalive_time = 7200
-# 总耗时 2小时11分钟5秒
+# 总耗时 2小时11分钟15秒
 ```
 
 ### 为什么仍然需要应用层的 keepalive
