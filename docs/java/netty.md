@@ -85,4 +85,9 @@ Netty采用典型的三层网络架构进行设计和开发，逻辑架构如图
   - 将消息分为消息头和消息体， 消息头包含消息总长度(或者消息体总长度)的字段，通常设计思路为消息头的第一个字段使用int32来表示消息的长度。
   - 更复杂的应用层协议。
 
+### 常见的处理粘包/半包的编解码器
+* DelimiterBasedFrameDecoder 分隔符解码器，通过一个或多个分隔符来拆分ByteBuf
+* FixedLengthFrameDecoder 定长解码器 按固定字节数拆分ByteBuf
+* LengthFieldBasedFrameDecoder 长度字段解码器 通过消息中的长度来动态拆分分隔ByteBuf
+
 ## 实践案例
