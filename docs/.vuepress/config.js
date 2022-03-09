@@ -33,6 +33,7 @@ module.exports = {
         path: '/database/',
         sidebarDepth: 1,
         children: [
+          { title: 'Redis', path: '/database/redis' },
           { title: 'MySQL', path: '/database/mysql' },
           { title: 'MongoDB', path: '/database/mongodb' },
         ]
