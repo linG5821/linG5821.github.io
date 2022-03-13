@@ -31,7 +31,7 @@ module.exports = {
       {
         title: '数据库',
         path: '/database/',
-        sidebarDepth: 1,
+        sidebarDepth: 2,
         children: [
           { title: 'Redis', path: '/database/redis' },
           { title: 'MySQL', path: '/database/mysql' },
