@@ -8,7 +8,7 @@
     <link rel="icon" href="/favicon.png">
     <meta name="description" content="Yolo Cloud 记录了我技术成长中学到的各种知识,遇到的各种问题">
     
-    <link rel="preload" href="/assets/css/0.styles.6d53293b.css" as="style"><link rel="preload" href="/assets/js/app.5a8dc3fa.js" as="script"><link rel="preload" href="/assets/js/2.316f9b33.js" as="script"><link rel="preload" href="/assets/js/9.ea1bddfc.js" as="script"><link rel="prefetch" href="/assets/js/10.64d04609.js"><link rel="prefetch" href="/assets/js/11.a190c20a.js"><link rel="prefetch" href="/assets/js/12.30d67eb2.js"><link rel="prefetch" href="/assets/js/13.6d1183cb.js"><link rel="prefetch" href="/assets/js/14.2867a224.js"><link rel="prefetch" href="/assets/js/15.5cc27a77.js"><link rel="prefetch" href="/assets/js/16.dedbb8fb.js"><link rel="prefetch" href="/assets/js/17.53a1730e.js"><link rel="prefetch" href="/assets/js/18.9b3a854c.js"><link rel="prefetch" href="/assets/js/19.74048cb8.js"><link rel="prefetch" href="/assets/js/20.4f71b55b.js"><link rel="prefetch" href="/assets/js/21.d5192eb5.js"><link rel="prefetch" href="/assets/js/22.973cf587.js"><link rel="prefetch" href="/assets/js/23.3c99543c.js"><link rel="prefetch" href="/assets/js/24.340e0806.js"><link rel="prefetch" href="/assets/js/25.344b4a2d.js"><link rel="prefetch" href="/assets/js/26.02a75371.js"><link rel="prefetch" href="/assets/js/27.439aa432.js"><link rel="prefetch" href="/assets/js/28.c36b2ed0.js"><link rel="prefetch" href="/assets/js/29.d3655e6c.js"><link rel="prefetch" href="/assets/js/3.64794e1a.js"><link rel="prefetch" href="/assets/js/30.f8df1fbd.js"><link rel="prefetch" href="/assets/js/31.f1fc6e63.js"><link rel="prefetch" href="/assets/js/32.504a97b5.js"><link rel="prefetch" href="/assets/js/33.aa566fbc.js"><link rel="prefetch" href="/assets/js/34.11bcd9c3.js"><link rel="prefetch" href="/assets/js/4.38914c72.js"><link rel="prefetch" href="/assets/js/5.a0d52067.js"><link rel="prefetch" href="/assets/js/6.32c3a776.js"><link rel="prefetch" href="/assets/js/7.a07feba5.js"><link rel="prefetch" href="/assets/js/8.3d85024a.js">
+    <link rel="preload" href="/assets/css/0.styles.6d53293b.css" as="style"><link rel="preload" href="/assets/js/app.ac238900.js" as="script"><link rel="preload" href="/assets/js/2.316f9b33.js" as="script"><link rel="preload" href="/assets/js/9.58c40140.js" as="script"><link rel="prefetch" href="/assets/js/10.64d04609.js"><link rel="prefetch" href="/assets/js/11.a190c20a.js"><link rel="prefetch" href="/assets/js/12.30d67eb2.js"><link rel="prefetch" href="/assets/js/13.6d1183cb.js"><link rel="prefetch" href="/assets/js/14.2867a224.js"><link rel="prefetch" href="/assets/js/15.5cc27a77.js"><link rel="prefetch" href="/assets/js/16.dedbb8fb.js"><link rel="prefetch" href="/assets/js/17.53a1730e.js"><link rel="prefetch" href="/assets/js/18.9b3a854c.js"><link rel="prefetch" href="/assets/js/19.74048cb8.js"><link rel="prefetch" href="/assets/js/20.4f71b55b.js"><link rel="prefetch" href="/assets/js/21.d5192eb5.js"><link rel="prefetch" href="/assets/js/22.973cf587.js"><link rel="prefetch" href="/assets/js/23.3c99543c.js"><link rel="prefetch" href="/assets/js/24.340e0806.js"><link rel="prefetch" href="/assets/js/25.1dd869fb.js"><link rel="prefetch" href="/assets/js/26.0d420d85.js"><link rel="prefetch" href="/assets/js/27.588068ec.js"><link rel="prefetch" href="/assets/js/28.83f46422.js"><link rel="prefetch" href="/assets/js/29.7cd031fe.js"><link rel="prefetch" href="/assets/js/3.64794e1a.js"><link rel="prefetch" href="/assets/js/30.bf18910a.js"><link rel="prefetch" href="/assets/js/31.0f22e54c.js"><link rel="prefetch" href="/assets/js/32.921d31fc.js"><link rel="prefetch" href="/assets/js/33.37b8a5f2.js"><link rel="prefetch" href="/assets/js/34.11bcd9c3.js"><link rel="prefetch" href="/assets/js/4.38914c72.js"><link rel="prefetch" href="/assets/js/5.a0d52067.js"><link rel="prefetch" href="/assets/js/6.32c3a776.js"><link rel="prefetch" href="/assets/js/7.a07feba5.js"><link rel="prefetch" href="/assets/js/8.3d85024a.js">
     <link rel="stylesheet" href="/assets/css/0.styles.6d53293b.css">
   </head>
   <body>
@@ -31,10 +31,14 @@ yum list docker-ce --showduplicates<span class="token operator">|</span><span cl
 
 <span class="token comment"># 选择指定版本安装</span>
 yum <span class="token function">install</span> docker-ce-19.03.2-3.el7
-</code></pre></div></li></ol> <h2 id="docker配置"><a href="#docker配置" class="header-anchor">#</a> Docker配置</h2> <ol><li><p>修改Docker配置无需重启Docker守护进程即生效</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 修改 /etc/docker/daemon.json 后 执行</span>
-<span class="token function">kill</span> -SIGHUP <span class="token variable"><span class="token variable">$(</span>pidof dockerd<span class="token variable">)</span></span>
-</code></pre></div></li> <li><p>重启守护进程，但不重启容器</p> <div class="language-shell extra-class"><pre class="language-shell"><code> <span class="token comment"># 修改 /etc/docker/daemon.json</span>
+</code></pre></div></li></ol> <h2 id="docker配置"><a href="#docker配置" class="header-anchor">#</a> Docker配置</h2> <ol><li><p>重启守护进程，但不重启容器(无法在docker swarm集群下使用)</p> <div class="language-shell extra-class"><pre class="language-shell"><code> <span class="token comment"># 修改 /etc/docker/daemon.json</span>
  <span class="token punctuation">{</span> <span class="token string">&quot;live-restore&quot;</span><span class="token builtin class-name">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span>
+ <span class="token comment"># 更新配置</span>
+ <span class="token function">kill</span> -SIGHUP <span class="token variable"><span class="token variable">$(</span>pidof dockerd<span class="token variable">)</span></span>
+ <span class="token comment"># 检查是否配置成功</span>
+ <span class="token function">docker</span> info <span class="token operator">|</span> <span class="token function">grep</span> -i live
+ <span class="token comment"># 重启docker 不会重启容器</span>
+ systemctl restart <span class="token function">docker</span>
 </code></pre></div></li></ol> <h2 id="特殊命令操作"><a href="#特殊命令操作" class="header-anchor">#</a> 特殊命令操作</h2> <ol><li><p>抓取容器网络请求包</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 获取容器的进程PID</span>
 <span class="token function">docker</span> inspect --format <span class="token string">&quot;{{.State.Pid}}&quot;</span> <span class="token variable">${container_id<span class="token operator">/</span>name}</span>
 <span class="token comment"># 切换网络命名空间 PS : 退出使用exit 通过ifconfig 对比变化 多次执行需要退出多次</span>
@@ -72,7 +76,7 @@ yum -y <span class="token function">install</span> iptables.service
 systemctl start iptables.service
 systemctl <span class="token builtin class-name">enable</span> iptables.service
 </code></pre></div></li> <li><p>Docker swarm 集群强制退出导致 Error response from daemon: rpc error: code = Unknown desc = The swarm does not have a leader. It's possible that too few managers are online. Make sure more than half of the managers are online.</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">docker</span> swarm init --force-new-cluster
-</code></pre></div></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">3/13/2022, 4:02:47 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">4/6/2022, 12:37:30 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/middleware/" class="prev">
         中间件
@@ -81,6 +85,6 @@ systemctl <span class="token builtin class-name">enable</span> iptables.service
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.5a8dc3fa.js" defer></script><script src="/assets/js/2.316f9b33.js" defer></script><script src="/assets/js/9.ea1bddfc.js" defer></script>
+    <script src="/assets/js/app.ac238900.js" defer></script><script src="/assets/js/2.316f9b33.js" defer></script><script src="/assets/js/9.58c40140.js" defer></script>
   </body>
 </html>
