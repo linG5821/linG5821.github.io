@@ -20,17 +20,17 @@
    ```
 
 ## Docker配置
-1. 修改Docker配置无需重启Docker守护进程即生效
-
-   ```shell
-   # 修改 /etc/docker/daemon.json 后 执行
-   kill -SIGHUP $(pidof dockerd)
-   ```
-2. 重启守护进程，但不重启容器
+1. 重启守护进程，但不重启容器(无法在docker swarm集群下使用)
 
    ```shell
     # 修改 /etc/docker/daemon.json
     { "live-restore": true }
+    # 更新配置
+    kill -SIGHUP $(pidof dockerd)
+    # 检查是否配置成功
+    docker info | grep -i live
+    # 重启docker 不会重启容器
+    systemctl restart docker
    ```
 ## 特殊命令操作
 1. 抓取容器网络请求包
