@@ -8,7 +8,7 @@
     <link rel="icon" href="/favicon.png">
     <meta name="description" content="Yolo Cloud 记录了我技术成长中学到的各种知识,遇到的各种问题">
     
-    <link rel="preload" href="/assets/css/0.styles.6d53293b.css" as="style"><link rel="preload" href="/assets/js/app.ac238900.js" as="script"><link rel="preload" href="/assets/js/2.316f9b33.js" as="script"><link rel="preload" href="/assets/js/27.588068ec.js" as="script"><link rel="prefetch" href="/assets/js/10.64d04609.js"><link rel="prefetch" href="/assets/js/11.a190c20a.js"><link rel="prefetch" href="/assets/js/12.30d67eb2.js"><link rel="prefetch" href="/assets/js/13.6d1183cb.js"><link rel="prefetch" href="/assets/js/14.2867a224.js"><link rel="prefetch" href="/assets/js/15.5cc27a77.js"><link rel="prefetch" href="/assets/js/16.dedbb8fb.js"><link rel="prefetch" href="/assets/js/17.53a1730e.js"><link rel="prefetch" href="/assets/js/18.9b3a854c.js"><link rel="prefetch" href="/assets/js/19.74048cb8.js"><link rel="prefetch" href="/assets/js/20.4f71b55b.js"><link rel="prefetch" href="/assets/js/21.d5192eb5.js"><link rel="prefetch" href="/assets/js/22.973cf587.js"><link rel="prefetch" href="/assets/js/23.3c99543c.js"><link rel="prefetch" href="/assets/js/24.340e0806.js"><link rel="prefetch" href="/assets/js/25.1dd869fb.js"><link rel="prefetch" href="/assets/js/26.0d420d85.js"><link rel="prefetch" href="/assets/js/28.83f46422.js"><link rel="prefetch" href="/assets/js/29.7cd031fe.js"><link rel="prefetch" href="/assets/js/3.64794e1a.js"><link rel="prefetch" href="/assets/js/30.bf18910a.js"><link rel="prefetch" href="/assets/js/31.0f22e54c.js"><link rel="prefetch" href="/assets/js/32.921d31fc.js"><link rel="prefetch" href="/assets/js/33.37b8a5f2.js"><link rel="prefetch" href="/assets/js/34.11bcd9c3.js"><link rel="prefetch" href="/assets/js/4.38914c72.js"><link rel="prefetch" href="/assets/js/5.a0d52067.js"><link rel="prefetch" href="/assets/js/6.32c3a776.js"><link rel="prefetch" href="/assets/js/7.a07feba5.js"><link rel="prefetch" href="/assets/js/8.3d85024a.js"><link rel="prefetch" href="/assets/js/9.58c40140.js">
+    <link rel="preload" href="/assets/css/0.styles.6d53293b.css" as="style"><link rel="preload" href="/assets/js/app.e384f2db.js" as="script"><link rel="preload" href="/assets/js/2.316f9b33.js" as="script"><link rel="preload" href="/assets/js/27.a2fde3b9.js" as="script"><link rel="prefetch" href="/assets/js/10.64d04609.js"><link rel="prefetch" href="/assets/js/11.a190c20a.js"><link rel="prefetch" href="/assets/js/12.30d67eb2.js"><link rel="prefetch" href="/assets/js/13.6d1183cb.js"><link rel="prefetch" href="/assets/js/14.2867a224.js"><link rel="prefetch" href="/assets/js/15.5cc27a77.js"><link rel="prefetch" href="/assets/js/16.dedbb8fb.js"><link rel="prefetch" href="/assets/js/17.53a1730e.js"><link rel="prefetch" href="/assets/js/18.9b3a854c.js"><link rel="prefetch" href="/assets/js/19.74048cb8.js"><link rel="prefetch" href="/assets/js/20.4f71b55b.js"><link rel="prefetch" href="/assets/js/21.d5192eb5.js"><link rel="prefetch" href="/assets/js/22.973cf587.js"><link rel="prefetch" href="/assets/js/23.3c99543c.js"><link rel="prefetch" href="/assets/js/24.340e0806.js"><link rel="prefetch" href="/assets/js/25.1dd869fb.js"><link rel="prefetch" href="/assets/js/26.0d420d85.js"><link rel="prefetch" href="/assets/js/28.83f46422.js"><link rel="prefetch" href="/assets/js/29.7cd031fe.js"><link rel="prefetch" href="/assets/js/3.64794e1a.js"><link rel="prefetch" href="/assets/js/30.bf18910a.js"><link rel="prefetch" href="/assets/js/31.0f22e54c.js"><link rel="prefetch" href="/assets/js/32.921d31fc.js"><link rel="prefetch" href="/assets/js/33.e49cf7f5.js"><link rel="prefetch" href="/assets/js/34.11bcd9c3.js"><link rel="prefetch" href="/assets/js/4.38914c72.js"><link rel="prefetch" href="/assets/js/5.a0d52067.js"><link rel="prefetch" href="/assets/js/6.32c3a776.js"><link rel="prefetch" href="/assets/js/7.a07feba5.js"><link rel="prefetch" href="/assets/js/8.3d85024a.js"><link rel="prefetch" href="/assets/js/9.58c40140.js">
     <link rel="stylesheet" href="/assets/css/0.styles.6d53293b.css">
   </head>
   <body>
@@ -128,90 +128,7 @@ netsh int ipv4 show dynamicport tcp
 netsh int ipv4 show excludedport tcp
 <span class="token comment"># 管理员身份打开 powershell，然后设置 tcp ipv4 的动态端口范围为 49152 开始的 16384 个端口，也就是 49152~65535 (这个是windows默认的)</span>
 netsh int ipv4 <span class="token builtin class-name">set</span> dynamicport tcp <span class="token assign-left variable">start</span><span class="token operator">=</span><span class="token number">49152</span> <span class="token assign-left variable">num</span><span class="token operator">=</span><span class="token number">16384</span>
-</code></pre></div></li> <li><p>Git配置代理</p> <ul><li><p>http/https代理</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 注意将对应的代理地址及端口更换为自己对应的值</span>
-HTTP 代理
-  <span class="token function">git</span> config --global http.proxy <span class="token string">&quot;http://127.0.0.1:10809&quot;</span>
-  <span class="token function">git</span> config --global https.proxy <span class="token string">&quot;http://127.0.0.1:10809&quot;</span>
-
-Socket5 代理
-  <span class="token function">git</span> config --global http.proxy <span class="token string">&quot;socks5://127.0.0.1:10808&quot;</span>
-  <span class="token function">git</span> config --global https.proxy <span class="token string">&quot;socks5://127.0.0.1:10808&quot;</span>
-</code></pre></div></li> <li><p>ssh代理</p> <ul><li><p>windows</p> <div class="language- extra-class"><pre class="language-text"><code># 编辑文件地址 ~/.ssh/config
-Host github.com *.github.com
-    User git
-    Port 22
-    Hostname %h
-    IdentityFile ~\.ssh\id_rsa
-    ProxyCommand connect -S 127.0.0.1:10808 %h %p
-</code></pre></div></li> <li><p>WSL2</p></li></ul> <p><s>wsl2 中有一个问题，这里 wsl2 实际上是蹭用主机的代理，wsl2 相比 wsl1 在网络上发生了变化，导致访问windows需要知道具体的IP，所以这里的 winip 应该更换为对应的主机 (windows) 的IP地址，我更多情况下会将其设置为域名，然后只在 windows 上更改 hosts 文件并同步到wsl中即可，但是如果切换网络，切换 wifi 之后需要重新配置，参考过一些文章可以通过 <code>/etc/resolv.conf</code> 获取 winip ，实际测试并未成功，因为我的 <code>/etc/resolv.conf</code> 之前因为 wsl2 无法访问互联网，所以修改过其中的 DNS 值，并取消了自动生成的机制</s><br></p> <p>如果不自定义 <code>/etc/resolv.conf</code> 可以通过 <code>cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }'</code> 获取宿主机IP, wsl2 默认配置在/etc/resolv.conf文件中的是一个代理,所以如果 wsl2 镜像源无法使用或者无法访问外网, 我们只需要去更改主机的DNS, 而不必去修改 /etc/resolv.conf 文件</p> <div class="language- extra-class"><pre class="language-text"><code># 编辑文件地址 ~/.ssh/config
-Host github.com *.github.com
-    User git
-    Port 22
-    Hostname %h
-    IdentityFile ~\.ssh\id_rsa
-    ProxyCommand nc -v -x winip:10808 %h %p
-</code></pre></div></li> <li><p>代理设置脚本</p> <p>在 <code>~/.bashrc</code> 中添加:</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">alias</span> <span class="token assign-left variable">proxy</span><span class="token operator">=</span><span class="token string">&quot;source /path/to/proxy.sh&quot;</span>
-<span class="token builtin class-name">.</span> /path/to/proxy.sh <span class="token builtin class-name">set</span>
-</code></pre></div><p>脚本内容如下:</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token shebang important">#!/bin/bash</span>
-<span class="token assign-left variable">hostip</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">cat</span> /etc/resolv.conf <span class="token operator">|</span> <span class="token function">grep</span> nameserver <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{ print $2 }'</span><span class="token variable">)</span></span>
-<span class="token assign-left variable">wslip</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">hostname</span> -I <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $1}'</span><span class="token variable">)</span></span>
-<span class="token assign-left variable">http_port</span><span class="token operator">=</span><span class="token number">10809</span>
-<span class="token assign-left variable">socket_port</span><span class="token operator">=</span><span class="token number">10808</span>
-
-
-<span class="token assign-left variable">PROXY_HTTP</span><span class="token operator">=</span><span class="token string">&quot;http://<span class="token variable">${hostip}</span>:<span class="token variable">${http_port}</span>&quot;</span>
-<span class="token assign-left variable">PROXY_SOCKET</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${hostip}</span>:<span class="token variable">${socket_port}</span>&quot;</span>
-
-<span class="token function-name function">set_proxy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token comment">#export http_proxy=&quot;${PROXY_HTTP}&quot;</span>
-    <span class="token comment">#export HTTP_PROXY=&quot;${PROXY_HTTP}&quot;</span>
-    <span class="token comment">#export https_proxy=&quot;${PROXY_HTTP}&quot;</span>
-    <span class="token comment">#export HTTPS_PROXY=&quot;${PROXY_HTTP}&quot;</span>
-    <span class="token comment">#export SOCKET_PROXY=&quot;${PROXY_SOCKET}&quot;</span>
-    <span class="token builtin class-name">export</span> <span class="token assign-left variable">PROXY_HOST_IP</span><span class="token operator">=</span><span class="token string">&quot;<span class="token variable">${hostip}</span>&quot;</span>
-
-    <span class="token function">git</span> config --global http.proxy <span class="token string">&quot;socks5://<span class="token variable">${PROXY_SOCKET}</span>&quot;</span>
-    <span class="token function">git</span> config --global https.proxy <span class="token string">&quot;socks5://<span class="token variable">${PROXY_SOCKET}</span>&quot;</span>
-
-    <span class="token builtin class-name">echo</span> <span class="token string">&quot;<span class="token variable">${PROXY_HOST_IP}</span> winip&quot;</span> <span class="token operator">&gt;&gt;</span> /etc/hosts
-<span class="token punctuation">}</span>
-
-<span class="token function-name function">unset_proxy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token comment">#unset http_proxy</span>
-    <span class="token comment">#unset HTTP_PROXY</span>
-    <span class="token comment">#unset https_proxy</span>
-    <span class="token comment">#unset HTTPS_PROXY</span>
-    <span class="token comment">#unset SOCKET_PROXY</span>
-    <span class="token builtin class-name">unset</span> PROXY_HOST_IP
-
-    <span class="token function">git</span> config --global --unset http.proxy
-    <span class="token function">git</span> config --global --unset https.proxy
-
-    <span class="token function">sed</span> -i <span class="token string">'/winip/d'</span> /etc/hosts
-<span class="token punctuation">}</span>
-
-<span class="token function-name function">test_setting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token builtin class-name">echo</span> <span class="token string">&quot;Host ip:&quot;</span> <span class="token variable">${hostip}</span>
-    <span class="token builtin class-name">echo</span> <span class="token string">&quot;WSL ip:&quot;</span> <span class="token variable">${wslip}</span>
-    <span class="token builtin class-name">echo</span> <span class="token string">&quot;Current proxy: http: &quot;</span> <span class="token variable">$PROXY_HTTP</span> <span class="token string">&quot;socket: &quot;</span> <span class="token variable">$PROXY_SOCKET</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token operator">=</span> <span class="token string">&quot;set&quot;</span> <span class="token punctuation">]</span>
-<span class="token keyword">then</span>
-    set_proxy
-
-<span class="token keyword">elif</span> <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token operator">=</span> <span class="token string">&quot;unset&quot;</span> <span class="token punctuation">]</span>
-<span class="token keyword">then</span>
-    unset_proxy
-
-<span class="token keyword">elif</span> <span class="token punctuation">[</span> <span class="token string">&quot;<span class="token variable">$1</span>&quot;</span> <span class="token operator">=</span> <span class="token string">&quot;test&quot;</span> <span class="token punctuation">]</span>
-<span class="token keyword">then</span>
-    test_setting
-<span class="token keyword">else</span>
-    <span class="token builtin class-name">echo</span> <span class="token string">&quot;Unsupported arguments.&quot;</span>
-<span class="token keyword">fi</span>
-
-</code></pre></div></li></ul></li> <li><p>截取主机某个网卡的IP</p> <div class="language- extra-class"><pre class="language-text"><code># 可以将 select-string 后的关键字改成具体的网卡名称关键字
+</code></pre></div></li> <li><p>截取主机某个网卡的IP</p> <div class="language- extra-class"><pre class="language-text"><code># 可以将 select-string 后的关键字改成具体的网卡名称关键字
 (ipconfig|select-string &quot;无线&quot; -context 1,4 | findStr &quot;IPv4&quot;).Split(&quot;:&quot;)[-1]
 </code></pre></div></li> <li><p>python脚本获取主机IP</p> <ul><li><p>方式一: (此方式可能获取到虚拟IP)</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> socket
 hostname <span class="token operator">=</span> socket<span class="token punctuation">.</span>gethostname<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -235,11 +152,11 @@ ip <span class="token operator">=</span> socket<span class="token punctuation">.
 
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
       <span class="token keyword">print</span><span class="token punctuation">(</span>get_host_ip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre></div></li></ul></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">4/6/2022, 12:37:30 PM</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/machine/mac/">
+</code></pre></div></li></ul></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">4/7/2022, 11:28:48 AM</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/machine/mac/">
         Mac
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.ac238900.js" defer></script><script src="/assets/js/2.316f9b33.js" defer></script><script src="/assets/js/27.588068ec.js" defer></script>
+    <script src="/assets/js/app.e384f2db.js" defer></script><script src="/assets/js/2.316f9b33.js" defer></script><script src="/assets/js/27.a2fde3b9.js" defer></script>
   </body>
 </html>
