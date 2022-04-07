@@ -151,129 +151,14 @@
     # 管理员身份打开 powershell，然后设置 tcp ipv4 的动态端口范围为 49152 开始的 16384 个端口，也就是 49152~65535 (这个是windows默认的)
     netsh int ipv4 set dynamicport tcp start=49152 num=16384
     ```
-
-2. Git配置代理
-    * http/https代理
-
-      ```shell
-      # 注意将对应的代理地址及端口更换为自己对应的值
-      HTTP 代理
-        git config --global http.proxy "http://127.0.0.1:10809"
-        git config --global https.proxy "http://127.0.0.1:10809"
-
-      Socket5 代理
-        git config --global http.proxy "socks5://127.0.0.1:10808"
-        git config --global https.proxy "socks5://127.0.0.1:10808"
-      ```
-    * ssh代理
-      - windows
-      
-        ```
-        # 编辑文件地址 ~/.ssh/config
-        Host github.com *.github.com
-            User git
-            Port 22
-            Hostname %h
-            IdentityFile ~\.ssh\id_rsa
-            ProxyCommand connect -S 127.0.0.1:10808 %h %p
-        ```
-      - WSL2
-
-      ~~wsl2 中有一个问题，这里 wsl2 实际上是蹭用主机的代理，wsl2 相比 wsl1 在网络上发生了变化，导致访问windows需要知道具体的IP，所以这里的 winip 应该更换为对应的主机 (windows) 的IP地址，我更多情况下会将其设置为域名，然后只在 windows 上更改 hosts 文件并同步到wsl中即可，但是如果切换网络，切换 wifi 之后需要重新配置，参考过一些文章可以通过 `/etc/resolv.conf` 获取 winip ，实际测试并未成功，因为我的 `/etc/resolv.conf` 之前因为 wsl2 无法访问互联网，所以修改过其中的 DNS 值，并取消了自动生成的机制~~<br/>
-      
-      如果不自定义 `/etc/resolv.conf` 可以通过 `cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }'` 获取宿主机IP, wsl2 默认配置在/etc/resolv.conf文件中的是一个代理,所以如果 wsl2 镜像源无法使用或者无法访问外网, 我们只需要去更改主机的DNS, 而不必去修改 /etc/resolv.conf 文件
-
-        ```
-        # 编辑文件地址 ~/.ssh/config
-        Host github.com *.github.com
-            User git
-            Port 22
-            Hostname %h
-            IdentityFile ~\.ssh\id_rsa
-            ProxyCommand nc -v -x winip:10808 %h %p
-        ```
-    
-    * 代理设置脚本
-
-      在 `~/.bashrc` 中添加:
-
-      ```shell
-      alias proxy="source /path/to/proxy.sh"
-      . /path/to/proxy.sh set
-      ```
-
-      脚本内容如下:
-
-      ```shell
-      #!/bin/bash
-      hostip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
-      wslip=$(hostname -I | awk '{print $1}')
-      http_port=10809
-      socket_port=10808
-
-
-      PROXY_HTTP="http://${hostip}:${http_port}"
-      PROXY_SOCKET="${hostip}:${socket_port}"
-
-      set_proxy(){
-          #export http_proxy="${PROXY_HTTP}"
-          #export HTTP_PROXY="${PROXY_HTTP}"
-          #export https_proxy="${PROXY_HTTP}"
-          #export HTTPS_PROXY="${PROXY_HTTP}"
-          #export SOCKET_PROXY="${PROXY_SOCKET}"
-          export PROXY_HOST_IP="${hostip}"
-
-          git config --global http.proxy "socks5://${PROXY_SOCKET}"
-          git config --global https.proxy "socks5://${PROXY_SOCKET}"
-
-          echo "${PROXY_HOST_IP} winip" >> /etc/hosts
-      }
-
-      unset_proxy(){
-          #unset http_proxy
-          #unset HTTP_PROXY
-          #unset https_proxy
-          #unset HTTPS_PROXY
-          #unset SOCKET_PROXY
-          unset PROXY_HOST_IP
-
-          git config --global --unset http.proxy
-          git config --global --unset https.proxy
-
-          sed -i '/winip/d' /etc/hosts
-      }
-
-      test_setting(){
-          echo "Host ip:" ${hostip}
-          echo "WSL ip:" ${wslip}
-          echo "Current proxy: http: " $PROXY_HTTP "socket: " $PROXY_SOCKET
-      }
-
-      if [ "$1" = "set" ]
-      then
-          set_proxy
-
-      elif [ "$1" = "unset" ]
-      then
-          unset_proxy
-
-      elif [ "$1" = "test" ]
-      then
-          test_setting
-      else
-          echo "Unsupported arguments."
-      fi
-
-      ```
-      
-      
-3. 截取主机某个网卡的IP
+     
+2. 截取主机某个网卡的IP
 
     ``` 
     # 可以将 select-string 后的关键字改成具体的网卡名称关键字
     (ipconfig|select-string "无线" -context 1,4 | findStr "IPv4").Split(":")[-1]
     ```
-4. python脚本获取主机IP
+3. python脚本获取主机IP
     * 方式一: (此方式可能获取到虚拟IP)
 
       ```python
