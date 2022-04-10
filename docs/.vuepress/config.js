@@ -41,7 +41,10 @@ module.exports = {
       {
         title: '中间件',
         path: '/middleware/',
-        sidebarDepth: 1
+        sidebarDepth: 1,
+        children: [
+          { title: 'Nginx', path: '/middleware/nginx' }
+        ]
       },
       {
         title: '容器技术',
@@ -58,6 +61,14 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           { title: 'Git', path: '/tool/git' }
+        ]
+      },
+      {
+        title: '安全技术',
+        path: '/security/',
+        sidebarDepth: 1,
+        children: [
+          { title: 'SSL', path: '/security/ssl' }
         ]
       },
       {

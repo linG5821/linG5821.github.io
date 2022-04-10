@@ -32,6 +32,13 @@
     # 重启docker 不会重启容器
     systemctl restart docker
    ```
+
+2. Docker 容器配置重新加载
+
+   ```shell
+   docker kill -s HUP {container-name}
+   ```
+
 ## 特殊命令操作
 1. 抓取容器网络请求包
 

@@ -163,6 +163,48 @@
   sudo apt update
   ```
 
+## 性能优化
+1. 内核参数优化示例
+
+    ```shell
+    //内核参数调整
+    cat << EOF >> /etc/sysctl.conf
+    fs.file-max=2097152 
+    fs.nr_open=2097152
+    net.core.somaxconn=32768
+    net.ipv4.tcp_max_syn_backlog=16384
+    net.core.netdev_max_backlog=16384
+    net.ipv4.ip_local_port_range=1000 65535
+    net.core.rmem_default=262144
+    net.core.wmem_default=262144
+    net.core.rmem_max=16777216
+    net.core.wmem_max=16777216
+    net.core.optmem_max=16777216
+    net.ipv4.tcp_rmem=1024 4096 16777216
+    net.ipv4.tcp_wmem=1024 4096 16777216
+    net.nf_conntrack_max=1000000
+    net.netfilter.nf_conntrack_max=1000000
+    net.netfilter.nf_conntrack_tcp_timeout_time_wait=30
+    net.ipv4.tcp_max_tw_buckets=1048576
+    net.ipv4.tcp_fin_timeout = 15
+    EOF
+
+    cat << EOF >>/etc/security/limits.conf
+    *      soft   nofile      1048576
+    *      hard   nofile      1048576
+    EOF
+
+    echo DefaultLimitNOFILE=1048576 >>/etc/systemd/system.conf
+
+    //网络参数调整
+    cat << EOF >> /etc/sysctl.conf
+    net.ipv4.tcp_tw_reuse=1
+    net.ipv4.tcp_tw_recycle=1
+    net.ipv4.tcp_fin_timeout=30
+    net.ipv4.tcp_syncookies = 1
+    EOF
+    ```
+
 ## 常用软件安装与配置
 
 * Centos 安装 Supervisor
@@ -234,7 +276,41 @@
   yum install liberation-fonts
   ```
 
+* iptables 使用
+1. 开放端口
+
+2. 端口转发
+
+    ```shell
+    # 单次即时生效
+    echo 1 > /proc/sys/net/ipv4/ip_forward
+    # 永久生效
+    vi /etc/sysctl.conf
+    ## 启用包过滤功能 
+    net.ipv4.ip_forward = 1 
+    ## 即时加载配置
+    sysctl -p
+    ## 显示所有系统参数
+    sysctl -a
+    可以看到net.ipv4.ip_forward = 1  
+    配置转发规则，如下示例是将26.xx.x.2:10001（云服务器外网地址，端口可自行选择）的访问转发至内网为10.0.0.5:6379的 Redis 实例。
+    iptables -t nat -A PREROUTING -p tcp --dport 10001 -j DNAT --to-destination 10.0.0.5:6379
+    iptables -t nat -A POSTROUTING -d 10.0.0.5 -p tcp --dport 6379 -j MASQUERADE
+    ```
+
 ## 其他问题
 * VIRT占用内存过大
   
   大致的原因是从glibc2.11版本开始，linux为了解决多线程下内存分配竞争而引起的性能问题，增强了动态内存分配行为，使用了一种叫做arena的memory pool,在64位系统下面缺省配置是一个arena大小为64M，一个进程可以最多有cpu cores * 8个arena。假设机器是8核的，那么最多可以有8 * 8 = 64个arena，也就是会使用64 * 64 = 4096M内存。然而我们可以通过设置系统环境变量来改变arena的数量：export MALLOC_ARENA_MAX=8（一般建议配置程序cpu核数）配置环境变量使其生效，再重启该jvm进程，VIRT比之前少了快2个G
+
+* Centos6 Autoconf version 2.64 or higher is required
+
+  ```shell
+  rpm -qf /usr/bin/autoconf
+  rpm -e --nodeps autoconf-2.63
+  wget ftp://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz
+  tar zxvf autoconf-2.69.tar.gz
+  cd autoconf-2.69
+  ./configure --prefix=/usr/
+  make && make install
+  ```
