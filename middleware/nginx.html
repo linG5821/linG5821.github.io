@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>性能调优 | Yolo Cloud</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/favicon.png">
+    <meta name="description" content="Yolo Cloud 记录了我技术成长中学到的各种知识,遇到的各种问题">
+    
+    <link rel="preload" href="/assets/css/0.styles.6d53293b.css" as="style"><link rel="preload" href="/assets/js/app.201a6d3b.js" as="script"><link rel="preload" href="/assets/js/2.316f9b33.js" as="script"><link rel="preload" href="/assets/js/30.766f6e6c.js" as="script"><link rel="prefetch" href="/assets/js/10.64d04609.js"><link rel="prefetch" href="/assets/js/11.a190c20a.js"><link rel="prefetch" href="/assets/js/12.eaf4825d.js"><link rel="prefetch" href="/assets/js/13.6d1183cb.js"><link rel="prefetch" href="/assets/js/14.2867a224.js"><link rel="prefetch" href="/assets/js/15.5cc27a77.js"><link rel="prefetch" href="/assets/js/16.dedbb8fb.js"><link rel="prefetch" href="/assets/js/17.53a1730e.js"><link rel="prefetch" href="/assets/js/18.9b3a854c.js"><link rel="prefetch" href="/assets/js/19.74048cb8.js"><link rel="prefetch" href="/assets/js/20.4f71b55b.js"><link rel="prefetch" href="/assets/js/21.d5192eb5.js"><link rel="prefetch" href="/assets/js/22.973cf587.js"><link rel="prefetch" href="/assets/js/23.3c99543c.js"><link rel="prefetch" href="/assets/js/24.340e0806.js"><link rel="prefetch" href="/assets/js/25.5320daf6.js"><link rel="prefetch" href="/assets/js/26.0d420d85.js"><link rel="prefetch" href="/assets/js/27.a2fde3b9.js"><link rel="prefetch" href="/assets/js/28.83f46422.js"><link rel="prefetch" href="/assets/js/29.7cd031fe.js"><link rel="prefetch" href="/assets/js/3.9d775690.js"><link rel="prefetch" href="/assets/js/31.fc0ab2d3.js"><link rel="prefetch" href="/assets/js/32.e520c739.js"><link rel="prefetch" href="/assets/js/33.425a82a8.js"><link rel="prefetch" href="/assets/js/34.c743187a.js"><link rel="prefetch" href="/assets/js/35.c4e5aa2f.js"><link rel="prefetch" href="/assets/js/36.65c9cdeb.js"><link rel="prefetch" href="/assets/js/37.4f5c379c.js"><link rel="prefetch" href="/assets/js/4.38914c72.js"><link rel="prefetch" href="/assets/js/5.a0d52067.js"><link rel="prefetch" href="/assets/js/6.32c3a776.js"><link rel="prefetch" href="/assets/js/7.a07feba5.js"><link rel="prefetch" href="/assets/js/8.3d85024a.js"><link rel="prefetch" href="/assets/js/9.f1ad9cb6.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.6d53293b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Yolo Cloud</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="https://github.com/linG5821" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  主页
+</a></div><div class="nav-item"><a href="https://github.com/linG5821" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/machine/" class="sidebar-heading clickable"><span>机器环境</span> <span class="arrow right"></span></a> <!----></section></li><li><a href="/network/" class="sidebar-link">网络编程</a></li><li><section class="sidebar-group collapsable depth-0"><a href="/database/" class="sidebar-heading clickable"><span>数据库</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/middleware/" class="sidebar-heading clickable router-link-active open"><span>中间件</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/middleware/nginx.html" aria-current="page" class="active sidebar-link">Nginx</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/middleware/nginx.html#性能调优" class="sidebar-link">性能调优</a></li><li class="sidebar-sub-header"><a href="/middleware/nginx.html#常见问题汇总" class="sidebar-link">常见问题汇总</a></li></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/container/" class="sidebar-heading clickable"><span>容器技术</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/tool/" class="sidebar-heading clickable"><span>常用工具</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/security/" class="sidebar-heading clickable"><span>安全技术</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/java/" class="sidebar-heading clickable"><span>Java</span> <span class="arrow right"></span></a> <!----></section></li><li><a href="/go/" class="sidebar-link">Go</a></li><li><a href="/php/" class="sidebar-link">PHP</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="性能调优"><a href="#性能调优" class="header-anchor">#</a> 性能调优</h2> <div class="language- extra-class"><pre class="language-text"><code>worker_processes 1;//nginx的 work进程数, 建议等于CPU核心数, 也可以设置 auto
+worker_cpu_affinity 0001 0010 0100 1000;// 配置进程与CPU的亲和力, 即把不同的进程分给不同的核心 也可以设置为 auto 自动分配
+
+events {
+  //事件处理模型 在linux下使用epoll多路复用模型 在 Freebsd 中使用 kqueue 的I/O多路复用模型 在 Solaris 中使用 /dev/poll 方式的 I/O 多路复用模型，在 Windows中使用 icop
+  use epoll;
+  
+  /* worker_connections 也是个事件模块指令，用于定义 Nginx 每个进程的最大连接数，默认是 1024。
+  最大连接数的计算公式如下：
+  max_clients = worker_processes * worker_connections;
+  如果作为反向代理，因为浏览器默认会开启 2 个连接到 server，而且 Nginx 还会使用fds（file descriptor）从同一个连接池建立连接到 upstream 后端。则最大连接数的计算公式如下：
+  max_clients = worker_processes * worker_connections / 4;
+  另外，进程的最大连接数受 Linux 系统进程的最大打开文件数限制，在执行操作系统命令 ulimit -HSn 65535或配置相应文件后， worker_connections 的设置才能生效 */
+  worker_connections 20480;
+  
+  /* 默认情况下，Nginx 进程只会在一个时刻接收一个新的连接，我们可以配置multi_accept 为 on，实现在一个时刻内可以接收多个新的连接，提高处理效率。该参数默认是 off，建议开启 */
+  multi_accept on;
+  
+}
+
+
+http {
+  /* 参数作用:设置存放域名( server names)的最大散列表的存储桶( bucket)的大小。 默认值依赖 CPU 的缓存行 不能带单位
+  若报 出 hash max size 或 hash bucket size 的提示，则需要增加 server_names_hash_max size 的值*/
+  server_names_hash_bucket_size 128; 
+  
+  /*第一行的 sendfile 配置可以提高 Nginx 静态资源托管效率。sendfile 是一个系统调用，直接在内核空间完成文件发送，不需要先 read 再 write，没有上下文切换开销*/
+  sendfile on;
+  
+  /*TCP_NOPUSH 是 FreeBSD 的一个 socket 选项，对应 Linux 的 TCP_CORK，Nginx 里统一用 tcp_nopush 来控制它，并且只有在启用了 sendfile 之后才生效。启用它之后，数据包会累计到一定大小之后才会发送，减小了额外开销，提高网络效率*/
+  tcp_nopush on;
+  
+  keepalive_timeout 120;
+  
+  /*TCP_NODELAY 也是一个 socket 选项，启用后会禁用 Nagle 算法，尽快发送数据，某些情况下可以节约 200ms（Nagle 算法原理是：在发出去的数据还未被确认之前，新生成的小数据先存起来，凑满一个 MSS 或者等到收到确认后再发送）。Nginx 只会针对处于 keep-alive 状态的 TCP 连接才会启用 tcp_nodelay */
+  tcp_nodelay on;
+  
+  client_header_buffer_size 32k;
+  large_client_header_buffers 4 32k;
+  client_max_body_size 1024m;
+  client_body_buffer_size 10m;
+  
+  #Gzip Compression
+  gzip on;
+  gzip_buffers 16 8k;
+  gzip_comp_level 6;
+  gzip_http_version 1.1;
+  gzip_min_length 256;
+  gzip_proxied any;
+  gzip_vary on;
+  gzip_types
+    text/xml application/xml application/atom+xml application/rss+xml application/xhtml+xml image/svg+xml
+    text/javascript application/javascript application/x-javascript
+    text/x-json application/json application/x-web-app-manifest+json
+    text/css text/plain text/x-component
+    font/opentype application/x-font-ttf application/vnd.ms-fontobject
+    image/x-icon;
+  gzip_disable &quot;MSIE [1-6]\.(?!.*SV1)&quot;;
+  
+  # Fastcgi
+  fastcgi_connect_timeout 300;
+  fastcgi_send_timeout 300;
+  fastcgi_read_timeout 300;
+  fastcgi_buffer_size 64k;
+  fastcgi_buffers 4 64k;
+  fastcgi_busy_buffers_size 128k;
+  fastcgi_temp_file_write_size 128k;
+  fastcgi_intercept_errors on;
+  
+}
+
+</code></pre></div><h2 id="常见问题汇总"><a href="#常见问题汇总" class="header-anchor">#</a> 常见问题汇总</h2> <ol><li>nginx: [error] invalid PID number in nginx.pid 的解决办法</li></ol> <p>nginx 修改配置文件后，重启的时候出现了，这个提示。 nginx: [error] invalid PID number &quot;&quot; in &quot;/tmp/nginx.pid&quot; 。 意思是说 不能在文件/tmp/nginx.pid中找到有效的 PID(进程ID)</p> <p>1.1 杀掉nginx主进程,然后重启</p> <div class="language-shell extra-class"><pre class="language-shell"><code>   <span class="token comment"># 重启前一定要先检查，配置文件是否正确，没有问题再重启</span>
+   nginx -t
+   nginx: the configuration <span class="token function">file</span> /usr/local/nginx/conf/nginx.conf syntax is ok
+   nginx: configuration <span class="token function">file</span> /usr/local/nginx/conf/nginx.conf <span class="token builtin class-name">test</span> is successful
+   
+   <span class="token comment"># 关掉nginx 的所有进程</span>
+   <span class="token function">killall</span> nginx
+   <span class="token comment"># 重新启动 nginx</span>
+</code></pre></div><p>1.2 把nginx的进程号重新写入 nginx.pid 中，然后正常重启</p> <div class="language-shell extra-class"><pre class="language-shell"><code>   <span class="token comment"># 首先找到nginx进程 pid</span>
+   <span class="token function">ps</span> aux <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">&quot;nginx: master&quot;</span> <span class="token operator">|</span> <span class="token function">grep</span> -v pts <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $2;}'</span>
+   
+   <span class="token comment"># 或者直接写入</span>
+   <span class="token comment"># 需要注意的是， nginx.pid 的文件的路径，不同的配置，可能路径是不同的。 可以从 nginx.conf 的主配置文件中获得</span>
+   
+   <span class="token builtin class-name">echo</span> <span class="token variable"><span class="token variable">`</span><span class="token function">ps</span> aux <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">&quot;nginx: master&quot;</span> <span class="token operator">|</span> <span class="token function">grep</span> -v pts <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $2;}'</span><span class="token variable">`</span></span> <span class="token operator">&gt;</span> /tmp/nginx.pid
+   
+   <span class="token comment"># 然后重启</span>
+   nginx -s reload
+
+</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">4/10/2022, 10:22:05 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/database/mongodb.html" class="prev">
+        MongoDB
+      </a></span> <span class="next"><a href="/container/docker.html">
+        Docker
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.201a6d3b.js" defer></script><script src="/assets/js/2.316f9b33.js" defer></script><script src="/assets/js/30.766f6e6c.js" defer></script>
+  </body>
+</html>
