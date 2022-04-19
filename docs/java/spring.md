@@ -96,7 +96,8 @@ Portlet 是能够生成语义代码（例如：HTML）片段的小型 Java Web �
   - postProcessAfterInitialization 在任何 bean 初始化回调(InitializingBean、afterPropertiesSet、自定义初始化方法) 执行之后
 
 * BeanFactoryPostProcessor 工厂后处理方法
-BeanDefinitionRegistryPostProcessor 实现 BeanFactoryPostProcessor 接口的接口
+
+  BeanDefinitionRegistryPostProcessor 实现 BeanFactoryPostProcessor 接口的接口
 
   - BeanDefinitionRegistryPostProcessor#postProcessBeanDefinitionRegistry(registry) 优先调用传入 beanFactoryPostProcessors 的 postProcessBeanDefinitionRegistry, 之后获取容器中注册的 BeanDefinitionRegistryPostProcessor, 会根据是否实现排序接口分别进行处理
 
