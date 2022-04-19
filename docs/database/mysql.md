@@ -23,7 +23,7 @@ TODO
 
 ## MySQL原理
 ### Mysql基本架构示意图
-![Mysql基本架构示意图](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo0d2070e8f84c4801adbfa03bda1f98d9.webp)
+![Mysql基本架构示意图](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/0d2070e8f84c4801adbfa03bda1f98d9.webp)
 MySQL 可以分为 Server 层和存储引擎层两部分。
 
 Server 层包括**连接器**、**查询缓存**、**分析器**、**优化器**、**执行器**等，涵盖 MySQL 的大多数核心服务功能，以及所有的内置函数（如日期、时间、数学和加密函数等），所有跨存储引擎的功能都在这一层实现，比如**存储过程**、**触发器**、**视图**等。不同的存储引擎共用一个 Server 层。
@@ -93,7 +93,7 @@ mysql redo log 是 WAL（Write-Ahead-Logging），先写日志（redolog也在�
 
 InnoDB 的 redo log 是固定大小的，比如可以配置一个4个文件每个文件是1G，从头开始写，写到末尾就回到开头循环写。如下图所示：
 
-![](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo16a7950217b3f0f4ed02db5db59562a7.webp)
+![](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/16a7950217b3f0f4ed02db5db59562a7.webp)
 
 write pos 是当前记录的位置，一边写一边后移，写到第 3 号文件末尾后就回到 0 号文件开头。checkpoint 是当前要擦除的位置，也是往后推移并且循环的，擦除记录前要把记录更新到数据文件。
 
@@ -167,7 +167,7 @@ binlog 是 server 层的日志，redo log 是 InnoDB 特有的日志，binlog有
 
 update 语句的执行流程图，图中浅色框表示是在 InnoDB 内部执行的，深色框表示是在执行器中执行的：
 
-![](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo2e5bff4910ec189fe1ee6e2ecc7b4bbe.webp)
+![](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/2e5bff4910ec189fe1ee6e2ecc7b4bbe.webp)
 
 
 
@@ -328,11 +328,11 @@ InnoDB中表都是根据主键顺序以索引的形式存放的，这种存储�
 
 B树结构图：
 
-![](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgobcf303c4aa2ec04599ff778ee1e79b76.png)
+![](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/bcf303c4aa2ec04599ff778ee1e79b76.png)
 
 B+树结构图：
 
-![](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo550bf776a034af98fbfdce91361cc6ff.png)
+![](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/550bf776a034af98fbfdce91361cc6ff.png)
 
 1. B+树非叶子节点不存数据，只存索引，B树的非叶子节点存储数据。
 2. B+树使用双向链表串连所有子节点，区间查询效率高，因为所有数据都在叶子节点，但是B树需要通过中序遍历才能完成范围查找。
@@ -341,7 +341,7 @@ B+树结构图：
 
 **MySQL表的存储结构**：
 
-![](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgoaca38087f94903beef319d5f223e18b1.png)
+![](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/aca38087f94903beef319d5f223e18b1.png)
 
 * 在InnoDB 中，每一张表其实就是多个 B+ 树，即一个主键索引树和多个非主键索引树。
 

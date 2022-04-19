@@ -80,8 +80,8 @@ module.exports = {
           { title: 'Java虚拟机', path: '/java/jvm' },
           { title: 'Java响应式编程', path: '/java/reactive' },
           { title: 'Maven', path: '/java/maven' },
-          { title: 'SpringBoot', path: '/java/spring-boot' },
-          { title: 'SpringCloud', path: '/java/spring-cloud' },
+          { title: 'Spring', path: '/java/spring' },
+          { title: 'Boot&Cloud', path: '/java/boot&cloud' },
           { title: 'Netty', path: '/java/netty' },
         ]
       },
