@@ -8,7 +8,7 @@
     <link rel="icon" href="/favicon.png">
     <meta name="description" content="Yolo Cloud 记录了我技术成长中学到的各种知识,遇到的各种问题">
     
-    <link rel="preload" href="/assets/css/0.styles.6d53293b.css" as="style"><link rel="preload" href="/assets/js/app.7b96c76a.js" as="script"><link rel="preload" href="/assets/js/2.ef598a62.js" as="script"><link rel="preload" href="/assets/js/36.8d03e8ec.js" as="script"><link rel="prefetch" href="/assets/js/10.75bdaf21.js"><link rel="prefetch" href="/assets/js/11.037f0d2f.js"><link rel="prefetch" href="/assets/js/12.f91a1996.js"><link rel="prefetch" href="/assets/js/13.c54e744a.js"><link rel="prefetch" href="/assets/js/14.51f92363.js"><link rel="prefetch" href="/assets/js/15.e1dc4445.js"><link rel="prefetch" href="/assets/js/16.32bad1d2.js"><link rel="prefetch" href="/assets/js/17.3f28336b.js"><link rel="prefetch" href="/assets/js/18.2f7baed5.js"><link rel="prefetch" href="/assets/js/19.36c88987.js"><link rel="prefetch" href="/assets/js/20.47b7b030.js"><link rel="prefetch" href="/assets/js/21.31add852.js"><link rel="prefetch" href="/assets/js/22.a4573c9e.js"><link rel="prefetch" href="/assets/js/23.4e3fd0ec.js"><link rel="prefetch" href="/assets/js/24.91dd1b24.js"><link rel="prefetch" href="/assets/js/25.f5868cd1.js"><link rel="prefetch" href="/assets/js/26.81b56aba.js"><link rel="prefetch" href="/assets/js/27.8e9cb4fb.js"><link rel="prefetch" href="/assets/js/28.f16c89d6.js"><link rel="prefetch" href="/assets/js/29.cc4296b3.js"><link rel="prefetch" href="/assets/js/3.fb7b9a9b.js"><link rel="prefetch" href="/assets/js/30.c084b2f4.js"><link rel="prefetch" href="/assets/js/31.b1a4fd47.js"><link rel="prefetch" href="/assets/js/32.0a0fdc8d.js"><link rel="prefetch" href="/assets/js/33.aa5cb4aa.js"><link rel="prefetch" href="/assets/js/34.4ef08727.js"><link rel="prefetch" href="/assets/js/35.9232e8a2.js"><link rel="prefetch" href="/assets/js/37.c1fc043c.js"><link rel="prefetch" href="/assets/js/4.7ddf9bc1.js"><link rel="prefetch" href="/assets/js/5.098efebc.js"><link rel="prefetch" href="/assets/js/6.48994739.js"><link rel="prefetch" href="/assets/js/7.2b532d32.js"><link rel="prefetch" href="/assets/js/8.90782162.js"><link rel="prefetch" href="/assets/js/9.98c783ff.js">
+    <link rel="preload" href="/assets/css/0.styles.6d53293b.css" as="style"><link rel="preload" href="/assets/js/app.7f345981.js" as="script"><link rel="preload" href="/assets/js/2.0035a99a.js" as="script"><link rel="preload" href="/assets/js/36.bcd024d2.js" as="script"><link rel="prefetch" href="/assets/js/10.75bdaf21.js"><link rel="prefetch" href="/assets/js/11.03734595.js"><link rel="prefetch" href="/assets/js/12.3ba1f573.js"><link rel="prefetch" href="/assets/js/13.66ad547a.js"><link rel="prefetch" href="/assets/js/14.4b35009e.js"><link rel="prefetch" href="/assets/js/15.117fdd5b.js"><link rel="prefetch" href="/assets/js/16.eb3f057b.js"><link rel="prefetch" href="/assets/js/17.707f2624.js"><link rel="prefetch" href="/assets/js/18.bccc74a5.js"><link rel="prefetch" href="/assets/js/19.4b89fd71.js"><link rel="prefetch" href="/assets/js/20.f957d321.js"><link rel="prefetch" href="/assets/js/21.adf97817.js"><link rel="prefetch" href="/assets/js/22.2e46bb74.js"><link rel="prefetch" href="/assets/js/23.f602cd3e.js"><link rel="prefetch" href="/assets/js/24.94d3d343.js"><link rel="prefetch" href="/assets/js/25.55114fe6.js"><link rel="prefetch" href="/assets/js/26.3b9b9abb.js"><link rel="prefetch" href="/assets/js/27.66a9c05e.js"><link rel="prefetch" href="/assets/js/28.22d147e2.js"><link rel="prefetch" href="/assets/js/29.f80508e3.js"><link rel="prefetch" href="/assets/js/3.e213041e.js"><link rel="prefetch" href="/assets/js/30.056890e4.js"><link rel="prefetch" href="/assets/js/31.105be1dd.js"><link rel="prefetch" href="/assets/js/32.a3581a2a.js"><link rel="prefetch" href="/assets/js/33.7d6e5521.js"><link rel="prefetch" href="/assets/js/34.92c1e46b.js"><link rel="prefetch" href="/assets/js/35.c440e0a9.js"><link rel="prefetch" href="/assets/js/37.957ee5e9.js"><link rel="prefetch" href="/assets/js/4.2c65892f.js"><link rel="prefetch" href="/assets/js/5.8c034ab0.js"><link rel="prefetch" href="/assets/js/6.52ef3b05.js"><link rel="prefetch" href="/assets/js/7.cb94e68d.js"><link rel="prefetch" href="/assets/js/8.58209e7d.js"><link rel="prefetch" href="/assets/js/9.45b910d9.js">
     <link rel="stylesheet" href="/assets/css/0.styles.6d53293b.css">
   </head>
   <body>
@@ -35,14 +35,14 @@ Host github.com *.github.com
     User git
     Port 22
     Hostname %h
-    IdentityFile ~\.ssh\id_rsa
+    IdentityFile ~/.ssh/id_rsa
     ProxyCommand connect -S 127.0.0.1:10808 %h %p
 </code></pre></div></li> <li><p>WSL2</p> <p><s>wsl2 中有一个问题，这里 wsl2 实际上是蹭用主机的代理，wsl2 相比 wsl1 在网络上发生了变化，导致访问windows需要知道具体的IP，所以这里的 winip 应该更换为对应的主机 (windows) 的IP地址，我更多情况下会将其设置为域名，然后只在 windows 上更改 hosts 文件并同步到wsl中即可，但是如果切换网络，切换 wifi 之后需要重新配置，参考过一些文章可以通过 <code>/etc/resolv.conf</code> 获取 winip ，实际测试并未成功，因为我的 <code>/etc/resolv.conf</code> 之前因为 wsl2 无法访问互联网，所以修改过其中的 DNS 值，并取消了自动生成的机制</s><br></p> <p>如果不自定义 <code>/etc/resolv.conf</code> 可以通过 <code>cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }'</code> 获取宿主机IP, wsl2 默认配置在/etc/resolv.conf文件中的是一个代理,所以如果 wsl2 镜像源无法使用或者无法访问外网, 我们只需要去更改主机的DNS, 而不必去修改 /etc/resolv.conf 文件</p> <div class="language- extra-class"><pre class="language-text"><code># 编辑文件地址 ~/.ssh/config
 Host github.com *.github.com
     User git
     Port 22
     Hostname %h
-    IdentityFile ~\.ssh\id_rsa
+    IdentityFile ~/.ssh/id_rsa
     ProxyCommand nc -v -x winip:10808 %h %p
 </code></pre></div></li></ul> <h3 id="代理设置脚本"><a href="#代理设置脚本" class="header-anchor">#</a> 代理设置脚本</h3> <p>在 <code>~/.bashrc</code> 中添加:</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token builtin class-name">alias</span> <span class="token assign-left variable">proxy</span><span class="token operator">=</span><span class="token string">&quot;source /path/to/proxy.sh&quot;</span>
 <span class="token builtin class-name">.</span> /path/to/proxy.sh <span class="token builtin class-name">set</span>
@@ -126,7 +126,7 @@ Host github.com *.github.com
 <span class="token keyword">done</span>
 </code></pre></div></li> <li><p>git clone 代码自动转换为CRLF</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 全局关闭Git自动转换功能</span>
 <span class="token function">git</span> config --global core.autocrlf <span class="token boolean">false</span>
-</code></pre></div></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">4/19/2022, 6:54:23 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">5/18/2022, 1:10:11 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/container/kubernetes.html" class="prev">
         Kubernetes
@@ -135,6 +135,6 @@ Host github.com *.github.com
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.7b96c76a.js" defer></script><script src="/assets/js/2.ef598a62.js" defer></script><script src="/assets/js/36.8d03e8ec.js" defer></script>
+    <script src="/assets/js/app.7f345981.js" defer></script><script src="/assets/js/2.0035a99a.js" defer></script><script src="/assets/js/36.bcd024d2.js" defer></script>
   </body>
 </html>
