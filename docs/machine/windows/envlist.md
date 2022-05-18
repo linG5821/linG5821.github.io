@@ -46,16 +46,9 @@
 5. Navicat
 6. Postman
 7. RDM(Redis图形化工具)
-8. Vscode
-   插件:
-   * vscode-icons
-   * xml tools
-   * vetur
-   * remote wsl
-   * live server
-   * GitLens
-9.  PicGo(图床)
-10. jd-jui
+8. Vscode(配置通过账号同步)
+9. PicGo(图床)
+10. jadx
 11. Fiddler(抓包工具)
 12. GPG软件
 13. TDEngineGUI(TD图形工具) 选装
@@ -76,7 +69,6 @@
      - CamelCase
      - GenerateAllSetter
      - GsonFormatPlus
-     - IDE Eval Reset
      - JRebel
      - Key Promoter X
      - MapStruct support
@@ -90,19 +82,6 @@
       # custom IntelliJ IDEA VM options
       -Xms4g
       -Xmx4g
-      -XX:ReservedCodeCacheSize=512m
-      -XX:+AlwaysPreTouch
-      -XX:+UseG1GC
-      -XX:+UseStringDeduplication
-      -ea
-      -Dsun.io.useCanonPrefixCache=false
-      -Djava.net.preferIPv4Stack=true
-      -Djdk.http.auth.tunneling.disabledSchemes=""
-      -XX:+HeapDumpOnOutOfMemoryError
-      -XX:-OmitStackTraceInFastThrow
-      -Djdk.attach.allowAttachSelf
-      -Dkotlinx.coroutines.debug=off
-      -Djdk.module.illegalAccess.silent=true
       -Dfile.encoding=UTF-8
       ```
 

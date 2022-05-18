@@ -29,7 +29,7 @@
         User git
         Port 22
         Hostname %h
-        IdentityFile ~\.ssh\id_rsa
+        IdentityFile ~/.ssh/id_rsa
         ProxyCommand connect -S 127.0.0.1:10808 %h %p
     ```
 
@@ -45,7 +45,7 @@
         User git
         Port 22
         Hostname %h
-        IdentityFile ~\.ssh\id_rsa
+        IdentityFile ~/.ssh/id_rsa
         ProxyCommand nc -v -x winip:10808 %h %p
     ```
 ### 代理设置脚本
