@@ -41,9 +41,10 @@ module.exports = {
       {
         title: '中间件',
         path: '/middleware/',
-        sidebarDepth: 1,
+        sidebarDepth: 2,
         children: [
-          { title: 'Nginx', path: '/middleware/nginx' }
+          { title: 'Nginx', path: '/middleware/nginx' },
+          { title: 'RocketMQ', path: '/middleware/rocketmq' }
         ]
       },
       {
