@@ -156,6 +156,14 @@
 
    * ja-netfilter
 
+   * JVM参数
+
+     ```
+     -javaagent:D:\Dev\ja-netfilter\ja-netfilter.jar
+     --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
+     --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
+     ```
+     
    * 插件:
      - 插件仓库: https://plugins.zhile.io
      - .ignore
