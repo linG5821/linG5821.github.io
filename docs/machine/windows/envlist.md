@@ -178,6 +178,7 @@
      - MybatisX
      - RoboPOJOGenerator
      - Translation
+     - Resource Bundle Editor
 
 ## 前端
 1. nodejs
