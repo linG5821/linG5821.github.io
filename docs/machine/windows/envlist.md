@@ -48,8 +48,7 @@
       
       ## 输入文件内容
       Import-Module posh-git
-      Import-Module oh-my-posh
-      Set-PoshPrompt -Theme ys
+      oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/ys.omp.json" | Invoke-Expression
       ```
 
     * 字体配置从百度云下载
