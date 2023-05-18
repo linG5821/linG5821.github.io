@@ -97,6 +97,14 @@ module.exports = {
         path: '/php/',
         sidebarDepth: 1
       },
+      {
+        title: '人工智能',
+        path: '/ai/',
+        sidebarDepth: 2,
+        children: [
+          { title: 'Stable Diffusion', path: '/ai/stable-diffusion' },
+        ]
+      },
     ]
   },
   plugins: [
