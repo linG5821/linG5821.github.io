@@ -7,6 +7,16 @@
 
   提供了各种SD-UI部署到 Colab 的现成的笔记。
 
+  好用的 Colab 笔记推荐
+
+  * https://colab.research.google.com/drive/1wEa-tS10h4LlDykd87TF5zzpXIIQoCmq
+
+  * https://colab.research.google.com/github/ark5mith/stable-diffusion-webui-colab/blob/community/ark5mith/INSTALL_UPDATE_ConfigDrive_Colab_Kaggle.ipynb
+
+    https://colab.research.google.com/github/ark5mith/stable-diffusion-webui-colab/blob/community/ark5mith/RUN_ConfigDrive_Colab_Kaggle.ipynb
+
+  * https://colab.research.google.com/gist/Hareshkumar77/fdfdd058437baae5bbfd80cb62a0e338/web_based_ui_for_stable_diffusion_colab.ipynb
+
 * [AI绘图资源合集](https://github.com/hua1995116/awesome-ai-painting)
 
   可以用于了解一些资源生态，也有一些使用教程
