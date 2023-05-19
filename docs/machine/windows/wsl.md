@@ -16,3 +16,24 @@
   [wsl2]
   kernelCommandLine = "sysctl.vm.max_map_count=262144"
   ```
+
+* WSL2 Docker释放磁盘空间
+  > 参考 https://github.com/microsoft/WSL/issues/4699#issuecomment-627133168
+
+  1. 删除Docker中的无用镜像
+  ```shell
+  docker system prune
+  ```
+  2. 退出 Docker Desktop, 并关停 WSL2 实例
+  ```shell
+  ## 关停 WSL2
+  wsl --shutdown
+  ```
+  3. 命令行输入 diskpart, 进入 diskpart 工具
+  ```cmd
+  select vdisk file="C:\Users\<你的用户名>\AppData\Local\Docker\wsl\data\ext4.vhdx"
+  attach vdisk readonly
+  compact vdisk
+  detach vdisk
+  ```
+  ![](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/20230519124624.png)
