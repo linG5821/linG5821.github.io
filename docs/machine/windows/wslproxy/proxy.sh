@@ -1,8 +1,8 @@
 #!/bin/bash
 hostip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
 wslip=$(hostname -I | awk '{print $1}')
-http_port=10811
-socket_port=10810
+http_port=10809
+socket_port=10808
 
 
 PROXY_HTTP="http://${hostip}:${http_port}"
