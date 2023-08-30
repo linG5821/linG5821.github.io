@@ -18,10 +18,11 @@ module.exports = {
         sidebarDepth: 1,
         children: [
           { title: 'Windows', path: '/machine/windows/' },
+          { title: 'Windows配置清单', path: 'machine/windows/envlist' },
+          { title: 'Windows终端打造', path: 'machine/windows/terminal' },
+          { title: 'WSL', path: 'machine/windows/wsl' },
           { title: 'Mac', path: '/machine/mac/' },
           { title: 'Linux', path: '/machine/linux/' },
-          { title: 'Windows配置清单', path: 'machine/windows/envlist' },
-          { title: 'WSL', path: 'machine/windows/wsl' }
         ]
       },
       {
