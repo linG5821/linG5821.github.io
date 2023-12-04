@@ -28,7 +28,7 @@
         permission java.security.AllPermission;
   };
 
-  ## java9+ 添加以下内容
+  ## java9+ 添加以下内容 (https://stackoverflow.com/questions/51032095/starting-jstatd-in-java-9)
   grant codebase "jrt:/jdk.jstatd" {    
     permission java.security.AllPermission;    
   };
