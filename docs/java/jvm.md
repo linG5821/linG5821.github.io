@@ -1,3 +1,63 @@
+## jvm 远程监控
+
+本地可以通过 VisualVM 远程可视化的监控 JVM 的指标, 方便排查 JVM 相关的问题, 通过 VisualGC 插件可以可视化的查看 GC 情况
+
+服务机部署:
+1. 开启JMX(用于监控CPU, 内存使用等):
+```shell
+## 添加程序 JVM 参数
+-Dcom.sun.management.jmxremote \
+-Dcom.sun.management.jmxremote.port={JMX绑定端口号} \ ## jmxremote.port 是JMX 连接使用的端口, jmxremote.rmi.port 默认会使用随机端口, 当服务器上有防火墙时或者使用Docker时, 需要同时放通这两个端口, 他们可以设置为相同, 这样只需要放通一个端口
+-Dcom.sun.management.jmxremote.rmi.port={JMX绑定端口号} \
+-Dcom.sun.management.jmxremote.authenticate=false \
+-Dcom.sun.management.jmxremote.ssl=false \
+-Djava.rmi.server.hostname={服务器IP}" ## 服务器IP是可以被本地机器访问的公网/内网IP
+
+```
+2. 开启 jstatd(用于VisualGC)
+
+* 配置安全策略
+  
+  ```shell
+  
+  ## 添加 jstatd.all.policy
+  vim jstatd.all.policy
+  
+  ## java8及以下添加以下内容
+  grant codeBase "file:${JAVA_HOME}lib/tools.jar" {
+        permission java.security.AllPermission;
+  };
+
+  ## java9+ 添加以下内容
+  grant codebase "jrt:/jdk.jstatd" {    
+    permission java.security.AllPermission;    
+  };
+
+  grant codebase "jrt:/jdk.internal.jvmstat" {    
+    permission java.security.AllPermission;    
+  };
+  ```
+* 运行命令
+  ```shell
+  ## java.security.policy 指定创建的策略文件的绝对路径即可
+  ## 服务器IP是可以被本地机器访问的公网/内网IP
+  ## -p 指定的是jstatd 的连接参数
+  ## 除了 -p 指定的端口外还有一个端口是随机的, 在网络受限的环境中(防火墙、Docker等), 如果这个端口无法访问不能正常监控, VisualGC 界面会显示 "不支持的JVM" 内容
+
+  ## jdk 14及以下是无法参数固定该随机端口, 所以正在这种情况下有三种方案, 参考博客: https://blog.csdn.net/Aquester/article/details/84825763, ejstatd 的方案是可以参考的，gdb 方案可能相对需要一些 linux 调试的基础
+
+  jstatd -J-Djava.security.policy=/opt/jvm/jstatd.all.policy -J-Djava.rmi.server.hostname={服务器IP} -J-Djava.rmi.server.logCalls=true -p 19011 
+  
+  ## jdk 15+ 支持了一个新的参数 -r 可以指定这个随机端口, 这样在网络受限的环境中可以同时开启-p -r 就可以了, 这两个端口需要指定为不同的
+  ![](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/20231204182308.png)
+
+  jstatd -J-Djava.security.policy=/opt/jvm/jstatd.all.policy -J-Djava.rmi.server.hostname={服务器IP} -J-Djava.rmi.server.logCalls=true -p 19011 -r 19012
+
+
+  ```
+  
+
+
 ## 堆内存划分
 
 ![jvm堆划分](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/20190107162107114.png)
