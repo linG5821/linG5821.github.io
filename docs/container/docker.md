@@ -142,3 +142,75 @@
    ```shell
    docker swarm init --force-new-cluster
    ```
+
+## 一个Dockefile示例
+
+```shell
+## entrypoint.sh
+## java17 才支持该参数 -r
+
+#!/bin/sh
+nohup jstatd ${JSTATD_ARGS} > jstatd.log 2>&1 &
+java  ${HEAP_OPTS} ${JAVA_OPTS} ${GC_OPTS} ${JMX_OPTS} -jar /opt/${JAR_FILE}
+```
+
+```dockerfile
+FROM eclipse-temurin:17
+
+ENV RMI_HOSTNAME="一个IP"
+ENV RMI_PORT=29010
+
+ENV HEAP_OPTS="-Xms4G -Xmx4G"
+
+ENV JAVA_OPTS="-Duser.timezone=GMT+08 \
+-Djava.security.egd=file:/dev/./urandom \
+--add-opens=java.base/sun.net=ALL-UNNAMED \
+--add-opens=java.base/java.lang.invoke=ALL-UNNAMED \
+-Xlog:gc*=debug:file=./data/log/gc/gc%t.log:utctime,level,tags:filecount=50,filesize=100M"
+
+ENV GC_OPTS="-XX:+UnlockExperimentalVMOptions \
+-XX:+UseG1GC \
+-XX:+UseStringDeduplication \
+-XX:G1NewSizePercent=20 \
+-XX:G1MaxNewSizePercent=40 \
+-XX:ConcGCThreads=8"
+
+ENV JMX_OPTS="-Dcom.sun.management.jmxremote \
+-Dcom.sun.management.jmxremote.port=${RMI_PORT} \
+-Dcom.sun.management.jmxremote.rmi.port=${RMI_PORT} \
+-Dcom.sun.management.jmxremote.authenticate=false \
+-Dcom.sun.management.jmxremote.ssl=false \
+-Djava.rmi.server.hostname=${RMI_HOSTNAME}"
+
+
+ENV TZ=Asia/Shanghai
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    echo $TZ > /etc/timezone && \
+    sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \
+    apt update && apt-get install -y telnet && \
+    mkdir -p /opt/data/log/gc
+
+ENV JSTATD_PORT=29011
+ENV JSTATD_RMI_PORT=29012
+
+ENV JSTATD_ARGS="-J-Djava.security.policy=/opt/jvm/jstatd.all.policy -J-Djava.rmi.server.hostname=${RMI_HOSTNAME} -J-Djava.rmi.server.logCalls=true -p ${JSTATD_PORT} -r ${JSTATD_RMI_PORT}"
+
+RUN mkdir -p /opt/jvm && \
+    echo 'grant codebase "jrt:/jdk.jstatd" {\n  permission java.security.AllPermission;\n};\n grant codebase "jrt:/jdk.internal.jvmstat" {\n  permission java.security.AllPermission;\n};' > /opt/jvm/jstatd.all.policy
+
+ARG JAR_FILE
+ENV JAR_FILE=${JAR_FILE}
+
+COPY ./entrypoint.sh /opt/entrypoint.sh
+COPY target/${JAR_FILE} /opt/${JAR_FILE}
+
+WORKDIR opt
+
+VOLUME /opt/data
+
+EXPOSE ${RMI_PORT} ${JSTATD_PORT} ${JSTATD_RMI_PORT}
+
+ENTRYPOINT ["sh", "/opt/entrypoint.sh"]
+
+```
