@@ -1,5 +1,8 @@
 #!/bin/bash
-hostip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
+## 不启用 networkingMode=mirrored 镜像网络时使用该方式
+#hostip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
+## 启用镜像网络直接获取 WSLIP 就是 WINIP
+hostip=$(hostname -I | awk '{print $1}')
 wslip=$(hostname -I | awk '{print $1}')
 http_port=10809
 socket_port=10808
