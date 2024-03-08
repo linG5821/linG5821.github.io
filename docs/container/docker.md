@@ -151,7 +151,7 @@
 
 #!/bin/sh
 nohup jstatd ${JSTATD_ARGS} > jstatd.log 2>&1 &
-java  ${HEAP_OPTS} ${JAVA_OPTS} ${GC_OPTS} ${JMX_OPTS} -jar /opt/${JAR_FILE}
+java  ${HEAP_OPTS} ${JAVA_OPTS} ${GC_OPTS} ${JMX_OPTS} -jar /opt/app/${JAR_FILE}
 ```
 
 ```dockerfile
@@ -188,29 +188,28 @@ ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     echo $TZ > /etc/timezone && \
     sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list && \
-    apt update && apt-get install -y telnet && \
-    mkdir -p /opt/data/log/gc
+    apt-get update && apt-get install -y telnet && \
+    mkdir -p /opt/app/data/log/gc
 
 ENV JSTATD_PORT=29011
 ENV JSTATD_RMI_PORT=29012
 
-ENV JSTATD_ARGS="-J-Djava.security.policy=/opt/jvm/jstatd.all.policy -J-Djava.rmi.server.hostname=${RMI_HOSTNAME} -J-Djava.rmi.server.logCalls=true -p ${JSTATD_PORT} -r ${JSTATD_RMI_PORT}"
+ENV JSTATD_ARGS="-J-Djava.security.policy=/opt/jstatd/jstatd.all.policy -J-Djava.rmi.server.hostname=${RMI_HOSTNAME} -J-Djava.rmi.server.logCalls=true -p ${JSTATD_PORT} -r ${JSTATD_RMI_PORT}"
 
-RUN mkdir -p /opt/jvm && \
-    echo 'grant codebase "jrt:/jdk.jstatd" {\n  permission java.security.AllPermission;\n};\n grant codebase "jrt:/jdk.internal.jvmstat" {\n  permission java.security.AllPermission;\n};' > /opt/jvm/jstatd.all.policy
+RUN mkdir -p /opt/jstatd && \
+    echo 'grant codebase "jrt:/jdk.jstatd" {\n  permission java.security.AllPermission;\n};\n grant codebase "jrt:/jdk.internal.jvmstat" {\n  permission java.security.AllPermission;\n};' > /opt/jstatd/jstatd.all.policy
 
 ARG JAR_FILE
 ENV JAR_FILE=${JAR_FILE}
 
-COPY ./entrypoint.sh /opt/entrypoint.sh
-COPY target/${JAR_FILE} /opt/${JAR_FILE}
+COPY ./entrypoint.sh /opt/app/entrypoint.sh
+COPY target/${JAR_FILE} /opt/app/${JAR_FILE}
 
-WORKDIR opt
+WORKDIR /opt/app
 
-VOLUME /opt/data
+VOLUME /opt/app/data
 
 EXPOSE ${RMI_PORT} ${JSTATD_PORT} ${JSTATD_RMI_PORT}
-
-ENTRYPOINT ["sh", "/opt/entrypoint.sh"]
+ENTRYPOINT ["bash", "/opt/entrypoint.sh"]
 
 ```
