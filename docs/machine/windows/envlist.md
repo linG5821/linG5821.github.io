@@ -181,8 +181,17 @@
      - Resource Bundle Editor
 
 ## 前端
-1. nodejs
-2. nvm
-3. yarn
+1. 安装 fnm
+```shell
+
+winget install Schniz.fnm
+Invoke-Item $profile #打开PS1文件添加下面的内容
+```
+2. 修改PS Profiile 文件`fnm env --use-on-cd --shell powershell | Out-String | Invoke-Expression`
+3. 增加环境变量 FNM_DIR=D:\Dev\fnm-node
+4. 安装需要的node版本：`fnm install 22`
+5. 配置镜像源：`npm config set registry https://registry.npmmirror.com`
+   
+
 ## python
 1. python3
