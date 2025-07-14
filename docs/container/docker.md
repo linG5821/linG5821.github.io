@@ -143,6 +143,9 @@
    docker swarm init --force-new-cluster
    ```
 
+3. Java 程序无法读取到外部环境变量, 例如： `spring.profiles.active`, 原因是部分基础镜像alpine, busybox不支持含有点的环境变量，Posix的命名规范是不能含有点号的， sh -c 方式运行的容器不支持传递含点的环境变量，具体参考 https://github.com/docker-library/docs/pull/1222/commits/f2854b0a019519880f56c2d5226c0121dba13d9c， JDK 镜像从 openjdk:8u131-jre-alpine之后就采取这种处理方式了。
+   > 解决方式使用 bash -c 运行，或者不传递带有点的环境变量
+
 ## 一个Dockefile示例
 
 ```shell
