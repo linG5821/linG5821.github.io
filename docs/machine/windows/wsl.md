@@ -57,4 +57,5 @@ wsl 任意分发版直接使用系统代理时，如果系统代理配置的是 
 当结合v2ray等代理工具使用时，使用其提供的自动代理设置功能同样会导致WSL自动配置 127.0.0.1 的代理IP，同样的使用docker 时 docker-desktop 分发版也会出现相同的问题，导致docker pull/push 无法拉取出现 `proxyconnect tcp: dial tcp 127.0.0.1:xxxx: connect: connection refused` 的错误。
 
 解决方案一: 参照**WSL代理脚本** 在docker 和 默认的分发版 `~/.bashrc` 中都添加 `. /mnt/d/Dev/wslproxy/proxy.sh set`, 利用改脚本重设一下代理，在默认WSL当前会话生效，但是在Docker 的WSL分发版中无效的，推送拉取可能不会触发 ~/.bashrc 的加载，此时通过手动重置 docker 分发版的代理可以临时解除一下代理; 同样的此方法还可以设置在 `/etc/profile` 里
+
 解决方案二: .wslconfig autoProxy 配置为 false 
