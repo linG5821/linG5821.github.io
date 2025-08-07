@@ -14,17 +14,17 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Use Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
-        node-version: '14.x'
+        node-version: '22.x'
     - name: Install And Build
       run: |
         yarn
         yarn run docs:build
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@4.1.0
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages
         folder: docs/.vuepress/dist
