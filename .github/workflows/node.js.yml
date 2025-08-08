@@ -19,10 +19,11 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '22.x'
+        cache: 'npm'
     - name: Install And Build
       run: |
-        yarn
-        yarn run docs:build
+        npm ci
+        npm run docs:build
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4
       with:
