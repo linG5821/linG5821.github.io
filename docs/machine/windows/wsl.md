@@ -42,7 +42,7 @@
 
 先前的 WSL 有着的内存泄露问题，目前在 `~/.wslconfig`内设置 `autoMemoryReclaim=gradual`` 可以解决问题，不过需要注意的是，设置了该选项之后不推荐启用 systemd 相关功能。
 
-同时，可以设置 `sparseVhd=true`，之后新安装的发行版均会自动回收其虚拟硬盘文件的空闲空间。对于已经安装的发行版，可以使用 wsl --manage <Distro> --set-sparse <true/false> 为发行版的虚拟硬盘文件启用该功能。
+同时，可以设置 `sparseVhd=true`，之后新安装的发行版均会自动回收其虚拟硬盘文件的空闲空间。对于已经安装的发行版，可以使用 `wsl --manage <Distro> --set-sparse <true/false>` 为发行版的虚拟硬盘文件启用该功能。
 
 ```
 [experimental]
