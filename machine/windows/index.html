@@ -1,162 +1,175 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Powershell | Yolo Cloud</title>
-    <meta name="generator" content="VuePress 1.9.10">
-    <link rel="icon" href="/favicon.png">
-    <meta name="description" content="Yolo Cloud 记录了我技术成长中学到的各种知识,遇到的各种问题">
-    
-    <link rel="preload" href="/assets/css/0.styles.ef76fb7a.css" as="style"><link rel="preload" href="/assets/js/app.a1e579b2.js" as="script"><link rel="preload" href="/assets/js/2.70f7f362.js" as="script"><link rel="preload" href="/assets/js/1.95ad420d.js" as="script"><link rel="preload" href="/assets/js/44.ca6745e4.js" as="script"><link rel="prefetch" href="/assets/js/10.7a87672f.js"><link rel="prefetch" href="/assets/js/11.53e184d3.js"><link rel="prefetch" href="/assets/js/12.dcec06be.js"><link rel="prefetch" href="/assets/js/13.715c2337.js"><link rel="prefetch" href="/assets/js/14.c4270f7c.js"><link rel="prefetch" href="/assets/js/15.a9f22960.js"><link rel="prefetch" href="/assets/js/16.13cf16d6.js"><link rel="prefetch" href="/assets/js/17.14e93ef3.js"><link rel="prefetch" href="/assets/js/18.7f5c30a8.js"><link rel="prefetch" href="/assets/js/19.de15cdc6.js"><link rel="prefetch" href="/assets/js/20.e7e4e587.js"><link rel="prefetch" href="/assets/js/21.9a996d62.js"><link rel="prefetch" href="/assets/js/22.7a3e31e1.js"><link rel="prefetch" href="/assets/js/23.b97e6962.js"><link rel="prefetch" href="/assets/js/24.5cbc1640.js"><link rel="prefetch" href="/assets/js/25.5ea5b216.js"><link rel="prefetch" href="/assets/js/26.8d1bc678.js"><link rel="prefetch" href="/assets/js/27.6f266e3d.js"><link rel="prefetch" href="/assets/js/28.587aef40.js"><link rel="prefetch" href="/assets/js/29.5d201558.js"><link rel="prefetch" href="/assets/js/3.d772b6b9.js"><link rel="prefetch" href="/assets/js/30.c6d3fa30.js"><link rel="prefetch" href="/assets/js/31.052329a0.js"><link rel="prefetch" href="/assets/js/32.46ef9528.js"><link rel="prefetch" href="/assets/js/33.844586c1.js"><link rel="prefetch" href="/assets/js/34.c4a73c50.js"><link rel="prefetch" href="/assets/js/35.a4c137b2.js"><link rel="prefetch" href="/assets/js/36.8cf02a19.js"><link rel="prefetch" href="/assets/js/37.a433a7db.js"><link rel="prefetch" href="/assets/js/38.ed1180fb.js"><link rel="prefetch" href="/assets/js/39.50334d6b.js"><link rel="prefetch" href="/assets/js/4.0c088cdf.js"><link rel="prefetch" href="/assets/js/40.035e5134.js"><link rel="prefetch" href="/assets/js/41.45e6ae44.js"><link rel="prefetch" href="/assets/js/42.0f9c4598.js"><link rel="prefetch" href="/assets/js/43.258a3d52.js"><link rel="prefetch" href="/assets/js/45.43c1636d.js"><link rel="prefetch" href="/assets/js/46.d870d5bf.js"><link rel="prefetch" href="/assets/js/47.3b9279b6.js"><link rel="prefetch" href="/assets/js/48.b95fc69a.js"><link rel="prefetch" href="/assets/js/49.8f8ed58f.js"><link rel="prefetch" href="/assets/js/5.d09040d0.js"><link rel="prefetch" href="/assets/js/50.a2efba7e.js"><link rel="prefetch" href="/assets/js/51.95cc572e.js"><link rel="prefetch" href="/assets/js/52.ef90f49f.js"><link rel="prefetch" href="/assets/js/53.023b1fe0.js"><link rel="prefetch" href="/assets/js/54.9f7ca941.js"><link rel="prefetch" href="/assets/js/55.c60e7a1a.js"><link rel="prefetch" href="/assets/js/56.aec5e0e1.js"><link rel="prefetch" href="/assets/js/57.44caa8a2.js"><link rel="prefetch" href="/assets/js/6.8b47975d.js"><link rel="prefetch" href="/assets/js/7.de9ffff9.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.94b65286.js">
-    <link rel="stylesheet" href="/assets/css/0.styles.ef76fb7a.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.24" />
+    <style>
+      :root {
+        --vp-c-bg: #fff;
+      }
+
+      [data-theme='dark'] {
+        --vp-c-bg: #1b1b1f;
+      }
+
+      html,
+      body {
+        background-color: var(--vp-c-bg);
+      }
+    </style>
+    <script>
+      const useChoice = localStorage.getItem('vuepress-color-scheme')
+      const systemStatus =
+        'matchMedia' in window
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches
+          : false
+
+      if (useChoice === 'light') {
+        document.documentElement.dataset.theme = 'light'
+      } else if (useChoice === 'dark' || systemStatus) {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
+    <link rel="icon" href="/favicon.png"><title>Yolo Cloud</title><meta name="description" content="Yolo Cloud 记录了我技术成长中学到的各种知识,遇到的各种问题">
+    <link rel="preload" href="/assets/style-C2JCxPSn.css" as="style"><link rel="stylesheet" href="/assets/style-C2JCxPSn.css">
+    <link rel="modulepreload" href="/assets/app-DUNtouPH.js"><link rel="modulepreload" href="/assets/index.html-CM2fBYKq.js">
+    <link rel="prefetch" href="/assets/index.html-CQzNAykJ.js" as="script"><link rel="prefetch" href="/assets/index.html-DpsV3cRy.js" as="script"><link rel="prefetch" href="/assets/stable-diffusion.html-JbcN3kf0.js" as="script"><link rel="prefetch" href="/assets/index.html-CsFeyKcf.js" as="script"><link rel="prefetch" href="/assets/docker.html-DzEEc8SP.js" as="script"><link rel="prefetch" href="/assets/kubernetes.html-B_8O5PvV.js" as="script"><link rel="prefetch" href="/assets/index.html-CMbKnevF.js" as="script"><link rel="prefetch" href="/assets/mongodb.html-DzZCvO9e.js" as="script"><link rel="prefetch" href="/assets/mysql.html-CgoMn4Mj.js" as="script"><link rel="prefetch" href="/assets/redis.html-DGdTkqNd.js" as="script"><link rel="prefetch" href="/assets/index.html-DFa6cItc.js" as="script"><link rel="prefetch" href="/assets/index.html-6qO9UOZp.js" as="script"><link rel="prefetch" href="/assets/boot_cloud.html-CislYTp0.js" as="script"><link rel="prefetch" href="/assets/javase.html-DqcNrwXD.js" as="script"><link rel="prefetch" href="/assets/jvm.html-BSQrmkps.js" as="script"><link rel="prefetch" href="/assets/maven.html-Bi9JD90z.js" as="script"><link rel="prefetch" href="/assets/netty.html-BoYnuZ2y.js" as="script"><link rel="prefetch" href="/assets/reactive.html-D0S7BOB4.js" as="script"><link rel="prefetch" href="/assets/spring.html-CnnVayDx.js" as="script"><link rel="prefetch" href="/assets/index.html-uTAms5Og.js" as="script"><link rel="prefetch" href="/assets/index.html-Dv5ioAel.js" as="script"><link rel="prefetch" href="/assets/nginx.html-CenCsbP8.js" as="script"><link rel="prefetch" href="/assets/rocketmq.html-BKYrcKPr.js" as="script"><link rel="prefetch" href="/assets/index.html-DZxJS6tX.js" as="script"><link rel="prefetch" href="/assets/index.html-B_f2eUWB.js" as="script"><link rel="prefetch" href="/assets/index.html-DTZqtXkD.js" as="script"><link rel="prefetch" href="/assets/ssl.html-Dy5GVz5L.js" as="script"><link rel="prefetch" href="/assets/index.html-Bg6ppxyj.js" as="script"><link rel="prefetch" href="/assets/git.html-pTIF511b.js" as="script"><link rel="prefetch" href="/assets/index.html-BMM6Imqa.js" as="script"><link rel="prefetch" href="/assets/index.html-Dt0XF9O2.js" as="script"><link rel="prefetch" href="/assets/envlist.html-1qBVLWMt.js" as="script"><link rel="prefetch" href="/assets/terminal.html-jPgmeQjL.js" as="script"><link rel="prefetch" href="/assets/wsl.html-CZhI7frL.js" as="script"><link rel="prefetch" href="/assets/404.html-DuUqkpqi.js" as="script">
   </head>
   <body>
-    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Yolo Cloud</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
-  主页
-</a></div><div class="nav-item"><a href="https://github.com/linG5821" target="_blank" rel="noopener noreferrer" class="nav-link external">
-  GitHub
-  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
-  主页
-</a></div><div class="nav-item"><a href="https://github.com/linG5821" target="_blank" rel="noopener noreferrer" class="nav-link external">
-  GitHub
-  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/machine/" class="sidebar-heading clickable router-link-active open"><span>机器环境</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/machine/windows/" aria-current="page" class="active sidebar-link">Windows</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/machine/windows/#powershell" class="sidebar-link">Powershell</a></li><li class="sidebar-sub-header"><a href="/machine/windows/#win下gpg的使用" class="sidebar-link">Win下GPG的使用</a></li><li class="sidebar-sub-header"><a href="/machine/windows/#问题杂项汇总及解决方案" class="sidebar-link">问题杂项汇总及解决方案</a></li></ul></li><li><a href="/machine/windows/envlist.html" class="sidebar-link">Windows配置清单</a></li><li><a href="/machine/windows/terminal.html" class="sidebar-link">Windows终端打造</a></li><li><a href="/machine/windows/wsl.html" class="sidebar-link">WSL</a></li><li><a href="/machine/mac/" class="sidebar-link">Mac</a></li><li><a href="/machine/linux/" class="sidebar-link">Linux</a></li></ul></section></li><li><a href="/network/" class="sidebar-link">网络编程</a></li><li><section class="sidebar-group collapsable depth-0"><a href="/database/" class="sidebar-heading clickable"><span>数据库</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/middleware/" class="sidebar-heading clickable"><span>中间件</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/container/" class="sidebar-heading clickable"><span>容器技术</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/tool/" class="sidebar-heading clickable"><span>常用工具</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/security/" class="sidebar-heading clickable"><span>安全技术</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/java/" class="sidebar-heading clickable"><span>Java</span> <span class="arrow right"></span></a> <!----></section></li><li><a href="/go/" class="sidebar-link">Go</a></li><li><a href="/php/" class="sidebar-link">PHP</a></li><li><section class="sidebar-group collapsable depth-0"><a href="/ai/" class="sidebar-heading clickable"><span>人工智能</span> <span class="arrow right"></span></a> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="powershell"><a href="#powershell" class="header-anchor">#</a> Powershell</h2> <ol><li>执行多个命令使用 <code>;</code> 分割  linux 中使用 &amp;&amp;</li> <li>设置环境变量使用 $env:KEY=&quot;VALUE&quot; 而 CMD 使用 set KEY=VALUE</li></ol> <h2 id="win下gpg的使用"><a href="#win下gpg的使用" class="header-anchor">#</a> Win下GPG的使用</h2> <ol><li><p>安装Gpg4win, 下载地址: <a href="https://gpg4win.org/download.html" target="_blank" rel="noopener noreferrer">https://gpg4win.org/download.html<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></li> <li><p>修改Git配置使用安装的gpg</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> config <span class="token parameter variable">--global</span> gpg.program <span class="token string">&quot;yourpath\GnuPG<span class="token entity" title="\b">\b</span>in\gpg.exe&quot;</span>
-<span class="token comment"># 显示配置</span>
-<span class="token function">git</span> config <span class="token parameter variable">--global</span> gpg.program
-</code></pre></div></li> <li><p>创建与设置秘钥</p> <div class="language-shell extra-class"><pre class="language-shell"><code>gpg --full-generate-key
-
-<span class="token comment"># 选择加密方式 选择默认的1即可，表示加密和签名均使用 RSA 算法</span>
-Please <span class="token keyword">select</span> what kind of key you want:
-   <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> RSA and RSA <span class="token punctuation">(</span>default<span class="token punctuation">)</span>
-   <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> DSA and Elgamal
-   <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> DSA <span class="token punctuation">(</span>sign only<span class="token punctuation">)</span>
-   <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> RSA <span class="token punctuation">(</span>sign only<span class="token punctuation">)</span>
-  <span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">)</span> Existing key from card
-Your selection? <span class="token number">1</span>
-<span class="token comment"># 最长为4096位，设置为4096位即可</span>
-RSA keys may be between <span class="token number">1024</span> and <span class="token number">4096</span> bits long.
-What keysize <span class="token keyword">do</span> you want? <span class="token punctuation">(</span><span class="token number">3072</span><span class="token punctuation">)</span> <span class="token number">4096</span>
-
-<span class="token comment"># 设置密钥有效期 选择0为永久有效</span>
-Please specify how long the key should be valid.
-         <span class="token number">0</span> <span class="token operator">=</span> key does not expire
-      <span class="token operator">&lt;</span>n<span class="token operator">&gt;</span>  <span class="token operator">=</span> key expires <span class="token keyword">in</span> n days
-      <span class="token operator">&lt;</span>n<span class="token operator">&gt;</span>w <span class="token operator">=</span> key expires <span class="token keyword">in</span> n weeks
-      <span class="token operator">&lt;</span>n<span class="token operator">&gt;</span>m <span class="token operator">=</span> key expires <span class="token keyword">in</span> n months
-      <span class="token operator">&lt;</span>n<span class="token operator">&gt;</span>y <span class="token operator">=</span> key expires <span class="token keyword">in</span> n years
-Key is valid for? <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
-
-<span class="token comment"># 完成上述设置后，会要求确认 确认即可</span>
-Is this correct? <span class="token punctuation">(</span>y/N<span class="token punctuation">)</span>y
-
-<span class="token comment"># 设置用户ID 邮箱  备注等信息  还需要输入密码</span>
-GnuPG needs to construct a user ID to identify your key.
-Real name:
-Email address: 
-
-<span class="token comment"># 显示秘钥列表 此例子中GPG 密钥 ID 是 3AA5C34371567BD2</span>
-gpg --list-secret-keys --keyid-format<span class="token operator">=</span>long
-or
-gpg <span class="token parameter variable">-K</span>
-/Users/hubot/.gnupg/secring.gpg
-------------------------------------
-sec   4096R/3AA5C34371567BD2 <span class="token number">2016</span>-03-10 <span class="token punctuation">[</span>expires: <span class="token number">2017</span>-03-10<span class="token punctuation">]</span>
-uid                          Hubot 
-ssb   4096R/42B317FD4BA89E7A <span class="token number">2016</span>-03-10
-
-<span class="token comment"># 输出 秘钥内容  </span>
-gpg <span class="token parameter variable">--armor</span> <span class="token parameter variable">--export</span> 3AA5C34371567BD2
-<span class="token comment"># 输出秘钥到文件</span>
-gpg <span class="token parameter variable">--armor</span> <span class="token parameter variable">--output</span> public-key.txt <span class="token parameter variable">--export</span> 3AA5C34371567BD2
-
-
-<span class="token comment"># 生成吊销证书(推荐生成, gpg默认会生成, 位置: C:\Users\xxx\AppData\Roaming\gnupg\openpgp-revocs.d\keyid.rev)</span>
-<span class="token comment"># 如果要使用需要去除 &quot;-----BEGIN PGP PUBLIC KEY BLOCK-----&quot; 前的 &quot;:&quot;</span>
-gpg --gen-revoke 3AA5C34371567BD2
-<span class="token comment"># 生成吊销证书的交互, 最后复制吊销内容到文件</span>
-Create a revocation certificate <span class="token keyword">for</span> this key? <span class="token punctuation">(</span>y/N<span class="token punctuation">)</span> y
-Please <span class="token keyword">select</span> the reason <span class="token keyword">for</span> the revocation:
-  <span class="token number">0</span> <span class="token operator">=</span> No reason specified
-  <span class="token number">1</span> <span class="token operator">=</span> Key has been compromised
-  <span class="token number">2</span> <span class="token operator">=</span> Key is superseded
-  <span class="token number">3</span> <span class="token operator">=</span> Key is no longer used
-  Q <span class="token operator">=</span> Cancel
-<span class="token punctuation">(</span>Probably you want to <span class="token keyword">select</span> <span class="token number">1</span> here<span class="token punctuation">)</span>
-Your decision? <span class="token number">0</span>
-Enter an optional description<span class="token punctuation">;</span> end it with an empty line:
-<span class="token operator">&gt;</span> To prevent leakage
-Reason <span class="token keyword">for</span> revocation: No reason specified
-To prevent leakage
-Is this okay? <span class="token punctuation">(</span>y/N<span class="token punctuation">)</span>y
-
-<span class="token comment"># 导出</span>
-<span class="token comment"># 导出公钥 ASCII 形式</span>
-gpg <span class="token parameter variable">--armor</span> <span class="token parameter variable">--output</span> keyid.gpg.pub <span class="token parameter variable">--export</span> keyid
-
-<span class="token comment"># 导出私钥 ASCII 形式</span>
-gpg <span class="token parameter variable">--armor</span> <span class="token parameter variable">--output</span> keyid.gpg --export-secret-keys keyid
-
-<span class="token comment"># 列出所有秘钥</span>
-gpg --list-keys
-
-<span class="token comment"># 导入吊销证书(导入后悔直接吊销对应的秘钥), 如果公钥已经发布还需要重新发布一下才能吊销已经上传的秘钥</span>
-gpg <span class="token parameter variable">--import</span> /path/xxxx.rev
-</code></pre></div></li> <li><p>GPG秘钥的使用</p> <ul><li><p>配置到github</p> <ol><li><p>复制公钥内容到 github 添加 GPG Key</p></li> <li><p>设置 git 配置</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.signingkey 3AA5C34371567BD2
-<span class="token comment"># 确认配置</span>
-<span class="token function">git</span> config  <span class="token parameter variable">-l</span>
-<span class="token comment"># 配置全局提交使用该秘钥</span>
-<span class="token function">git</span> config <span class="token parameter variable">--global</span> commit.gpgsign <span class="token boolean">true</span>
-
-<span class="token comment"># 单次提交中签名</span>
-<span class="token function">git</span> commit <span class="token parameter variable">-S</span> <span class="token parameter variable">-m</span> <span class="token string">&quot;...&quot;</span>
-
-</code></pre></div></li></ol></li> <li><p>用于maven发布到中央仓库</p> <ol><li><p>发布公钥到公钥服务器</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 目前支持如下如下服务器</span>
-<span class="token comment"># keyserver.ubuntu.com</span>
-<span class="token comment"># keys.openpgp.org</span>
-<span class="token comment"># pgp.mit.edu</span>
-gpg <span class="token parameter variable">--keyserver</span> hkp://keyserver.ubuntu.com:80 --send-keys 3AA5C34371567BD2
-<span class="token comment"># 验证</span>
-gpg <span class="token parameter variable">--keyserver</span> hkp://keyserver.ubuntu.com:80 --recv-keys 3AA5C34371567BD2
-
-</code></pre></div></li> <li><p>本地发布 如果秘钥存在密码 需要正在settings文件中添加如下内容 可以通过 maven-gpg-plugin 插件的配置修改对应的id 等</p> <div class="language-xml extra-class"><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>server</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">&gt;</span></span>gpg.passphrase<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>passphrase</span><span class="token punctuation">&gt;</span></span>${your passphrase}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>passphrase</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>server</span><span class="token punctuation">&gt;</span></span>
-</code></pre></div></li> <li><p>配合github action 进行自动化发布 参考<a href="https://github.com/linG5821/mtime.git" target="_blank" rel="noopener noreferrer">https://github.com/linG5821/mtime.git<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></li></ol></li></ul></li></ol> <h2 id="问题杂项汇总及解决方案"><a href="#问题杂项汇总及解决方案" class="header-anchor">#</a> 问题杂项汇总及解决方案</h2> <ol><li><p>Hyper-V 将动态端口中的几段范围的端口保留给自己使用,导致产生各种端口被占用的问题</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 查看当前动态端口的范围</span>
-netsh int ipv4 show dynamicport tcp
-<span class="token comment"># 查看tcp ipv4端口排除范围（被系统或者我们自己保留的端口）</span>
-netsh int ipv4 show excludedport tcp
-<span class="token comment"># 管理员身份打开 powershell，然后设置 tcp ipv4 的动态端口范围为 49152 开始的 16384 个端口，也就是 49152~65535 (这个是windows默认的)</span>
-netsh int ipv4 <span class="token builtin class-name">set</span> dynamicport tcp <span class="token assign-left variable">start</span><span class="token operator">=</span><span class="token number">49152</span> <span class="token assign-left variable">num</span><span class="token operator">=</span><span class="token number">16384</span>
-</code></pre></div></li> <li><p>截取主机某个网卡的IP</p> <div class="language- extra-class"><pre class="language-text"><code># 可以将 select-string 后的关键字改成具体的网卡名称关键字
-(ipconfig|select-string &quot;无线&quot; -context 1,4 | findStr &quot;IPv4&quot;).Split(&quot;:&quot;)[-1]
-</code></pre></div></li> <li><p>python脚本获取主机IP</p> <ul><li><p>方式一: (此方式可能获取到虚拟IP)</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> socket
-hostname <span class="token operator">=</span> socket<span class="token punctuation">.</span>gethostname<span class="token punctuation">(</span><span class="token punctuation">)</span>
-ip <span class="token operator">=</span> socket<span class="token punctuation">.</span>gethostbyname<span class="token punctuation">(</span>hostname<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>ip<span class="token punctuation">)</span>
-</code></pre></div></li> <li><p>方式二:</p> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> socket
-
-<span class="token keyword">def</span> <span class="token function">get_host_ip</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-      <span class="token triple-quoted-string string">&quot;&quot;&quot;
-      查询本机ip地址
-      :return: ip
-      &quot;&quot;&quot;</span>
-      <span class="token keyword">try</span><span class="token punctuation">:</span>
-          s <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>SOCK_DGRAM<span class="token punctuation">)</span>
-          s<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'8.8.8.8'</span><span class="token punctuation">,</span> <span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-          ip <span class="token operator">=</span> s<span class="token punctuation">.</span>getsockname<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-      <span class="token keyword">finally</span><span class="token punctuation">:</span>
-          s<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-      <span class="token keyword">return</span> ip
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-      <span class="token keyword">print</span><span class="token punctuation">(</span>get_host_ip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre></div></li></ul></li></ol></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">最后更新时间:</span> <span class="time">8/7/2025, 6:13:31 AM</span></div></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/machine/windows/envlist.html">
-        Windows配置清单
-      </a>
-      →
-    </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.a1e579b2.js" defer></script><script src="/assets/js/2.70f7f362.js" defer></script><script src="/assets/js/1.95ad420d.js" defer></script><script src="/assets/js/44.ca6745e4.js" defer></script>
+    <div id="app"><!--[--><div class="vp-theme-container external-link-icon" vp-container><!--[--><header class="vp-navbar" vp-navbar><div class="vp-toggle-sidebar-button" title="toggle sidebar" aria-expanded="false" role="button" tabindex="0"><div class="icon" aria-hidden="true"><span></span><span></span><span></span></div></div><span><a class="route-link" href="/"><!----><span class="vp-site-name" aria-hidden="true">Yolo Cloud</span></a></span><div class="vp-navbar-items-wrapper" style=""><!--[--><!--]--><!----><!--[--><!--]--><button type="button" class="vp-toggle-color-mode-button" title="toggle color mode"><svg class="light-icon" viewbox="0 0 32 32" style=""><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg class="dark-icon" viewbox="0 0 32 32" style="display:none;"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><!----></div></header><!--]--><div class="vp-sidebar-mask"></div><!--[--><aside class="vp-sidebar" vp-sidebar><!----><!--[--><!--]--><ul class="vp-sidebar-items"><!--[--><li><a class="route-link route-link-active auto-link vp-sidebar-item vp-sidebar-heading active" href="/machine/" aria-label="机器环境"><!--[--><!--[--><!--]--><!--]-->机器环境<!--[--><!--[--><!--]--><!--]--></a><ul style="" class="vp-sidebar-children"><!--[--><li><a class="route-link route-link-active auto-link vp-sidebar-item active" href="/machine/windows/" aria-label="Windows"><!--[--><!--[--><!--]--><!--]-->Windows<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item" href="/machine/windows/envlist.html" aria-label="Windows配置清单"><!--[--><!--[--><!--]--><!--]-->Windows配置清单<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item" href="/machine/windows/terminal.html" aria-label="Windows终端打造"><!--[--><!--[--><!--]--><!--]-->Windows终端打造<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item" href="/machine/windows/wsl.html" aria-label="WSL"><!--[--><!--[--><!--]--><!--]-->WSL<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item" href="/machine/mac/" aria-label="Mac"><!--[--><!--[--><!--]--><!--]-->Mac<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item" href="/machine/linux/" aria-label="Linux"><!--[--><!--[--><!--]--><!--]-->Linux<!--[--><!--[--><!--]--><!--]--></a><!----></li><!--]--></ul></li><li><a class="route-link auto-link vp-sidebar-item vp-sidebar-heading" href="/network/" aria-label="网络编程"><!--[--><!--[--><!--]--><!--]-->网络编程<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item vp-sidebar-heading" href="/database/" aria-label="数据库"><!--[--><!--[--><!--]--><!--]-->数据库<!--[--><!--[--><!--]--><!--]--></a><ul style="" class="vp-sidebar-children"><!--[--><li><a class="route-link auto-link vp-sidebar-item" href="/database/redis.html" aria-label="Redis"><!--[--><!--[--><!--]--><!--]-->Redis<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item" href="/database/mysql.html" aria-label="MySQL"><!--[--><!--[--><!--]--><!--]-->MySQL<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item" href="/database/mongodb.html" aria-label="MongoDB"><!--[--><!--[--><!--]--><!--]-->MongoDB<!--[--><!--[--><!--]--><!--]--></a><!----></li><!--]--></ul></li><li><a class="route-link auto-link vp-sidebar-item vp-sidebar-heading" href="/middleware/" aria-label="中间件"><!--[--><!--[--><!--]--><!--]-->中间件<!--[--><!--[--><!--]--><!--]--></a><ul style="" class="vp-sidebar-children"><!--[--><li><a class="route-link auto-link vp-sidebar-item" href="/middleware/nginx.html" aria-label="Nginx"><!--[--><!--[--><!--]--><!--]-->Nginx<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item" href="/middleware/rocketmq.html" aria-label="RocketMQ"><!--[--><!--[--><!--]--><!--]-->RocketMQ<!--[--><!--[--><!--]--><!--]--></a><!----></li><!--]--></ul></li><li><a class="route-link auto-link vp-sidebar-item vp-sidebar-heading" href="/container/" aria-label="容器技术"><!--[--><!--[--><!--]--><!--]-->容器技术<!--[--><!--[--><!--]--><!--]--></a><ul style="" class="vp-sidebar-children"><!--[--><li><a class="route-link auto-link vp-sidebar-item" href="/container/docker.html" aria-label="Docker"><!--[--><!--[--><!--]--><!--]-->Docker<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item" href="/container/kubernetes.html" aria-label="Kubernetes"><!--[--><!--[--><!--]--><!--]-->Kubernetes<!--[--><!--[--><!--]--><!--]--></a><!----></li><!--]--></ul></li><li><a class="route-link auto-link vp-sidebar-item vp-sidebar-heading" href="/tool/" aria-label="常用工具"><!--[--><!--[--><!--]--><!--]-->常用工具<!--[--><!--[--><!--]--><!--]--></a><ul style="" class="vp-sidebar-children"><!--[--><li><a class="route-link auto-link vp-sidebar-item" href="/tool/git.html" aria-label="Git"><!--[--><!--[--><!--]--><!--]-->Git<!--[--><!--[--><!--]--><!--]--></a><!----></li><!--]--></ul></li><li><a class="route-link auto-link vp-sidebar-item vp-sidebar-heading" href="/security/" aria-label="安全技术"><!--[--><!--[--><!--]--><!--]-->安全技术<!--[--><!--[--><!--]--><!--]--></a><ul style="" class="vp-sidebar-children"><!--[--><li><a class="route-link auto-link vp-sidebar-item" href="/security/ssl.html" aria-label="SSL"><!--[--><!--[--><!--]--><!--]-->SSL<!--[--><!--[--><!--]--><!--]--></a><!----></li><!--]--></ul></li><li><a class="route-link auto-link vp-sidebar-item vp-sidebar-heading" href="/java/" aria-label="Java"><!--[--><!--[--><!--]--><!--]-->Java<!--[--><!--[--><!--]--><!--]--></a><ul style="" class="vp-sidebar-children"><!--[--><li><a class="route-link auto-link vp-sidebar-item" href="/java/javase.html" aria-label="JavaSE"><!--[--><!--[--><!--]--><!--]-->JavaSE<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item" href="/java/jvm.html" aria-label="Java虚拟机"><!--[--><!--[--><!--]--><!--]-->Java虚拟机<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item" href="/java/reactive.html" aria-label="Java响应式编程"><!--[--><!--[--><!--]--><!--]-->Java响应式编程<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item" href="/java/maven.html" aria-label="Maven"><!--[--><!--[--><!--]--><!--]-->Maven<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item" href="/java/spring.html" aria-label="Spring"><!--[--><!--[--><!--]--><!--]-->Spring<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item" href="/java/boot_cloud.html" aria-label="Boot&amp;Cloud"><!--[--><!--[--><!--]--><!--]-->Boot&amp;Cloud<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item" href="/java/netty.html" aria-label="Netty"><!--[--><!--[--><!--]--><!--]-->Netty<!--[--><!--[--><!--]--><!--]--></a><!----></li><!--]--></ul></li><li><a class="route-link auto-link vp-sidebar-item vp-sidebar-heading" href="/go/" aria-label="Go"><!--[--><!--[--><!--]--><!--]-->Go<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item vp-sidebar-heading" href="/php/" aria-label="PHP"><!--[--><!--[--><!--]--><!--]-->PHP<!--[--><!--[--><!--]--><!--]--></a><!----></li><li><a class="route-link auto-link vp-sidebar-item vp-sidebar-heading" href="/ai/" aria-label="人工智能"><!--[--><!--[--><!--]--><!--]-->人工智能<!--[--><!--[--><!--]--><!--]--></a><ul style="" class="vp-sidebar-children"><!--[--><li><a class="route-link auto-link vp-sidebar-item" href="/ai/stable-diffusion.html" aria-label="Stable Diffusion"><!--[--><!--[--><!--]--><!--]-->Stable Diffusion<!--[--><!--[--><!--]--><!--]--></a><!----></li><!--]--></ul></li><!--]--></ul><!--[--><!--]--></aside><!--]--><!--[--><main class="vp-page"><!--[--><!--]--><div vp-content><!--[--><!--]--><div id="content"><h2 id="powershell" tabindex="-1"><a class="header-anchor" href="#powershell"><span>Powershell</span></a></h2><ol><li>执行多个命令使用 <code>;</code> 分割 linux 中使用 &amp;&amp;</li><li>设置环境变量使用 $env:KEY=&quot;VALUE&quot; 而 CMD 使用 set KEY=VALUE</li></ol><h2 id="win下gpg的使用" tabindex="-1"><a class="header-anchor" href="#win下gpg的使用"><span>Win下GPG的使用</span></a></h2><ol><li><p>安装Gpg4win, 下载地址: <a href="https://gpg4win.org/download.html" target="_blank" rel="noopener noreferrer">https://gpg4win.org/download.html</a></p></li><li><p>修改Git配置使用安装的gpg</p><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token function">git</span> config <span class="token parameter variable">--global</span> gpg.program <span class="token string">&quot;yourpath\GnuPG<span class="token entity" title="\b">\b</span>in\gpg.exe&quot;</span></span>
+<span class="line"><span class="token comment"># 显示配置</span></span>
+<span class="line"><span class="token function">git</span> config <span class="token parameter variable">--global</span> gpg.program</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li><li><p>创建与设置秘钥</p><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line">gpg --full-generate-key</span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 选择加密方式 选择默认的1即可，表示加密和签名均使用 RSA 算法</span></span>
+<span class="line">Please <span class="token keyword">select</span> what kind of key you want:</span>
+<span class="line">   <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> RSA and RSA <span class="token punctuation">(</span>default<span class="token punctuation">)</span></span>
+<span class="line">   <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> DSA and Elgamal</span>
+<span class="line">   <span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> DSA <span class="token punctuation">(</span>sign only<span class="token punctuation">)</span></span>
+<span class="line">   <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> RSA <span class="token punctuation">(</span>sign only<span class="token punctuation">)</span></span>
+<span class="line">  <span class="token punctuation">(</span><span class="token number">14</span><span class="token punctuation">)</span> Existing key from card</span>
+<span class="line">Your selection? <span class="token number">1</span></span>
+<span class="line"><span class="token comment"># 最长为4096位，设置为4096位即可</span></span>
+<span class="line">RSA keys may be between <span class="token number">1024</span> and <span class="token number">4096</span> bits long.</span>
+<span class="line">What keysize <span class="token keyword">do</span> you want? <span class="token punctuation">(</span><span class="token number">3072</span><span class="token punctuation">)</span> <span class="token number">4096</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 设置密钥有效期 选择0为永久有效</span></span>
+<span class="line">Please specify how long the key should be valid.</span>
+<span class="line">         <span class="token number">0</span> <span class="token operator">=</span> key does not expire</span>
+<span class="line">      <span class="token operator">&lt;</span>n<span class="token operator">&gt;</span>  <span class="token operator">=</span> key expires <span class="token keyword">in</span> n days</span>
+<span class="line">      <span class="token operator">&lt;</span>n<span class="token operator">&gt;</span>w <span class="token operator">=</span> key expires <span class="token keyword">in</span> n weeks</span>
+<span class="line">      <span class="token operator">&lt;</span>n<span class="token operator">&gt;</span>m <span class="token operator">=</span> key expires <span class="token keyword">in</span> n months</span>
+<span class="line">      <span class="token operator">&lt;</span>n<span class="token operator">&gt;</span>y <span class="token operator">=</span> key expires <span class="token keyword">in</span> n years</span>
+<span class="line">Key is valid for? <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 完成上述设置后，会要求确认 确认即可</span></span>
+<span class="line">Is this correct? <span class="token punctuation">(</span>y/N<span class="token punctuation">)</span>y</span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 设置用户ID 邮箱  备注等信息  还需要输入密码</span></span>
+<span class="line">GnuPG needs to construct a user ID to identify your key.</span>
+<span class="line">Real name:</span>
+<span class="line">Email address: </span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 显示秘钥列表 此例子中GPG 密钥 ID 是 3AA5C34371567BD2</span></span>
+<span class="line">gpg --list-secret-keys --keyid-format<span class="token operator">=</span>long</span>
+<span class="line">or</span>
+<span class="line">gpg <span class="token parameter variable">-K</span></span>
+<span class="line">/Users/hubot/.gnupg/secring.gpg</span>
+<span class="line">------------------------------------</span>
+<span class="line">sec   4096R/3AA5C34371567BD2 <span class="token number">2016</span>-03-10 <span class="token punctuation">[</span>expires: <span class="token number">2017</span>-03-10<span class="token punctuation">]</span></span>
+<span class="line">uid                          Hubot </span>
+<span class="line">ssb   4096R/42B317FD4BA89E7A <span class="token number">2016</span>-03-10</span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 输出 秘钥内容  </span></span>
+<span class="line">gpg <span class="token parameter variable">--armor</span> <span class="token parameter variable">--export</span> 3AA5C34371567BD2</span>
+<span class="line"><span class="token comment"># 输出秘钥到文件</span></span>
+<span class="line">gpg <span class="token parameter variable">--armor</span> <span class="token parameter variable">--output</span> public-key.txt <span class="token parameter variable">--export</span> 3AA5C34371567BD2</span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 生成吊销证书(推荐生成, gpg默认会生成, 位置: C:\Users\xxx\AppData\Roaming\gnupg\openpgp-revocs.d\keyid.rev)</span></span>
+<span class="line"><span class="token comment"># 如果要使用需要去除 &quot;-----BEGIN PGP PUBLIC KEY BLOCK-----&quot; 前的 &quot;:&quot;</span></span>
+<span class="line">gpg --gen-revoke 3AA5C34371567BD2</span>
+<span class="line"><span class="token comment"># 生成吊销证书的交互, 最后复制吊销内容到文件</span></span>
+<span class="line">Create a revocation certificate <span class="token keyword">for</span> this key? <span class="token punctuation">(</span>y/N<span class="token punctuation">)</span> y</span>
+<span class="line">Please <span class="token keyword">select</span> the reason <span class="token keyword">for</span> the revocation:</span>
+<span class="line">  <span class="token number">0</span> <span class="token operator">=</span> No reason specified</span>
+<span class="line">  <span class="token number">1</span> <span class="token operator">=</span> Key has been compromised</span>
+<span class="line">  <span class="token number">2</span> <span class="token operator">=</span> Key is superseded</span>
+<span class="line">  <span class="token number">3</span> <span class="token operator">=</span> Key is no longer used</span>
+<span class="line">  Q <span class="token operator">=</span> Cancel</span>
+<span class="line"><span class="token punctuation">(</span>Probably you want to <span class="token keyword">select</span> <span class="token number">1</span> here<span class="token punctuation">)</span></span>
+<span class="line">Your decision? <span class="token number">0</span></span>
+<span class="line">Enter an optional description<span class="token punctuation">;</span> end it with an empty line:</span>
+<span class="line"><span class="token operator">&gt;</span> To prevent leakage</span>
+<span class="line">Reason <span class="token keyword">for</span> revocation: No reason specified</span>
+<span class="line">To prevent leakage</span>
+<span class="line">Is this okay? <span class="token punctuation">(</span>y/N<span class="token punctuation">)</span>y</span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 导出</span></span>
+<span class="line"><span class="token comment"># 导出公钥 ASCII 形式</span></span>
+<span class="line">gpg <span class="token parameter variable">--armor</span> <span class="token parameter variable">--output</span> keyid.gpg.pub <span class="token parameter variable">--export</span> keyid</span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 导出私钥 ASCII 形式</span></span>
+<span class="line">gpg <span class="token parameter variable">--armor</span> <span class="token parameter variable">--output</span> keyid.gpg --export-secret-keys keyid</span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 列出所有秘钥</span></span>
+<span class="line">gpg --list-keys</span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 导入吊销证书(导入后悔直接吊销对应的秘钥), 如果公钥已经发布还需要重新发布一下才能吊销已经上传的秘钥</span></span>
+<span class="line">gpg <span class="token parameter variable">--import</span> /path/xxxx.rev</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li><li><p>GPG秘钥的使用</p><ul><li><p>配置到github</p><ol><li><p>复制公钥内容到 github 添加 GPG Key</p></li><li><p>设置 git 配置</p><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token function">git</span> config <span class="token parameter variable">--global</span> user.signingkey 3AA5C34371567BD2</span>
+<span class="line"><span class="token comment"># 确认配置</span></span>
+<span class="line"><span class="token function">git</span> config  <span class="token parameter variable">-l</span></span>
+<span class="line"><span class="token comment"># 配置全局提交使用该秘钥</span></span>
+<span class="line"><span class="token function">git</span> config <span class="token parameter variable">--global</span> commit.gpgsign <span class="token boolean">true</span></span>
+<span class="line"></span>
+<span class="line"><span class="token comment"># 单次提交中签名</span></span>
+<span class="line"><span class="token function">git</span> commit <span class="token parameter variable">-S</span> <span class="token parameter variable">-m</span> <span class="token string">&quot;...&quot;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li></ol></li><li><p>用于maven发布到中央仓库</p><ol><li><p>发布公钥到公钥服务器</p><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token comment"># 目前支持如下如下服务器</span></span>
+<span class="line"><span class="token comment"># keyserver.ubuntu.com</span></span>
+<span class="line"><span class="token comment"># keys.openpgp.org</span></span>
+<span class="line"><span class="token comment"># pgp.mit.edu</span></span>
+<span class="line">gpg <span class="token parameter variable">--keyserver</span> hkp://keyserver.ubuntu.com:80 --send-keys 3AA5C34371567BD2</span>
+<span class="line"><span class="token comment"># 验证</span></span>
+<span class="line">gpg <span class="token parameter variable">--keyserver</span> hkp://keyserver.ubuntu.com:80 --recv-keys 3AA5C34371567BD2</span>
+<span class="line"></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li><li><p>本地发布 如果秘钥存在密码 需要正在settings文件中添加如下内容 可以通过 maven-gpg-plugin 插件的配置修改对应的id 等</p><div class="language-xml line-numbers-mode" data-highlighter="prismjs" data-ext="xml"><pre><code class="language-xml"><span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>server</span><span class="token punctuation">&gt;</span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>id</span><span class="token punctuation">&gt;</span></span>gpg.passphrase<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>id</span><span class="token punctuation">&gt;</span></span></span>
+<span class="line">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>passphrase</span><span class="token punctuation">&gt;</span></span>${your passphrase}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>passphrase</span><span class="token punctuation">&gt;</span></span></span>
+<span class="line"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>server</span><span class="token punctuation">&gt;</span></span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li><li><p>配合github action 进行自动化发布 参考<a href="https://github.com/linG5821/mtime.git" target="_blank" rel="noopener noreferrer">https://github.com/linG5821/mtime.git</a></p></li></ol></li></ul></li></ol><h2 id="问题杂项汇总及解决方案" tabindex="-1"><a class="header-anchor" href="#问题杂项汇总及解决方案"><span>问题杂项汇总及解决方案</span></a></h2><ol><li><p>Hyper-V 将动态端口中的几段范围的端口保留给自己使用,导致产生各种端口被占用的问题</p><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code class="language-bash"><span class="line"><span class="token comment"># 查看当前动态端口的范围</span></span>
+<span class="line">netsh int ipv4 show dynamicport tcp</span>
+<span class="line"><span class="token comment"># 查看tcp ipv4端口排除范围（被系统或者我们自己保留的端口）</span></span>
+<span class="line">netsh int ipv4 show excludedport tcp</span>
+<span class="line"><span class="token comment"># 管理员身份打开 powershell，然后设置 tcp ipv4 的动态端口范围为 49152 开始的 16384 个端口，也就是 49152~65535 (这个是windows默认的)</span></span>
+<span class="line">netsh int ipv4 <span class="token builtin class-name">set</span> dynamicport tcp <span class="token assign-left variable">start</span><span class="token operator">=</span><span class="token number">49152</span> <span class="token assign-left variable">num</span><span class="token operator">=</span><span class="token number">16384</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li><li><p>截取主机某个网卡的IP</p><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code class="language-text"><span class="line"># 可以将 select-string 后的关键字改成具体的网卡名称关键字</span>
+<span class="line">(ipconfig|select-string &quot;无线&quot; -context 1,4 | findStr &quot;IPv4&quot;).Split(&quot;:&quot;)[-1]</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div></li><li><p>python脚本获取主机IP</p><ul><li><p>方式一: (此方式可能获取到虚拟IP)</p><div class="language-python line-numbers-mode" data-highlighter="prismjs" data-ext="py"><pre><code class="language-python"><span class="line"><span class="token keyword">import</span> socket</span>
+<span class="line">hostname <span class="token operator">=</span> socket<span class="token punctuation">.</span>gethostname<span class="token punctuation">(</span><span class="token punctuation">)</span></span>
+<span class="line">ip <span class="token operator">=</span> socket<span class="token punctuation">.</span>gethostbyname<span class="token punctuation">(</span>hostname<span class="token punctuation">)</span></span>
+<span class="line"><span class="token keyword">print</span><span class="token punctuation">(</span>ip<span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li><li><p>方式二:</p><div class="language-python line-numbers-mode" data-highlighter="prismjs" data-ext="py"><pre><code class="language-python"><span class="line"><span class="token keyword">import</span> socket</span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">def</span> <span class="token function">get_host_ip</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span></span>
+<span class="line">      <span class="token triple-quoted-string string">&quot;&quot;&quot;</span>
+<span class="line">      查询本机ip地址</span>
+<span class="line">      :return: ip</span>
+<span class="line">      &quot;&quot;&quot;</span></span>
+<span class="line">      <span class="token keyword">try</span><span class="token punctuation">:</span></span>
+<span class="line">          s <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span>socket<span class="token punctuation">.</span>AF_INET<span class="token punctuation">,</span> socket<span class="token punctuation">.</span>SOCK_DGRAM<span class="token punctuation">)</span></span>
+<span class="line">          s<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">&#39;8.8.8.8&#39;</span><span class="token punctuation">,</span> <span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span>
+<span class="line">          ip <span class="token operator">=</span> s<span class="token punctuation">.</span>getsockname<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span></span>
+<span class="line">      <span class="token keyword">finally</span><span class="token punctuation">:</span></span>
+<span class="line">          s<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span></span>
+<span class="line"></span>
+<span class="line">      <span class="token keyword">return</span> ip</span>
+<span class="line"></span>
+<span class="line"><span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">&#39;__main__&#39;</span><span class="token punctuation">:</span></span>
+<span class="line">      <span class="token keyword">print</span><span class="token punctuation">(</span>get_host_ip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></li></ul></li></ol></div><!--[--><!--]--></div><footer class="vp-page-meta"><!----><div class="vp-meta-item git-info"><div class="vp-meta-item last-updated"><span class="meta-item-label">Last Updated: </span><time class="meta-item-info" datetime="2025-08-08T08:46:30.000Z" data-allow-mismatch>8/8/25, 8:46 AM</time></div><div class="vp-meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: lishaojie@aithu.com">lsj</span><!----><!--]--><!--]--></span></div></div></footer><nav class="vp-page-nav" aria-label="page navigation"><!----><a class="route-link auto-link next" href="/machine/windows/envlist.html" aria-label="Windows配置清单"><!--[--><div class="hint">Next <span class="arrow right"></span></div><div class="link"><span class="external-link">Windows配置清单</span></div><!--]--></a></nav><!--[--><!--]--></main><!--]--></div><!--[--><!----><!--]--><!--]--></div>
+    <script type="module" src="/assets/app-DUNtouPH.js" defer></script>
   </body>
 </html>
