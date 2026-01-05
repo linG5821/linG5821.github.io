@@ -1,0 +1,29 @@
+import{_ as n,c as a,b as e,o as i}from"./app-CYKM0tKh.js";const l={};function c(d,s){return i(),a("div",null,s[0]||(s[0]=[e(`<h3 id="字节序" tabindex="-1"><a class="header-anchor" href="#字节序"><span>字节序</span></a></h3><h4 id="大端小端字节序" tabindex="-1"><a class="header-anchor" href="#大端小端字节序"><span>大端小端字节序</span></a></h4><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code class="language-text"><span class="line">自然顺序</span>
+<span class="line">4字节数组(地址增序为低到高): 低 0 1 2 3 高</span>
+<span class="line">数字32位(数字的二进制左高右低): 高2(◻◻◻◻◻◻◻◻) 高1(◻◻◻◻◻◻◻◻) 低1(◻◻◻◻◻◻◻◻) 低2(◻◻◻◻◻◻◻◻)</span>
+<span class="line"></span>
+<span class="line">大端(高位对应低地址)</span>
+<span class="line">字节数组 0   1    2    3</span>
+<span class="line">       高2  高1  低1  低2</span>
+<span class="line">       </span>
+<span class="line">小端(低地址对低位，高地址对高位)</span>
+<span class="line">字节数组 0   1    2    3</span>
+<span class="line">       低2  低1  高1  高2</span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line">例如 1a1b1c1d 这个数字</span>
+<span class="line">1a1b 属于高8位</span>
+<span class="line">1c1d 属于低8位</span>
+<span class="line"></span>
+<span class="line">高位字节----&gt;低位字节 </span>
+<span class="line">1a  1b  1c  1d</span>
+<span class="line">-------------&gt;</span>
+<span class="line">低地址-------&gt;高地址 ----------&gt;大端模式</span>
+<span class="line">-------------&gt;</span>
+<span class="line"></span>
+<span class="line">低位字节----&gt;高位字节</span>
+<span class="line">1d  1c  1b  1a</span>
+<span class="line">-------------&gt;</span>
+<span class="line">低地址-------&gt;高地址 ----------&gt;小端模式</span>
+<span class="line">-------------&gt;</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,3)]))}const r=n(l,[["render",c]]),t=JSON.parse('{"path":"/network/","title":"","lang":"en-US","frontmatter":{},"git":{"updatedTime":1767610787000,"contributors":[{"name":"lsj","username":"lsj","email":"lishaojie@aithu.com","commits":1,"url":"https://github.com/lsj"}],"changelog":[{"hash":"c44cbade27df20e77d4204fe0fa76423b764227a","time":1767610787000,"email":"lishaojie@aithu.com","author":"lsj","message":"add javaenv"}]},"filePathRelative":"network/README.md"}');export{r as comp,t as data};
