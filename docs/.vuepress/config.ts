@@ -89,6 +89,7 @@ export default defineUserConfig({
         link: '/java/',
         sidebarDepth: 2,
         children: [
+          { text: 'Java环境', link: '/java/javaenv' },
           { text: 'JavaSE', link: '/java/javase' },
           { text: 'Java虚拟机', link: '/java/jvm' },
           { text: 'Java响应式编程', link: '/java/reactive' },
