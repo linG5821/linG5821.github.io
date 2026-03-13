@@ -115,6 +115,7 @@ export default defineUserConfig({
         sidebarDepth: 2,
         children: [
           { text: 'Stable Diffusion', link: '/ai/stable-diffusion' },
+          { text: 'AI工具', link: '/ai/tools' },
         ]
       },
     ]
