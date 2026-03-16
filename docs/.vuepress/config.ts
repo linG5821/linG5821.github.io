@@ -116,6 +116,7 @@ export default defineUserConfig({
         children: [
           { text: 'Stable Diffusion', link: '/ai/stable-diffusion' },
           { text: 'AI工具', link: '/ai/tools' },
+          { text: 'OpenClaw', link: '/ai/openclaw' },
         ]
       },
     ]
