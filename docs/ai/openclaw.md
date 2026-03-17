@@ -4,15 +4,31 @@
 
 * **Windows**
 
-  1. 尝试执行命令（管理员窗口）
+  1. 手动安装 node 22 以上 和 git 
+
+  2. 尝试执行命令（管理员窗口）
 
      ```powershell
      iwr -useb https://openclaw.ai/install.ps1 | iex
      ```
 
-  2. 
-
 * **Linux/Mac**
+
+  1. 尝试执行命令
+
+     ```bash
+     curl -fsSL https://openclaw.ai/install.sh | bash
+     ```
+
+  2. 配置开启启动
+
+     ```bash
+     systemctl --user enable --now openclaw-gateway.service
+     ## 查看状态
+     systemctl --user status openclaw-gateway
+     ```
+
+     
 
 ## 卸载教程
 
@@ -141,8 +157,89 @@
 
     ![image-20260312141802905](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/image-20260312141802905.png)
 
+
+
+## Channel集成
+
+* **Telegram**
+
+  1. 创建 Telegram Bot（只做一次）
+
+     1. 打开 Telegram，搜索 @BotFather 并发起聊天。
+
+     2. 发送指令 /newbot，按照提示为机器人取 名称（可随意）和 用户名（必须以 bot 结尾，例如 xxx_bot）。
+
+     3. 完成后 BotFather 会回复一条消息，里面包含 Bot Token，类似：
+
+        ```bash
+        Use this token to access the HTTP API:
+        123456:AGcd-Wougfdjgkfguio
+        ```
+
+        把这段 token 记下来，后面会用到。切记不要泄露。
+
+  2. 配对 Telegram 账户
+
+     1. 添加一个Channel
+
+        ```bash
+        openclaw channels add
+        # 按照一下步骤进行选择
+        # Configure chat channels now?
+        # Yes
+        # Select a channel
+        # Telegram
+        # How do you want to provide this Telegram bot token?
+        # Enter Telegram bot token
+        # 输入 BotFather 回复的内容中的Token
+        ```
+
+     2. 在 Telegram 搜索刚才创建的机器人，发送一条消息给他，他会回复类似如下内容：
+
+        ```
+        OpenClaw: access not configured.
+        Your Telegram user id: xxxx
+        Pairing code: DQxxxx
+        Ask the bot owner to approve with:
+        openclaw pairing approve telegram DQxxxx
+        ```
+
+     3. 在 Openclaw 安装的主机上执行（Code 需要换成你自己的Code，可以直接复制机器人回复的最后一行）。
+
+        ```bash
+        openclaw pairing approve telegram {code}
+        ```
+
+     4. 然后就可以对话了
+
+     5. （可选）永久配对配置
+
+        ```
+        "channels": {
+            "telegram": {
+              "allowFrom": ["输入第二步机器人回复中的 user id"]
+            }
+          }
+        
+        ```
+
+* **飞书**
+
+  
+
+* **QQ**
+
 ## 常见问题
 
+* Windows 安装卡在 Installing OpenClaw 步骤长时间不动
+
+  ```powershell
+  # 管理员方式执行
+  Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+  ```
+  
+  
+  
 * 提示未注册网关密码
 
   ![image-20260312143733489](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/image-20260312143733489.png)
@@ -158,6 +255,21 @@
   ```bash
   openclaw config set gateway.auth.mode token
   openclaw gateway restart
+  ```
+
+* 远程访问网关（此方式及其不安全，建议通过Nginx 反向代理）
+
+  ```json
+  # 添加外部IP，允许Http访问
+  "controlUi": {
+        "allowedOrigins": [
+          "http://localhost:18789",
+          "http://127.0.0.1:18789",
+          "http://{外部IP}:18789"
+        ],
+        "allowInsecureAuth": true,
+        "dangerouslyDisableDeviceAuth": true
+  }
   ```
 
   
