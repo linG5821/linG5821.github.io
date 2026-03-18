@@ -223,11 +223,160 @@
         
         ```
 
-* **飞书**
+* **飞书**（OpenClaw > 2026.2 内置版 ）
 
-  
+  1. 创建飞书应用(机器人)
+
+     1. 打开 [飞书开放平台](https://open.feishu.cn/app)，用飞书账号登录
+
+     2. 点击创建企业自建应用
+
+        ![image-20260318115916253](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/image-20260318115916253.png)
+
+     3. 填写应用名称（随意，比如 "我的 AI 助手"）和描述、选择一个图标
+
+  2. 启用机器人能力
+
+     ![image-20260318120131635](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/image-20260318120131635.png)
+
+  3. 配置权限
+
+     选择权限管理->批量导入粘贴如下JSON
+
+     ```json
+     {
+       "scopes": {
+         "tenant": [
+           "aily:file:read",
+           "aily:file:write",
+           "application:application.app_message_stats.overview:readonly",
+           "application:application:self_manage",
+           "application:bot.menu:write",
+           "cardkit:card:write",
+           "contact:user.employee_id:readonly",
+           "corehr:file:download",
+           "docs:document.content:read",
+           "event:ip_list",
+           "im:chat",
+           "im:chat.access_event.bot_p2p_chat:read",
+           "im:chat.members:bot_access",
+           "im:message",
+           "im:message.group_at_msg:readonly",
+           "im:message.group_msg",
+           "im:message.p2p_msg:readonly",
+           "im:message:readonly",
+           "im:message:send_as_bot",
+           "im:resource",
+           "sheets:spreadsheet",
+           "wiki:wiki:readonly"
+         ],
+         "user": [
+           "aily:file:read",
+           "aily:file:write",
+           "im:chat.access_event.bot_p2p_chat:read"
+         ]
+       }
+     }
+     ```
+
+     
+
+     ![image-20260318120504741](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/image-20260318120504741.png)
+
+  4. 配置事件订阅
+
+     ![image-20260318121249993](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/image-20260318121249993.png)
+
+  5. 获取凭证信息
+
+     ![image-20260318121400102](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/image-20260318121400102.png)
+
+  6. 发布应用
+
+     ![image-20260318121631227](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/image-20260318121631227.png)
+
+     ![image-20260318121716241](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/image-20260318121716241.png)
+
+  7. 在OpenClaw中配置飞书
+
+     ```bash
+     # 1. 添加飞书渠道（交互式，跟着提示走）
+     openclaw channels add
+     # 选择 Feishu → 粘贴 App ID → 粘贴 App Secret
+     
+     # 2. 重启网关
+     openclaw gateway restart
+     
+     # 3. 查看日志，确认连接成功
+     openclaw logs --follow
+     ```
+
+     ![image-20260318123732012](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/image-20260318123732012.png)
+
+  8. 测试与配对
+
+     1. 在飞书里搜索你创建的应用名称，打开对话
+
+     2. 发送一条消息，比如“你好”
+
+     3. 机器人回复配对码后，在终端进行配对
+
+        ```bash
+        openclaw pairing approve feishu {配对码}
+        ```
+
+     4. 再发一条消息，收到正常回复，代表配置完成
+
+  > 注意：可能要在 openclaw.json 中 pilugins 节点下添加
+  >
+  > ```json
+  > {
+  >     "plugins": {
+  >         "allow": [
+  >             "feishu"
+  >         ]
+  >     }
+  > }
+  > ```
+  >
+  > 
 
 * **QQ**
+
+  1. 使用QQ Bot 快捷接入 [QQ-Bot](https://q.qq.com/qqbot/openclaw/index.html)
+
+     1. 扫码登录
+     2. 创建机器人
+
+  2. 配置OpenClaw
+
+     1. 安装OpenClaw开源社区QQBot插件
+
+        ```bash
+        openclaw plugins install @tencent-connect/openclaw-qqbot@latest
+        ```
+
+        > 如果安装不了可以通过源码安装
+        >
+        > ```bash
+        > git clone  https://github.com/tencent-connect/openclaw-qqbot.git && cd openclaw-qqbot
+        > 
+        > bash ./scripts/upgrade-via-source.sh --appid YOUR_APPID --secret YOUR_SECRET
+        > ```
+        >
+        > 
+
+     2. 配置绑定当前QQ机器人
+
+        ```bash
+        openclaw channels add --channel qqbot --token "122:xxxx"
+        ```
+
+     3. 重启本地OpenClaw服务
+
+        ```bash
+        openclaw gateway restart
+        ```
 
 ## 常见问题
 
@@ -271,5 +420,15 @@
         "dangerouslyDisableDeviceAuth": true
   }
   ```
+
+* 默认情况 memory 目录未创建
+
+  ```
+  mkdir ~/.openclaw/workspace/memory
+  ```
+
+* openclaw logs --follow 执行失败
+
+  
 
   
