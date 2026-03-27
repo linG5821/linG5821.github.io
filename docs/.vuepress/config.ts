@@ -95,7 +95,7 @@ export default defineUserConfig({
           { text: 'Java响应式编程', link: '/java/reactive' },
           { text: 'Maven', link: '/java/maven' },
           { text: 'Spring', link: '/java/spring' },
-          { text: 'Boot&Cloud', link: '/java/boot&cloud' },
+          { text: 'SpringBoot和SpringCloud', link: '/java/boot&cloud' },
           { text: 'Netty', link: '/java/netty' },
         ]
       },
@@ -121,6 +121,22 @@ export default defineUserConfig({
           { text: 'DockerModels', link: '/ai/docker-models' },
         ]
       },
+      {
+        text: '物联网',
+        link: '/iot/',
+        sidebarDepth: 2,
+        children: [
+          { 
+            text: '协议', 
+            link: '/iot/protocols/', 
+            children: [
+              { text: 'MQTT', link: '/iot/protocols/mqtt' },
+              { text: 'CoAP', link: '/iot/protocols/coap' },
+              { text: 'IEC104', link: '/iot/protocols/iec104' },
+            ]
+          },
+        ]
+      }
     ]
   }),
   plugins: [
