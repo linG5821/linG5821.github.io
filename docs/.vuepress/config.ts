@@ -118,7 +118,9 @@ export default defineUserConfig({
           { text: 'AI工具', link: '/ai/tools' },
           { text: 'OpenClaw', link: '/ai/openclaw' },
           { text: 'Ollama', link: '/ai/ollama' },
-          { text: 'DockerModels', link: '/ai/docker-models' },
+          { text: 'DockerModelRunner', link: '/ai/docker-model' },
+          { text: 'Agent', link: '/ai/agent' }
+
         ]
       },
       {
