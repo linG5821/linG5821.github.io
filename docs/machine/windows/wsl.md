@@ -70,3 +70,36 @@
 * Windows 开启 Tun 模式，WSL 采用Mirrored 网络模式，通过 TUN 代理上网，无需配置 PROXY 配置，但是出现 ping 可以通，curl 时钟无法访问超时的问题
 
   解决方案：查看TUN 模式配置的 MTU，默认为 9000， WSL2 默认为 1500，修改 TUN 模式配置改为 1500 
+
+
+* 升级WSL ubuntu 的大版本
+  
+  ```shell
+  # 可能会提示
+  # Checking for a new Ubuntu release
+  # Please install all available updates for your release before upgrading.
+  # 先执行 sudo apt upgrade
+  sudo do-release-upgrade
+
+  #########
+  # 如果出现如下错误 error: cannot list snaps: cannot communicate with server: Get "http://localhost/v2/snaps": dial unix /run/snapd.socket: connect: no such file or directory
+
+  sudo nano /etc/wsl.conf
+  # 添加
+  [boot]
+  systemd=true
+  # 保存退出 Ctrl+O，Enter，然后 Ctrl+X
+  wsl --shutdown
+
+  # 查看状态
+  systemctl status snapd 
+
+  # 如果未正常运行执行如下内容
+  # sudo systemctl unmask snapd.service
+  # sudo systemctl enable snapd.service
+  # sudo systemctl start snapd.service
+
+  # 如果无法启动重装
+  # sudo apt autoremove --purge snapd
+  # sudo apt install snapd
+  ```
