@@ -65,3 +65,8 @@
 ​	解决方案二: .wslconfig autoProxy 配置为 false 
  
  解决方案三: WSL网络模式使用 Mirrored, 并且设置 experimental 的 hostAddressLoopback 为 true，但是也有可能是BUG被修复了，之前在 docker docker-desktop 分发中无法通过 127.0.0.1:xxxx 导致代理无法连接，理论上 Mirrored 模式网络可以实现 windows 和 WSL 通过 localhost/127.0.0.1 互相访问
+
+
+* Windows 开启 Tun 模式，WSL 采用Mirrored 网络模式，通过 TUN 代理上网，无需配置 PROXY 配置，但是出现 ping 可以通，curl 时钟无法访问超时的问题
+
+  解决方案：查看TUN 模式配置的 MTU，默认为 9000， WSL2 默认为 1500，修改 TUN 模式配置改为 1500 
