@@ -1,5 +1,17 @@
 ### WSL 常见问题汇总
 
+* 关于适用于Windows的Liunx子系统功能开关
+
+  WSL1 需要开启该功能
+  ```powershell
+  Dism.exe /Online /Enable-Feature /FeatureName:Microsoft-Windows-Subsystem-Linux /All /Norestart
+  ```
+
+  WSL2 不需要开启该功能, 直接执行安装好了
+  ```powershell
+  wsl.exe --install -d <Distribution Name>
+  ```
+
 * docker 启动 es 出现 `max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]`
 
   通常的做法
@@ -24,12 +36,12 @@
   ```shell
   docker system prune
   ```
-  2. 退出 Docker Desktop, 并关停 WSL2 实例
+  1. 退出 Docker Desktop, 并关停 WSL2 实例
   ```shell
   ## 关停 WSL2
   wsl --shutdown
   ```
-  3. 命令行输入 diskpart, 进入 diskpart 工具
+  1. 命令行输入 diskpart, 进入 diskpart 工具
   ```cmd
   select vdisk file="C:\Users\<你的用户名>\AppData\Local\Docker\wsl\data\ext4.vhdx"
   attach vdisk readonly
