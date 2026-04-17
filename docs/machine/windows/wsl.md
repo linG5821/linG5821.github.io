@@ -75,7 +75,7 @@
 ​	解决方案一: 参照**WSL代理脚本** 在docker 和 默认的分发版 `~/.bashrc` 中都添加 `. /mnt/d/Dev/wslproxy/proxy.sh set`, 利用改脚本重设一下代理，在默认	WSL当前会话生效，但是在Docker 的WSL分发版中无效的，推送拉取可能不会触发 ~/.bashrc 的加载，此时通过手动重置 docker 分发版的代理可以临时解	除一下代理; 同样的此方法还可以设置在 `/etc/profile` 里
 
 ​	解决方案二: .wslconfig autoProxy 配置为 false 
- 
+
  解决方案三: WSL网络模式使用 Mirrored, 并且设置 experimental 的 hostAddressLoopback 为 true，但是也有可能是BUG被修复了，之前在 docker docker-desktop 分发中无法通过 127.0.0.1:xxxx 导致代理无法连接，理论上 Mirrored 模式网络可以实现 windows 和 WSL 通过 localhost/127.0.0.1 互相访问
 
 
@@ -92,26 +92,68 @@
   # Please install all available updates for your release before upgrading.
   # 先执行 sudo apt upgrade
   sudo do-release-upgrade
-
+  
   #########
   # 如果出现如下错误 error: cannot list snaps: cannot communicate with server: Get "http://localhost/v2/snaps": dial unix /run/snapd.socket: connect: no such file or directory
-
+  
   sudo nano /etc/wsl.conf
   # 添加
   [boot]
   systemd=true
   # 保存退出 Ctrl+O，Enter，然后 Ctrl+X
   wsl --shutdown
-
+  
   # 查看状态
   systemctl status snapd 
-
+  
   # 如果未正常运行执行如下内容
   # sudo systemctl unmask snapd.service
   # sudo systemctl enable snapd.service
   # sudo systemctl start snapd.service
-
+  
   # 如果无法启动重装
   # sudo apt autoremove --purge snapd
   # sudo apt install snapd
   ```
+
+* WSL 安装 Linux 内核headers
+
+1. 安装必要依赖
+   ```shell
+   sudo apt update
+   sudo apt install build-essential flex bison libssl-dev libelf-dev bc -y
+   ```
+
+2. 下载内核源码
+
+   ```shell
+   uname -r
+   # 6.6.87.2
+   sudo wget https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-wsl-6.6.87.2.tar.gz
+   sudo tar -zxvf linux-msft-wsl-6.6.87.2.tar.gz
+   ```
+
+3. 配置和准备 Headers
+   ```shell
+   cd linux-msft-wsl-6.6.87.2
+   # 复制当前的内核配置
+   sudo zcat /proc/config.gz > .config
+   # 遇到问题一路回车
+   make oldconfig
+   make prepare
+   make modules_prepare
+   ```
+
+4. 安装 Headers
+
+   ```shell
+   sudo make headers_install INSTALL_HDR_PATH=/usr/src/linux-headers-$(uname -r)
+   ```
+
+5.  建立软链接（让 DKMS 能找到）
+
+   ```shell
+   sudo ln -s /usr/src/linux-headers-$(uname -r) /lib/modules/$(uname -r)/build
+   ```
+
+   
