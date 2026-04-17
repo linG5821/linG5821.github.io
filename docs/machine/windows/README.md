@@ -111,10 +111,10 @@
             git config  -l
             # 配置全局提交使用该秘钥
             git config --global commit.gpgsign true
-
+            
             # 单次提交中签名
             git commit -S -m "..."
-
+            
             ```
 
     * 用于maven发布到中央仓库
@@ -151,13 +151,14 @@
     # 管理员身份打开 powershell，然后设置 tcp ipv4 的动态端口范围为 49152 开始的 16384 个端口，也就是 49152~65535 (这个是windows默认的)
     netsh int ipv4 set dynamicport tcp start=49152 num=16384
     ```
-     
+
 2. 截取主机某个网卡的IP
 
     ``` 
     # 可以将 select-string 后的关键字改成具体的网卡名称关键字
     (ipconfig|select-string "无线" -context 1,4 | findStr "IPv4").Split(":")[-1]
     ```
+
 3. python脚本获取主机IP
     * 方式一: (此方式可能获取到虚拟IP)
 
@@ -171,7 +172,7 @@
 
       ```python
       import socket
-
+      
       def get_host_ip():
             """
             查询本机ip地址
@@ -183,9 +184,13 @@
                 ip = s.getsockname()[0]
             finally:
                 s.close()
-
+      
             return ip
-
+      
       if __name__ == '__main__':
             print(get_host_ip())
       ```
+
+4. 无网开启热点
+
+    ![image-20260417210306263](https://ling-root-bucket.oss-cn-hangzhou.aliyuncs.com/picgo/image-20260417210306263.png)
